@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Header from "@/components/header/Header";
 
 import "./globals.css";
+import { ThemeProvider } from "@/components/ui/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +26,16 @@ export default function RootLayout({
         <div className="max-w-7xl mx-auto relative">
           <Header />
 
-          <main>{children}</main>
+          <main>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="dark"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+            </ThemeProvider>
+          </main>
         </div>
       </body>
     </html>

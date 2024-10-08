@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 type SpotlightProps = {
   className?: string;
   fill?: string;
+  reverse?: boolean;
 };
 
 function Spotlight({ className, fill }: SpotlightProps) {
