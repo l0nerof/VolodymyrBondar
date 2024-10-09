@@ -13,6 +13,7 @@
     "framer-motion": "^11.11.1",
     "mini-svg-data-uri": "^1.4.4",
     "next": "14.2.14",
+    "next-intl": "^3.21.1",
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",

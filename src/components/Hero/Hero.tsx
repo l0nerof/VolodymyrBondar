@@ -2,8 +2,11 @@ import Link from "next/link";
 import MagicButton from "../ui/MagicButton";
 import Spotlight from "../ui/Spotlight";
 import { TextGenerateEffect } from "../ui/TextGenerate";
+import { useTranslations } from "next-intl";
 
 function Hero() {
+  const t = useTranslations("Hero");
+
   return (
     <section className="pb-36 pt-52">
       <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" />
@@ -16,11 +19,11 @@ function Hero() {
         <div className="flex justify-center flex-col items-center max-w-[60vw]">
           <TextGenerateEffect
             className="text-center text-5xl"
-            words="Hello there! I`m Vova, a Front-End Developer based in Ukraine."
+            words={t("title")}
             filter={false}
           />
           <Link href="#">
-            <MagicButton>See my works</MagicButton>
+            <MagicButton>{t("btn")}</MagicButton>
           </Link>
         </div>
       </div>
