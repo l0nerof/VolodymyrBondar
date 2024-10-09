@@ -3,6 +3,7 @@ import MagicButton from "../ui/MagicButton";
 import Spotlight from "../ui/Spotlight";
 import { TextGenerateEffect } from "../ui/TextGenerate";
 import { useTranslations } from "next-intl";
+import { FaLocationArrow } from "react-icons/fa";
 
 function Hero() {
   const t = useTranslations("Hero");
@@ -23,7 +24,9 @@ function Hero() {
             filter={false}
           />
           <Link href="#">
-            <MagicButton>{t("btn")}</MagicButton>
+            <MagicButton icon={<FaLocationArrow />} position="right">
+              {t("btn")}
+            </MagicButton>
           </Link>
         </div>
       </div>
