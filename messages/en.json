@@ -4,5 +4,15 @@
   "Hero": {
     "title": "Hello there! I`m Vova, a Front-End Developer based in Ukraine.",
     "btn": "See my works"
+  },
+
+  "Contact": {
+    "title": "Ready to take your digital presence to the next level?",
+    "reach-out": "Reach out to me today and let's discuss how I can help you achieve your goals.",
+    "btn": "View my resume"
+  },
+
+  "Footer": {
+    "copyright": "Copyright ©2024 Vova Bondar"
   }
 }
