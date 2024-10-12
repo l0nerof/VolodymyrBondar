@@ -13,7 +13,11 @@ function Contact() {
       </h2>
       <p className="text-base">{t("reach-out")}</p>
 
-      <Link href="/">
+      <Link
+        href="https://drive.google.com/file/d/1hhQDKHFjVJh8Tj3Qsc8iTDswi-K7VF-Z/view?usp=sharing"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
         <MagicButton icon={<FaLocationArrow />} position="right">
           {t("btn")}
         </MagicButton>

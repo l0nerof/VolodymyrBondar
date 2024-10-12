@@ -24,7 +24,7 @@ export default function RootLayout({
     {
       name: "Home",
       link: "#hero",
-      icon: <FaHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      icon: <FaHome className="size-6 fill-white" />,
     },
     {
       name: "About",
@@ -42,23 +42,23 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-black-100 text-white`}>
-        <div className="max-w-7xl mx-auto relative">
-          <NavBar navItems={navItems} />
+      <body
+        className={`${inter.className} dark:bg-black-100 dark:text-white text-black-100 bg-white`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="max-w-7xl mx-auto relative">
+            <NavBar navItems={navItems} />
 
-          <main>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="dark"
-              enableSystem
-              disableTransitionOnChange
-            >
-              {children}
-            </ThemeProvider>
-          </main>
+            <main>{children}</main>
 
-          <Footer />
-        </div>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
