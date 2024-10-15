@@ -8,8 +8,11 @@ function Contact() {
   const t = useTranslations("Contact");
 
   return (
-    <section className="mb-32 h-96 w-full bg-black-100 relative">
-      <div className="flex items-center justify-center gap-3 flex-col absolute inset-0 w-full h-full bg-black-100 z-20 [mask-image:radial-gradient(white,transparent)]">
+    <section
+      id="contact"
+      className="mb-32 h-[60vh] w-full bg-black-100 relative"
+    >
+      <div className="flex items-center overflow-hidden justify-center gap-3 flex-col absolute inset-0 w-full h-full dark:bg-black-100 bg-white z-20 [mask-image:radial-gradient(white,white)]">
         <Boxes />
 
         <h2 className="text-5xl font-bold max-w-[50vw] text-center relative z-20">
