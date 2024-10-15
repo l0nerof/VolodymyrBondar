@@ -12,7 +12,7 @@ function Contact() {
       id="contact"
       className="mb-32 h-[60vh] w-full bg-black-100 relative"
     >
-      <div className="flex items-center overflow-hidden justify-center gap-3 flex-col absolute inset-0 w-full h-full dark:bg-black-100 bg-white z-20 [mask-image:radial-gradient(white,white)]">
+      <div className="flex items-center overflow-hidden justify-center gap-3 flex-col absolute inset-0 w-full h-full dark:bg-black-100 bg-white z-20 [mask-image:radial-gradient(white, transparent)]">
         <Boxes />
 
         <h2 className="text-5xl font-bold max-w-[50vw] text-center relative z-20">
