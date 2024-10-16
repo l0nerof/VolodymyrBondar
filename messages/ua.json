@@ -1,5 +1,11 @@
 {
-  "Navigation": {},
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "workExperience": "Work experience",
+    "approach": "Approach",
+    "contact": "Contact"
+  },
 
   "Hero": {
     "title": "Привіт усім! Я Вова, Front-End розробник з України.",

@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import Footer from "@/components/Footer/Footer";
 import NavBar from "@/components/ui/NavBar";
 import { FaHome } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,19 +21,31 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const t = useTranslations("Navigation");
+
   const navItems = [
     {
-      name: "Home",
+      name: t("home"),
       link: "#hero",
       icon: <FaHome className="size-6 fill-white" />,
     },
     {
-      name: "About",
+      name: t("about"),
       link: "#about",
       // icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
-      name: "Contact",
+      name: t("workExperience"),
+      link: "#work-experience",
+      // icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    },
+    {
+      name: t("approach"),
+      link: "#approach",
+      // icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    },
+    {
+      name: t("contact"),
       link: "#contact",
       // icon: (
       //   <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />

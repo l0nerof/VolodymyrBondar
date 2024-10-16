@@ -5,7 +5,7 @@ function Approach() {
   const t = useTranslations("Approach");
 
   return (
-    <section className="mb-32">
+    <section id="approach" className="mb-32">
       <h1 className="text-center text-5xl font-bold">{t("title")}</h1>
       <ApproachList />
     </section>
