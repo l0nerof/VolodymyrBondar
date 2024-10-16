@@ -8,8 +8,20 @@
 
   "Approach": {
     "title": "",
-    "reach-out": "",
-    "btn": ""
+    "card1": {
+      "title": "",
+      "desc": ""
+    },
+
+    "card2": {
+      "title": "",
+      "desc": ""
+    },
+
+    "card3": {
+      "title": "",
+      "desc": ""
+    }
   },
 
   "Contact": {
