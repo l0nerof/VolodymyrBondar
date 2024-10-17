@@ -1,12 +1,11 @@
 "use client";
 
-import { FaMoon, FaSun } from "react-icons/fa";
-import { useTheme } from "next-themes";
-
-import { Button } from "@/components/ui/Button";
 import { useState } from "react";
+import { useTheme } from "next-themes";
+import { FaMoon, FaSun } from "react-icons/fa";
+import { Button } from "@/components/ui/Button";
 
-export function ModeToggle() {
+function DarkModeToggle() {
   const { setTheme } = useTheme();
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -25,3 +24,5 @@ export function ModeToggle() {
     </Button>
   );
 }
+
+export default DarkModeToggle;

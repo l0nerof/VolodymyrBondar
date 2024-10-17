@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { ModeToggle } from "./ModeToogle";
+import DarkModeToggle from "./DarkModeToogle";
 
 function NavBar({
   navItems,
@@ -75,7 +75,7 @@ function NavBar({
           </Link>
         ))}
 
-        <ModeToggle />
+        <DarkModeToggle />
       </motion.div>
     </AnimatePresence>
   );
