@@ -6,7 +6,6 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import Footer from "@/components/Footer/Footer";
 import NavBar from "@/components/ui/NavBar";
-import { FaHome } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -27,29 +26,22 @@ export default function RootLayout({
     {
       name: t("home"),
       link: "#hero",
-      icon: <FaHome className="size-6 fill-white" />,
     },
     {
       name: t("about"),
       link: "#about",
-      // icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
-    {
-      name: t("workExperience"),
-      link: "#work-experience",
-      // icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
-    {
-      name: t("approach"),
-      link: "#approach",
-      // icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
+    // {
+    //   name: t("workExperience"),
+    //   link: "#work-experience",
+    // },
+    // {
+    //   name: t("approach"),
+    //   link: "#approach",
+    // },
     {
       name: t("contact"),
       link: "#contact",
-      // icon: (
-      //   <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />
-      // ),
     },
   ];
 
