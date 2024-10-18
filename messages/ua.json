@@ -2,14 +2,18 @@
   "Navigation": {
     "home": "Home",
     "about": "About",
-    "workExperience": "Work experience",
-    "approach": "Approach",
+    "projects": "Projects",
     "contact": "Contact"
   },
 
   "Hero": {
     "title": "Привіт усім! Я Вова, Front-End розробник з України.",
     "btn": "Переглянути мої роботи"
+  },
+
+  "Projects": {
+    "title": "A small selection of recent projects",
+    "btn": "See my works"
   },
 
   "WorkExperience": {

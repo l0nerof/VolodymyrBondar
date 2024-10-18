@@ -15,10 +15,12 @@ function Contact() {
       <div className="flex items-center overflow-hidden justify-center gap-3 flex-col absolute inset-0 w-full h-full dark:bg-black-100 bg-white z-20 [mask-image:radial-gradient(white, transparent)]">
         <Boxes />
 
-        <h2 className="text-5xl font-bold max-w-[50vw] text-center relative z-20">
+        <h1 className="text-5xl font-bold max-w-[50vw] text-center dark:text-white text-black-100 relative z-20">
           {t("title")}
-        </h2>
-        <p className="text-base relative z-20">{t("reach-out")}</p>
+        </h1>
+        <p className="text-base relative z-20 dark:text-white text-black-100">
+          {t("reach-out")}
+        </p>
 
         <Link
           href="https://drive.google.com/file/d/1hhQDKHFjVJh8Tj3Qsc8iTDswi-K7VF-Z/view?usp=sharing"

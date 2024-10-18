@@ -31,6 +31,10 @@ export default function RootLayout({
       name: t("about"),
       link: "#about",
     },
+    {
+      name: t("projects"),
+      link: "#projects",
+    },
     // {
     //   name: t("workExperience"),
     //   link: "#work-experience",

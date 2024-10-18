@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   motion,
   AnimatePresence,
@@ -67,7 +67,7 @@ function NavBar({
             key={`link=${idx}`}
             href={navItem.link}
             className={cn(
-              "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500 transition duration-300"
+              "relative dark:text-white items-center flex space-x-1 text-black-100 dark:hover:text-neutral-500 hover:text-neutral-500 transition duration-300"
             )}
           >
             <span className="block sm:hidden">{navItem.icon}</span>

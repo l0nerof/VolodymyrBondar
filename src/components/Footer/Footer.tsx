@@ -6,7 +6,7 @@ function Footer() {
 
   return (
     <footer className="flex items-center justify-between gap-2 p-8">
-      <p className="text-sm">{t("copyright")}</p>
+      <p className="text-sm dark:text-white text-black-100">{t("copyright")}</p>
 
       <Socials />
     </footer>
