@@ -21,7 +21,7 @@ function Contact() {
             {t("highlight")}
           </span>
         </h2>
-        <p className="text-base relative z-20 dark:text-white text-black-100">
+        <p className="text-base relative z-20 dark:text-white text-black-100 max-w-[50vw] text-center">
           {t("reach-out")}
         </p>
 
