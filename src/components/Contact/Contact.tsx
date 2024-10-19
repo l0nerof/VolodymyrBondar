@@ -15,9 +15,12 @@ function Contact() {
       <div className="flex items-center overflow-hidden justify-center gap-3 flex-col absolute inset-0 w-full h-full dark:bg-black-100 bg-white z-20 [mask-image:radial-gradient(white, transparent)]">
         <Boxes />
 
-        <h1 className="text-5xl font-bold max-w-[50vw] text-center dark:text-white text-black-100 relative z-20">
+        <h2 className="text-5xl font-bold max-w-[50vw] text-center dark:text-white text-black-100 relative z-20">
           {t("title")}
-        </h1>
+          <span className="dark:text-purple-100 text-purple-200">
+            {t("highlight")}
+          </span>
+        </h2>
         <p className="text-base relative z-20 dark:text-white text-black-100">
           {t("reach-out")}
         </p>

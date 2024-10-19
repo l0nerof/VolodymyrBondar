@@ -6,9 +6,12 @@ function Projects() {
 
   return (
     <section id="projects" className="mb-32">
-      <h1 className="text-center text-5xl font-bold dark:text-white text-black-100">
+      <h2 className="text-center text-5xl font-bold dark:text-white text-black-100">
         {t("title")}
-      </h1>
+        <span className="dark:text-purple-100 text-purple-200">
+          {t("highlight")}
+        </span>
+      </h2>
       <ProjectsList />
     </section>
   );
