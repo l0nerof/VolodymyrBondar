@@ -17,8 +17,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params: { locale },
 }: Readonly<{
   children: React.ReactNode;
+  params: { locale: string };
 }>) {
   const t = useTranslations("Navigation");
 
@@ -50,7 +52,7 @@ export default function RootLayout({
   ];
 
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
       <body
         className={`${inter.className} dark:bg-black-100 dark:text-white text-black-100 bg-white`}
       >

@@ -10,6 +10,7 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import DarkModeToggle from "./DarkModeToogle";
+import LanguageToggle from "./LanguageToggle";
 
 function NavBar({
   navItems,
@@ -76,6 +77,7 @@ function NavBar({
         ))}
 
         <DarkModeToggle />
+        <LanguageToggle />
       </motion.div>
     </AnimatePresence>
   );
