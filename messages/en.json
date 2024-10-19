@@ -15,20 +15,20 @@
     "title": "A small selection of",
     "highlight": " recent projects",
     "card1": {
+      "title": "BondarDesign",
+      "desc": "BondarDesign is a portfolio website for a 3D visualizer and designer, built to showcase professional work and streamline communication with potential clients. Commercial project."
+    },
+    "card2": {
       "title": "The Wild Oasis (Client Version)",
       "desc": "The Wild Oasis is the client-side version of a hotel management application. Users can register, search for available rooms, and make reservations for their preferred dates."
     },
-    "card2": {
+    "card3": {
       "title": "The Wild Oasis (Internal Management Version)",
       "desc": "The Wild Oasis is an internal hotel management application where users can register, view hotel statistics, add rooms, check room status, and switch themes."
     },
-    "card3": {
-      "title": "Frontend Engineer Intern",
-      "desc": "Assisted in the development of a web-based platform using React.js, enhancing interactivity."
-    },
     "card4": {
-      "title": "Frontend Engineer Intern",
-      "desc": "Assisted in the development of a web-based platform using React.js, enhancing interactivity."
+      "title": "Natours",
+      "desc": "Natours is a stylish, responsive single-page website showcasing adventure tours. Users can explore various options for adventure vacations."
     }
   },
 
@@ -36,13 +36,13 @@
     "title": "My",
     "highlight": " work experience",
     "card1": {
-      "title": "Frontend Engineer Intern",
-      "desc": "Assisted in the development of a web-based platform using React.js, enhancing interactivity."
+      "title": "Freelance",
+      "desc": "Worked on several commercial projects, delivering custom web solutions for clients and enhancing their digital presence."
     },
 
     "card2": {
-      "title": "Mobile App Dev - JSM Tech",
-      "desc": "Designed and developed mobile app for both iOS & Android platforms using React Native."
+      "title": "Front-end Developer Assistant",
+      "desc": "Collaborated with a developer, assisting in various tasks including building features and debugging applications."
     }
   },
 
@@ -50,25 +50,25 @@
     "title": "My",
     "highlight": " approach",
     "card1": {
-      "title": "Planning & Strategy",
-      "desc": "We'll collaborate to map out your website's goals, target audience, and key functionalities. We'll discuss things like site structure, navigation, and content requirements."
+      "title": "Tailored Planning & Strategy",
+      "desc": "I carefully analyze the needs of each project, considering both business goals and user experience. Together, we'll define clear objectives and a roadmap to ensure a well-structured, user-friendly project."
     },
 
     "card2": {
-      "title": "Development & Progress Update",
-      "desc": "Once we agree on the plan, I cue my lofi playlist and dive into coding. From initial sketches to polished code, I keep you updated every step of the way."
+      "title": "Efficient Development & Transparent Communication",
+      "desc": "Throughout the development process, I prioritize clean, scalable code while keeping you informed with regular progress updates, ensuring transparency and collaboration every step of the way."
     },
 
     "card3": {
-      "title": "Development & Launch",
-      "desc": "This is where the magic happens! Based on the approved design, I'll translate everything into functional code, building your website from the ground up."
+      "title": "Final Testing & Seamless Launch",
+      "desc": "Before launching, I rigorously test the website for performance, responsiveness, and compatibility across all devices. I ensure a smooth, hassle-free launch, leaving you with a fully functional and professional project."
     }
   },
 
   "Contact": {
-    "title": "Ready to take your digital presence to the",
-    "highlight": " next level?",
-    "reach-out": "Reach out to me today and let's discuss how I can help you achieve your goals.",
+    "title": "Interested in collaborating to bring your vision to life?",
+    "highlight": " Let's make it happen!",
+    "reach-out": "Explore my resume to learn more about my skills and experience, and reach out to discuss how I can help you achieve your creative goals.",
     "btn": "View my resume"
   },
 
