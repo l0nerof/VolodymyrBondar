@@ -19,10 +19,10 @@ function WorkExperienceList() {
             <Image src={thumbnail} alt={thumbnail} width={100} height={50} />
 
             <div className="">
-              <h1 className="text-start text-xl md:text-2xl font-bold dark:text-white-100 text-black-100">
+              <h1 className="text-start text-xl md:text-2xl font-bold dark:text-white text-black-100">
                 {t(title)}
               </h1>
-              <p className="text-start dark:text-white-100 text-black-100 mt-3 font-semibold">
+              <p className="text-start dark:text-white text-black-100 mt-3 font-semibold">
                 {t(desc)}
               </p>
             </div>
