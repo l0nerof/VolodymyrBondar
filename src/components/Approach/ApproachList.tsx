@@ -11,17 +11,18 @@ function ApproachList() {
       <ApproachCard
         title={t("card1.title")}
         desc={t("card1.desc")}
-        icon={<MagicButton>Phase 1</MagicButton>}
+        icon={<MagicButton>{t("card1.btn")}</MagicButton>}
       >
         <CanvasRevealEffect
           animationSpeed={5.1}
           containerClassName="bg-emerald-900 rounded-3xl overflow-hidden"
         />
       </ApproachCard>
+
       <ApproachCard
         title={t("card2.title")}
         desc={t("card2.desc")}
-        icon={<MagicButton>Phase 2</MagicButton>}
+        icon={<MagicButton>{t("card2.btn")}</MagicButton>}
       >
         <CanvasRevealEffect
           animationSpeed={3}
@@ -33,10 +34,11 @@ function ApproachList() {
           dotSize={2}
         />
       </ApproachCard>
+
       <ApproachCard
         title={t("card3.title")}
         desc={t("card3.desc")}
-        icon={<MagicButton>Phase 3</MagicButton>}
+        icon={<MagicButton>{t("card3.btn")}</MagicButton>}
       >
         <CanvasRevealEffect
           animationSpeed={3}

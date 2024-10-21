@@ -51,17 +51,20 @@
     "highlight": " approach",
     "card1": {
       "title": "Tailored Planning & Strategy",
-      "desc": "I carefully analyze the needs of each project, considering both business goals and user experience. Together, we'll define clear objectives and a roadmap to ensure a well-structured, user-friendly project."
+      "desc": "I carefully analyze the needs of each project, considering both business goals and user experience. Together, we'll define clear objectives and a roadmap to ensure a well-structured, user-friendly project.",
+      "btn": "Phase 1"
     },
 
     "card2": {
       "title": "Efficient Development & Transparent Communication",
-      "desc": "Throughout the development process, I prioritize clean, scalable code while keeping you informed with regular progress updates, ensuring transparency and collaboration every step of the way."
+      "desc": "Throughout the development process, I prioritize clean, scalable code while keeping you informed with regular progress updates, ensuring transparency and collaboration every step of the way.",
+      "btn": "Phase 2"
     },
 
     "card3": {
       "title": "Final Testing & Seamless Launch",
-      "desc": "Before launching, I rigorously test the website for performance, responsiveness, and compatibility across all devices. I ensure a smooth, hassle-free launch, leaving you with a fully functional and professional project."
+      "desc": "Before launching, I rigorously test the website for performance, responsiveness, and compatibility across all devices. I ensure a smooth, hassle-free launch, leaving you with a fully functional and professional project.",
+      "btn": "Phase 3"
     }
   },
 

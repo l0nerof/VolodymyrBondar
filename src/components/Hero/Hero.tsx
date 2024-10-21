@@ -1,6 +1,6 @@
 import Link from "next/link";
 import MagicButton from "../ui/MagicButton";
-import Spotlight from "../ui/Spotlight";
+// import Spotlight from "../ui/Spotlight";
 import { TextGenerateEffect } from "../ui/TextGenerate";
 import { useTranslations } from "next-intl";
 import { FaLocationArrow } from "react-icons/fa";
