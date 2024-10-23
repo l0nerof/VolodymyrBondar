@@ -14,6 +14,7 @@
   "Projects": {
     "title": "A small selection of",
     "highlight": " recent projects",
+    "link_btn": "Check Live Site",
     "card1": {
       "title": "BondarDesign",
       "desc": "BondarDesign is a portfolio website for a 3D visualizer and designer, built to showcase professional work and streamline communication with potential clients. Commercial project."

@@ -34,7 +34,7 @@ export const projects = [
     id: 1,
     title: "card1.title",
     desc: "card1.desc",
-    img: "/p1.svg",
+    img: "/bondardesign.jpg",
     iconLists: [
       "/next.svg",
       "/react.svg",
@@ -48,16 +48,16 @@ export const projects = [
   {
     id: 2,
     title: "card2.title",
-    des: "card2.desc",
-    img: "/p2.svg",
+    desc: "card2.desc",
+    img: "/wild-oasis-admin.jpg",
     iconLists: ["/next.svg", "/react.svg", "/tail.svg", "/supabase.svg"],
     link: "https://the-wild-oasis-website-nine.vercel.app/",
   },
   {
     id: 3,
     title: "card3.title",
-    des: "card3.desc",
-    img: "/p3.svg",
+    desc: "card3.desc",
+    img: "/wild-oasis.jpg",
     iconLists: [
       "/react.svg",
       "/vite.svg",
@@ -69,8 +69,8 @@ export const projects = [
   {
     id: 4,
     title: "card4.title",
-    des: "card4.desc",
-    img: "/p4.svg",
+    desc: "card4.desc",
+    img: "/natours.jpg",
     iconLists: ["/html.svg", "/sass.svg", "/bem.svg"],
     link: "https://l0nerof.github.io/Natours/",
   },
