@@ -9,11 +9,11 @@ function ProjectsList() {
   const t = useTranslations("Projects");
 
   return (
-    <ul className="flex gap-10 items-center justify-center flex-wrap">
+    <ul className="flex gap-10 items-stretch justify-center flex-wrap">
       {projects.map(({ id, iconLists, img, link, title, desc }) => (
         <li key={id}>
           <CardContainer className="inter-var">
-            <CardBody className="relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] w-full sm:w-[30rem] h-full rounded-xl p-6 border">
+            <CardBody className="relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] w-full sm:w-[30rem] h-full rounded-xl p-6 border flex flex-col gap-4 justify-between">
               <CardItem translateZ="100" className="w-full mt-4">
                 <Image
                   src={img}
@@ -26,7 +26,7 @@ function ProjectsList() {
 
               <CardItem
                 translateZ="50"
-                className="text-xl font-bold dark:text-white text-black-100 mt-4"
+                className="text-xl font-bold dark:text-white text-black-100"
               >
                 {t(title)}
               </CardItem>
@@ -34,11 +34,11 @@ function ProjectsList() {
               <CardItem
                 as="p"
                 translateZ="60"
-                className="text-sm mt-2 dark:text-white text-black-100"
+                className="text-sm dark:text-white text-black-100"
               >
                 {t(desc)}
               </CardItem>
-              <div className="flex justify-between items-center mt-20">
+              <div className="flex justify-between items-center">
                 <CardItem
                   translateZ={20}
                   as="button"

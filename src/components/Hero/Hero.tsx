@@ -23,7 +23,7 @@ function Hero() {
             words={t("title")}
             filter={false}
           />
-          <Link href="#">
+          <Link href="#projects">
             <MagicButton icon={<FaLocationArrow />} position="right">
               {t("btn")}
             </MagicButton>
