@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import Footer from "@/components/Footer/Footer";
 import NavBar from "@/components/ui/NavBar";
 import { useTranslations } from "next-intl";
+import { FaAddressCard, FaCode, FaHome, FaPhone } from "react-icons/fa";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,14 +29,17 @@ export default function RootLayout({
     {
       name: t("home"),
       link: "#hero",
+      icon: <FaHome className="size-5" />,
     },
     {
       name: t("about"),
       link: "#about",
+      icon: <FaAddressCard className="size-5" />,
     },
     {
       name: t("projects"),
       link: "#projects",
+      icon: <FaCode className="size-5" />,
     },
     // {
     //   name: t("workExperience"),
@@ -48,6 +52,7 @@ export default function RootLayout({
     {
       name: t("contact"),
       link: "#contact",
+      icon: <FaPhone className="size-5" />,
     },
   ];
 
