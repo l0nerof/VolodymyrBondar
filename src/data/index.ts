@@ -1,32 +1,65 @@
-export const workExperience = [
+export const about = [
   {
     id: 1,
     title: "card1.title",
     desc: "card1.desc",
-    className: "md:col-span-2",
-    thumbnail: "/exp1.svg",
+    className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
+    imgClassName: "w-full h-full",
+    titleClassName: "justify-end",
+    img: "/b1.svg",
+    spareImg: "",
   },
   {
     id: 2,
     title: "card2.title",
     desc: "card2.desc",
-    className: "md:col-span-2",
-    thumbnail: "/exp2.svg",
+    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
+    imgClassName: "",
+    titleClassName: "justify-start",
+    img: "",
+    spareImg: "",
   },
-  //   {
-  //     id: 3,
-  //     title: "Freelance App Dev Project",
-  //     desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
-  //     className: "md:col-span-2",
-  //     thumbnail: "/exp3.svg",
-  //   },
-  //   {
-  //     id: 4,
-  //     title: "Lead Frontend Developer",
-  //     desc: "Developed and maintained user-facing features using modern frontend technologies.",
-  //     className: "md:col-span-2",
-  //     thumbnail: "/exp4.svg",
-  //   },
+  {
+    id: 3,
+    title: "card3.title",
+    desc: "card3.desc",
+    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
+    imgClassName: "",
+    titleClassName: "justify-center",
+    img: "",
+    spareImg: "",
+  },
+  {
+    id: 4,
+    title: "card4.title",
+    desc: "card4.desc",
+    className: "lg:col-span-2 md:col-span-3 md:row-span-1",
+    imgClassName: "",
+    titleClassName: "justify-start",
+    img: "/grid.svg",
+    spareImg: "/b4.svg",
+  },
+
+  {
+    id: 5,
+    title: "card5.title",
+    desc: "card5.desc",
+    className: "md:col-span-3 md:row-span-2",
+    imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
+    titleClassName: "justify-center md:justify-start lg:justify-center",
+    img: "/b5.svg",
+    spareImg: "/grid.svg",
+  },
+  {
+    id: 6,
+    title: "card6.title",
+    desc: "card6.desc",
+    className: "lg:col-span-2 md:col-span-3 md:row-span-1",
+    imgClassName: "",
+    titleClassName: "justify-center md:max-w-full max-w-60 text-center",
+    img: "",
+    spareImg: "",
+  },
 ];
 
 export const projects = [
@@ -74,4 +107,35 @@ export const projects = [
     iconLists: ["/html.svg", "/scss.svg", "/bem.svg"],
     link: "https://l0nerof.github.io/Natours/",
   },
+];
+
+export const workExperience = [
+  {
+    id: 1,
+    title: "card1.title",
+    desc: "card1.desc",
+    className: "md:col-span-2",
+    thumbnail: "/exp1.svg",
+  },
+  {
+    id: 2,
+    title: "card2.title",
+    desc: "card2.desc",
+    className: "md:col-span-2",
+    thumbnail: "/exp2.svg",
+  },
+  //   {
+  //     id: 3,
+  //     title: "Freelance App Dev Project",
+  //     desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
+  //     className: "md:col-span-2",
+  //     thumbnail: "/exp3.svg",
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "Lead Frontend Developer",
+  //     desc: "Developed and maintained user-facing features using modern frontend technologies.",
+  //     className: "md:col-span-2",
+  //     thumbnail: "/exp4.svg",
+  //   },
 ];
