@@ -3,6 +3,7 @@ import Marquee from "react-fast-marquee";
 import { IoCopyOutline } from "react-icons/io5";
 import MagicButton from "./MagicButton";
 import Image from "next/image";
+import GridGlobe from "./GridGlobe";
 
 export const BentoGrid = ({
   className,
@@ -94,7 +95,7 @@ export const BentoGridItem = ({
             {title}
           </h2>
 
-          {/* {id === 2 && <GridGlobe />} */}
+          {id === 2 && <GridGlobe />}
 
           {id === 3 && (
             <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
