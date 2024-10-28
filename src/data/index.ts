@@ -32,7 +32,7 @@ export const about = [
     desc: "card4.desc",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imgClassName: "",
-    titleClassName: "justify-start",
+    titleClassName: "justify-center lg:justify-start",
     img: "",
   },
 

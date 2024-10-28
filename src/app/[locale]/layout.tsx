@@ -67,7 +67,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="max-w-7xl mx-auto px-2 md:px-0">
+          <div className="max-w-7xl mx-auto px-2">
             <NavBar navItems={navItems} />
 
             <main>{children}</main>

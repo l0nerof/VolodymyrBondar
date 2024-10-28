@@ -38,7 +38,7 @@ function ProjectsList() {
               >
                 {t(desc)}
               </CardItem>
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col sm:flex-row gap-5 sm:justify-between sm:items-center">
                 <CardItem
                   translateZ={20}
                   className="flex justify-between items-center gap-1"
