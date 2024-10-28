@@ -1,9 +1,12 @@
 import { cn } from "@/lib/utils";
 import Marquee from "react-fast-marquee";
-import { IoCopyOutline } from "react-icons/io5";
+
+import Link from "next/link";
 import MagicButton from "./MagicButton";
 import Image from "next/image";
 import GridGlobe from "./GridGlobe";
+import { useTranslations } from "next-intl";
+import { FaLocationArrow } from "react-icons/fa";
 
 export const BentoGrid = ({
   className,
@@ -41,6 +44,8 @@ export const BentoGridItem = ({
   imgClassName?: string;
   titleClassName?: string;
 }) => {
+  const t = useTranslations("About");
+
   const topList = [
     "React.js",
     "JavaScript",
@@ -73,8 +78,9 @@ export const BentoGridItem = ({
           <Image
             src={img}
             alt={img}
-            fill={true}
-            className="object-cover object-center"
+            width={1000}
+            height={1000}
+            className={cn(imgClassName, "object-cover object-center ")}
           />
         )}
 
@@ -124,9 +130,11 @@ export const BentoGridItem = ({
 
           {id === 6 && (
             <div className="mt-5">
-              <MagicButton icon={<IoCopyOutline />} position="left">
-                Text
-              </MagicButton>
+              <Link href="#contact">
+                <MagicButton icon={<FaLocationArrow />} position="right">
+                  {t("btn")}
+                </MagicButton>
+              </Link>
             </div>
           )}
         </div>

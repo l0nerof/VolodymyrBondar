@@ -12,6 +12,7 @@
   },
 
   "About": {
+    "btn": "Contact me",
     "card1": {
       "title": "I prioritize client collaboration, fostering open communication",
       "desc": ""
@@ -25,7 +26,7 @@
       "desc": "I constantly try to improve"
     },
     "card4": {
-      "title": "Tech enthusiast with a passion for development",
+      "title": "Driven by curiosity and innovation",
       "desc": ""
     },
     "card5": {
@@ -33,7 +34,7 @@
       "desc": ""
     },
     "card6": {
-      "title": "Do you want to start a project together?",
+      "title": "Seeking to add value to your team",
       "desc": ""
     }
   },
