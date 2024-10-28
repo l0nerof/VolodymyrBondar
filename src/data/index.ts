@@ -5,7 +5,7 @@ export const about = [
     desc: "card1.desc",
     className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
     imgClassName: "w-full h-full absolute",
-    titleClassName: "justify-end",
+    titleClassName: "justify-end text-white",
     img: "/laptop.jpg",
   },
   {
@@ -14,7 +14,7 @@ export const about = [
     desc: "card2.desc",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
-    titleClassName: "justify-start",
+    titleClassName: "justify-start dark:text-white text-black-100",
     img: "",
   },
   {
@@ -23,7 +23,7 @@ export const about = [
     desc: "card3.desc",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
-    titleClassName: "justify-center",
+    titleClassName: "justify-center dark:text-white text-black-100",
     img: "",
   },
   {
@@ -32,7 +32,8 @@ export const about = [
     desc: "card4.desc",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imgClassName: "",
-    titleClassName: "justify-center lg:justify-start",
+    titleClassName:
+      "justify-center lg:justify-start dark:text-white text-black-100",
     img: "",
   },
 
@@ -42,7 +43,8 @@ export const about = [
     desc: "card5.desc",
     className: "md:col-span-3 md:row-span-2",
     imgClassName: "absolute right-0 bottom-0  md:w-96 lg:w-[30rem] w-60",
-    titleClassName: "justify-center md:justify-start lg:justify-center",
+    titleClassName:
+      "justify-center md:justify-start lg:justify-center dark:text-white text-black-100",
     img: "code.svg",
   },
   {
@@ -51,7 +53,8 @@ export const about = [
     desc: "card6.desc",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imgClassName: "",
-    titleClassName: "justify-center md:max-w-full max-w-60 text-center",
+    titleClassName:
+      "justify-center md:max-w-full max-w-60 text-center dark:text-white text-black-100",
     img: "",
   },
 ];
