@@ -15,7 +15,7 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        "grid md:auto-rows-[18rem] grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 max-w-7xl mx-auto ",
+        "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 max-w-7xl mx-auto ",
         className
       )}
     >
@@ -41,17 +41,16 @@ export const BentoGridItem = ({
   imgClassName?: string;
   titleClassName?: string;
 }) => {
-  const leftLists = [
+  const topList = [
     "React.js",
     "JavaScript",
     "TypeScript",
     "Next.js",
-    "TypeScript",
     "HTML & CSS",
     "SASS",
     "Supabase",
   ];
-  const rightLists = [
+  const bottomList = [
     "React Query",
     "BEM",
     "Webpack",
@@ -98,38 +97,32 @@ export const BentoGridItem = ({
           {id === 2 && <GridGlobe />}
 
           {id === 3 && (
-            <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
-              {/* tech stack lists */}
-
-              {/* <Marquee autoFill direction="down"> */}
-              <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
-                {leftLists.map((item, i) => (
+            <div className="flex flex-col gap-1 lg:gap-5 absolute inset-0 justify-between">
+              <Marquee autoFill direction="left" speed={15}>
+                {topList.map((item, i) => (
                   <span
                     key={i}
-                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center dark:bg-black-200 bg-white-100"
+                    className="lg:py-3 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center dark:bg-black-200 bg-white-100 ml-6 inline-block"
                   >
                     {item}
                   </span>
                 ))}
-                {/* </Marquee> */}
-              </div>
-              {/* <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span> */}
+              </Marquee>
 
-              <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
-                {/* <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span> */}
-                {/* <Marquee autoFill direction="up"> */}
-                {rightLists.map((item, i) => (
+              <Marquee autoFill direction="right" speed={15}>
+                {bottomList.map((item, i) => (
                   <span
                     key={i}
-                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center dark:bg-black-200 bg-white-100"
+                    className="lg:py-3 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center dark:bg-black-200 bg-white-100 ml-6 inline-block"
                   >
                     {item}
                   </span>
                 ))}
-                {/* </Marquee> */}
-              </div>
+              </Marquee>
+              {/* </div> */}
             </div>
           )}
+
           {id === 6 && (
             <div className="mt-5">
               <MagicButton icon={<IoCopyOutline />} position="left">
