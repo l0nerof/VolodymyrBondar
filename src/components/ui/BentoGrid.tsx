@@ -102,7 +102,7 @@ export const BentoGridItem = ({
                 {topList.map((item, i) => (
                   <span
                     key={i}
-                    className="lg:py-3 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center dark:bg-black-200 bg-white-100 ml-6 inline-block"
+                    className="lg:py-3 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-100 rounded-lg text-center dark:bg-black-200 bg-white-100 ml-6 inline-block"
                   >
                     {item}
                   </span>
@@ -113,7 +113,7 @@ export const BentoGridItem = ({
                 {bottomList.map((item, i) => (
                   <span
                     key={i}
-                    className="lg:py-3 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center dark:bg-black-200 bg-white-100 ml-6 inline-block"
+                    className="lg:py-3 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-100 rounded-lg text-center dark:bg-black-200 bg-white-100 ml-6 inline-block"
                   >
                     {item}
                   </span>
