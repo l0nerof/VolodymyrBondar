@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Volodymyr Bondar Portfolio
 
-## Getting Started
+**VolodymyrBondar** is a personal portfolio website showcasing my experience, work approach, and resume, with options to connect via social media. The site offers a stylish and functional experience, presenting both light and dark themes and supporting internationalization in multiple languages.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Internationalization**: The website is available in multiple languages, enhancing accessibility for a diverse audience.
+- **Theming**: Users can switch between light and dark themes for an optimal viewing experience.
+- **Dynamic Animations**: Framer Motion enhances user interaction with smooth and engaging animations.
+- **Contact Options**: Visitors can access my resume or connect via social media links for easy communication.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technology Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **TypeScript**: Ensures strong typing for maintainable and reliable code.
+- **React** & **Next.js**: Powers the website’s dynamic user interface and enables server-side rendering and static site generation.
+- **Tailwind CSS**: Provides a responsive and modern design, allowing rapid UI development.
+- **Framer Motion**: Used for advanced animations and transitions to create an engaging experience.
+- **next-intl**: Manages multilingual content seamlessly.
+- **next-themes**: Implements theme switching between light and dark modes.
+- **three.js**: Adds 3D elements for a unique visual effect.
+- **aceternity**: Enhances site functionality.
+- **marquee**: Creates a moving marquee effect for a stylish text flow.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Installation and Setup
 
-## Learn More
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/volodymyrbondar.git
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Navigate to the project directory:
+    ```bash
+    cd volodymyrbondar
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Start the development server:
+    ```bash
+    npm run dev
+    ```
 
-## Deploy on Vercel
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to view your portfolio.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contact
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For any questions or collaboration inquiries, feel free to reach out via the contact links provided on the site.
+
+---
+
+This README provides an overview of the **VolodymyrBondar** portfolio project, detailing its features, technology stack, and setup instructions.
