@@ -41,14 +41,6 @@ export default function RootLayout({
       link: "#projects",
       icon: <FaCode className="size-5" />,
     },
-    // {
-    //   name: t("workExperience"),
-    //   link: "#work-experience",
-    // },
-    // {
-    //   name: t("approach"),
-    //   link: "#approach",
-    // },
     {
       name: t("contact"),
       link: "#contact",

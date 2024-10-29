@@ -106,5 +106,10 @@
 
   "Footer": {
     "copyright": "Copyright ©2024 Vova Bondar"
+  },
+
+  "NotFound": {
+    "title": "Oops... Something went wrong :(",
+    "btn": "Return to the homepage"
   }
 }

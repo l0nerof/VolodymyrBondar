@@ -15,7 +15,6 @@ function LanguageToggle() {
   const [locale, setLocale] = useState<LocaleItem>(currentLocale as LocaleItem);
 
   const handleToggle = () => {
-    // Тогл між "ua" та "en"
     const newLocale: LocaleItem = locale === "ua" ? "en" : "ua";
 
     setLocale(newLocale);
