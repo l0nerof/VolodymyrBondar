@@ -21,34 +21,10 @@
 - **aceternity**: Enhances site functionality.
 - **marquee**: Creates a moving marquee effect for a stylish text flow.
 
-## Installation and Setup
-
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/volodymyrbondar.git
-    ```
-
-2. Navigate to the project directory:
-    ```bash
-    cd volodymyrbondar
-    ```
-
-3. Install dependencies:
-    ```bash
-    npm install
-    ```
-
-4. Start the development server:
-    ```bash
-    npm run dev
-    ```
-
-5. Open [http://localhost:3000](http://localhost:3000) in your browser to view your portfolio.
-
 ## Contact
 
 For any questions or collaboration inquiries, feel free to reach out via the contact links provided on the site.
 
 ---
 
-This README provides an overview of the **VolodymyrBondar** portfolio project, detailing its features, technology stack, and setup instructions.
+This README provides an overview of the **VolodymyrBondar** portfolio project, detailing its features and technology stack.
