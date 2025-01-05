@@ -54,6 +54,8 @@ export const BentoGridItem = ({
     "HTML & CSS",
     "SASS",
     "Supabase",
+    "Zustand",
+    "React Testing Library",
   ];
   const bottomList = [
     "React Query",
@@ -64,6 +66,7 @@ export const BentoGridItem = ({
     "Git",
     "Vite",
     "Parcel",
+    "Jest",
   ];
 
   return (

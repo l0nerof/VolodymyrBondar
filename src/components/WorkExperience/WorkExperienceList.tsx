@@ -13,7 +13,7 @@ function WorkExperienceList() {
           key={id}
           duration={Math.floor(Math.random() * 10000) + 10000}
           borderRadius="1.75rem"
-          className="cursor-default"
+          className="cursor-default justify-normal"
         >
           <div className="flex flex-col p-3 py-6 md:p-5 lg:p-10 gap-3">
             <Image src={thumbnail} alt={thumbnail} width={100} height={50} />

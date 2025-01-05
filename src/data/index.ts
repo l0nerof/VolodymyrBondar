@@ -111,14 +111,20 @@ export const workExperience = [
     id: 1,
     title: "card1.title",
     desc: "card1.desc",
-    className: "md:col-span-2",
     thumbnail: "/exp1.svg",
   },
+
   {
     id: 2,
     title: "card2.title",
     desc: "card2.desc",
-    className: "md:col-span-2",
     thumbnail: "/exp2.svg",
+  },
+
+  {
+    id: 3,
+    title: "card3.title",
+    desc: "card3.desc",
+    thumbnail: "/exp3.svg",
   },
 ];
