@@ -1,8 +1,8 @@
-import { useTranslations } from "next-intl";
 import WorkExperienceList from "./WorkExperienceList";
+import { getTranslations } from "next-intl/server";
 
-function WorkExperience() {
-  const t = useTranslations("WorkExperience");
+async function WorkExperience() {
+  const t = await getTranslations("WorkExperience");
 
   return (
     <section id="work-experience" className="mb-32">

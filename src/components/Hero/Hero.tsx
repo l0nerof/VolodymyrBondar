@@ -1,11 +1,11 @@
 import Link from "next/link";
 import MagicButton from "../ui/MagicButton";
 import { TextGenerateEffect } from "../ui/TextGenerate";
-import { useTranslations } from "next-intl";
 import { FaLocationArrow } from "react-icons/fa";
+import { getTranslations } from "next-intl/server";
 
-function Hero() {
-  const t = useTranslations("Hero");
+async function Hero() {
+  const t = await getTranslations("Hero");
 
   return (
     <section className="pb-28 sm:pb-36 pt-52">

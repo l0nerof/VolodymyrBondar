@@ -3,7 +3,7 @@ export const about = [
     id: 1,
     title: "card1.title",
     desc: "card1.desc",
-    className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
+    className: "lg:col-span-3 md:col-span-6 md:row-span-4",
     imgClassName: "w-full h-full absolute",
     titleClassName: "justify-end text-white",
     img: "/laptop.jpg",
@@ -21,7 +21,7 @@ export const about = [
     id: 3,
     title: "card3.title",
     desc: "card3.desc",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
+    className: "lg:col-span-2 md:col-span-3 md:row-span-2 lg:min-h-[200px]",
     imgClassName: "",
     titleClassName: "justify-center dark:text-white text-black-100",
     img: "",
@@ -54,7 +54,7 @@ export const about = [
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imgClassName: "",
     titleClassName:
-      "justify-center md:max-w-full max-w-60 text-center dark:text-white text-black-100",
+      "justify-center md:max-w-full max-w-70 text-center dark:text-white text-black-100",
     img: "",
   },
 ];

@@ -1,8 +1,8 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import ApproachList from "./ApproachList";
 
-function Approach() {
-  const t = useTranslations("Approach");
+async function Approach() {
+  const t = await getTranslations("Approach");
 
   return (
     <section id="approach" className="sm:mb-32">

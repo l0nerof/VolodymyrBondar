@@ -1,19 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { Button } from "@/components/ui/Button";
 
 function DarkModeToggle() {
-  const { setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  function handleToggle() {
-    if (isDarkMode) setTheme("dark");
-    else setTheme("light");
+  useLayoutEffect(() => {
+    setIsDarkMode(theme === "dark");
+  }, [theme]);
 
-    setIsDarkMode((prev) => !prev);
+  function handleToggle() {
+    const newTheme = isDarkMode ? "light" : "dark";
+    setTheme(newTheme);
   }
 
   return (

@@ -1,9 +1,9 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { BentoGrid, BentoGridItem } from "../ui/BentoGrid";
 import { about } from "@/data";
 
-function About() {
-  const t = useTranslations("About");
+async function About() {
+  const t = await getTranslations("About");
 
   return (
     <section id="about" className="my-32">

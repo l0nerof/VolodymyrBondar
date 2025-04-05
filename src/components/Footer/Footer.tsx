@@ -1,8 +1,8 @@
-import { useTranslations } from "next-intl";
 import Socials from "../ui/Socials";
+import { getTranslations } from "next-intl/server";
 
-function Footer() {
-  const t = useTranslations("Footer");
+async function Footer() {
+  const t = await getTranslations("Footer");
 
   return (
     <footer className="flex flex-col sm:flex-row  items-center justify-between gap-5 p-8">

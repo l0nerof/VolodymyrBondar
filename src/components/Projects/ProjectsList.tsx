@@ -1,12 +1,12 @@
 import { projects } from "@/data";
-import { useTranslations } from "next-intl";
 import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 import Image from "next/image";
 import Link from "next/link";
 import { FaLocationArrow } from "react-icons/fa";
+import { getTranslations } from "next-intl/server";
 
-function ProjectsList() {
-  const t = useTranslations("Projects");
+async function ProjectsList() {
+  const t = await getTranslations("Projects");
 
   return (
     <ul className="flex gap-10 items-stretch justify-center flex-wrap">

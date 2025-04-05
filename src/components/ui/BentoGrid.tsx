@@ -1,12 +1,11 @@
 import { cn } from "@/lib/utils";
 import Marquee from "react-fast-marquee";
-
 import Link from "next/link";
 import MagicButton from "./MagicButton";
 import Image from "next/image";
 import GridGlobe from "./GridGlobe";
-import { useTranslations } from "next-intl";
 import { FaLocationArrow } from "react-icons/fa";
+import { getTranslations } from "next-intl/server";
 
 export const BentoGrid = ({
   className,
@@ -27,7 +26,7 @@ export const BentoGrid = ({
   );
 };
 
-export const BentoGridItem = ({
+export const BentoGridItem = async ({
   className,
   title,
   description,
@@ -44,7 +43,7 @@ export const BentoGridItem = ({
   imgClassName?: string;
   titleClassName?: string;
 }) => {
-  const t = useTranslations("About");
+  const t = await getTranslations("About");
 
   const topList = [
     "React.js",

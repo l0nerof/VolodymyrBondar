@@ -1,10 +1,10 @@
 import { workExperience } from "@/data";
-import { useTranslations } from "next-intl";
 import { Button } from "../ui/MovingBorder";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
-function WorkExperienceList() {
-  const t = useTranslations("WorkExperience");
+async function WorkExperienceList() {
+  const t = await getTranslations("WorkExperience");
 
   return (
     <ul className="mt-12 grid lg:grid-cols-2 grid-cols-1 gap-10">

@@ -1,16 +1,16 @@
-import { useTranslations } from "next-intl";
 import MagicButton from "../ui/MagicButton";
 import Link from "next/link";
 import { FaLocationArrow } from "react-icons/fa";
 import { Boxes } from "../ui/BackgroundBoxes";
+import { getTranslations } from "next-intl/server";
 
-function Contact() {
-  const t = useTranslations("Contact");
+async function Contact() {
+  const t = await getTranslations("Contact");
 
   return (
     <section
       id="contact"
-      className="sm:mb-32 h-[100vh] md:h-[70vh] w-full bg-black-100 relative"
+      className="sm:mb-32 h-[100vh] md:h-[600px] w-full bg-black-100 relative"
     >
       <div className="flex items-center overflow-hidden justify-center gap-3 flex-col absolute inset-0 w-full h-full dark:bg-black-100 bg-white z-20 [mask-image:radial-gradient(white, transparent)]">
         <Boxes />

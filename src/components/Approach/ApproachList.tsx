@@ -1,10 +1,10 @@
 import { CanvasRevealEffect } from "../ui/CardRevealEffect";
 import ApproachCard from "./ApproachCard";
 import MagicButton from "../ui/MagicButton";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-function ApproachList() {
-  const t = useTranslations("Approach");
+async function ApproachList() {
+  const t = await getTranslations("Approach");
 
   return (
     <ul className="flex flex-col lg:flex-row items-center justify-center bg-white dark:bg-black-100 w-full gap-4 mx-auto">

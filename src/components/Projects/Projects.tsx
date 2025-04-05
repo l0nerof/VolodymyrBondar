@@ -1,8 +1,8 @@
-import { useTranslations } from "next-intl";
 import ProjectsList from "./ProjectsList";
+import { getTranslations } from "next-intl/server";
 
-function Projects() {
-  const t = useTranslations("Projects");
+async function Projects() {
+  const t = await getTranslations("Projects");
 
   return (
     <section id="projects" className="mb-32">
