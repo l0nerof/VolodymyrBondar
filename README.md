@@ -1,6 +1,6 @@
 # Volodymyr Bondar Portfolio
 
-**VolodymyrBondar** is a personal portfolio website showcasing my experience, work approach, and resume, with options to connect via social media. The site offers a stylish and functional experience, presenting both light and dark themes and supporting internationalization in multiple languages.
+Personal portfolio website showcasing my experience, work approach, and resume, with options to connect via social media. The site offers a stylish and functional experience, presenting both light and dark themes and supporting internationalization in multiple languages.
 
 ## Features
 
