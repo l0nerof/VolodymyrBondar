@@ -14,7 +14,7 @@ export const about = [
     desc: "card2.desc",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
-    titleClassName: "justify-start dark:text-white text-black-100",
+    titleClassName: "justify-start dark:text-white text-purple-200",
     img: "",
   },
   {
