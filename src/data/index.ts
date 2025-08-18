@@ -64,7 +64,7 @@ export const projects = [
     id: 1,
     title: "card1.title",
     desc: "card1.desc",
-    img: "/natours.jpg",
+    img: "/rollin.jpg",
     iconLists: [
       "/icons/stack/next.svg",
       "/icons/stack/react.svg",
@@ -83,7 +83,7 @@ export const projects = [
     id: 2,
     title: "card2.title",
     desc: "card2.desc",
-    img: "/natours.jpg",
+    img: "/nemo-money.jpg",
     iconLists: [
       "/icons/stack/next.svg",
       "/icons/stack/react.svg",
