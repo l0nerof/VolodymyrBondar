@@ -12,7 +12,7 @@ async function ProjectsList() {
     <ul className="flex gap-10 items-stretch justify-center flex-wrap">
       {projects.map(({ id, iconLists, img, link, title, desc }) => (
         <li key={id}>
-          <CardContainer className="inter-var">
+          <CardContainer>
             <CardBody className="relative group/card dark:hover:shadow-2xl hover:shadow-2xl dark:hover:shadow-purple-100/[0.2] hover:shadow-purple-200/[0.2] dark:border-white/[0.2] border-black/[0.1] w-full sm:w-[30rem] h-full rounded-xl p-6 border flex flex-col gap-4 justify-between">
               <CardItem translateZ="100" className="w-full mt-4">
                 <Image
@@ -38,7 +38,7 @@ async function ProjectsList() {
               >
                 {t(desc)}
               </CardItem>
-              <div className="flex flex-col sm:flex-row gap-5 sm:justify-between sm:items-center">
+              <div className="flex flex-col gap-5">
                 <CardItem
                   translateZ={20}
                   className="flex justify-between items-center gap-1"
@@ -59,15 +59,17 @@ async function ProjectsList() {
                   ))}
                 </CardItem>
 
-                <CardItem
-                  translateZ={20}
-                  as={Link}
-                  href={link}
-                  target="__blank"
-                  className="flex items-center gap-2 text-xs font-normal dark:text-purple-100 text-purple-200 dark:hover:text-neutral-500 hover:text-neutral-500"
-                >
-                  {t("link_btn")} <FaLocationArrow />
-                </CardItem>
+                {link && (
+                  <CardItem
+                    translateZ={20}
+                    as={Link}
+                    href={link}
+                    target="__blank"
+                    className="flex items-center justify-center gap-2 w-full text-sm font-normal p-2 rounded-lg bg-purple-200/[0.2] dark:bg-purple-100/[0.2] dark:text-purple-100 text-purple-200 dark:hover:text-neutral-500 hover:text-neutral-500 hover:bg-purple-200/[0.4] dark:hover:bg-purple-100/[0.4]"
+                  >
+                    {t("link_btn")} <FaLocationArrow />
+                  </CardItem>
+                )}
               </div>
             </CardBody>
           </CardContainer>

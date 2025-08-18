@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 96 96" id="Firebase--Streamline-Svg-Logos" height="24" width="24">
+  <desc>
+    Firebase Streamline Icon: https://streamlinehq.com
+  </desc>
+  <path fill="#ffc24a" d="m13.7632 76.8736.569-.7969 26.9193-51.078.0568-.5407L29.4417 2.16844c-.9941-1.867154-3.793-1.395072-4.1193.69506L13.7632 76.8736Z"></path>
+  <path fill="#ffa712" d="m14.0991 76.2662.4305-.8394 26.6372-50.5429L29.3299 2.50369c-.9838-1.847591-3.482-1.3766-3.8048.69163L14.0991 76.2662Z"></path>
+  <g filter="url(#a)">
+    <path fill="#000000" d="m14.0991 76.2662.4305-.8394 26.6372-50.5429L29.3299 2.50369c-.9838-1.847591-3.482-1.3766-3.8048.69163L14.0991 76.2662Z"></path>
+  </g>
+  <path fill="#f4bd62" d="m49.9591 41.3181 8.8355-9.0489-8.838-16.872c-.839-1.5971-3.1816-1.6017-4.0117 0l-4.7218 9.0053v.767l8.736 16.1486Z"></path>
+  <path fill="#ffa50e" d="m49.8016 40.9409 8.5898-8.7972-8.5898-16.3564c-.8157-1.5526-2.7972-1.7153-3.6042-.1582l-4.7469 9.1449-.1419.4675 8.493 15.6994Z"></path>
+  <g filter="url(#b)">
+    <path fill="#000000" d="m49.8016 40.9409 8.5898-8.7972-8.5898-16.3564c-.8157-1.5526-2.7972-1.7153-3.6042-.1582l-4.7469 9.1449-.1419.4675 8.493 15.6994Z"></path>
+  </g>
+  <path fill="#f6820c" d="m13.7632 76.8737.2579-.2593.9372-.381L49.404 41.9158l.4364-1.188-8.5928-16.3743-27.4844 52.5202Z"></path>
+  <path fill="#fde068" d="m51.0624 94.1809 31.1741-17.3861-8.9023-54.8263c-.2785-1.7154-2.3829-2.3935-3.6107-1.1636L13.7632 76.8737l30.9953 17.3057c1.9589 1.0937 4.3445 1.0942 6.3039.0015Z"></path>
+  <path fill="#fcca3f" d="m81.9567 76.649-8.8346-54.4101c-.2764-1.7023-2.0264-2.4068-3.2449-1.1861L14.1084 76.7672l30.6549 17.1344c1.944 1.0854 4.3115 1.0859 6.256.0015L81.9567 76.649Z"></path>
+  <path fill="#eeab37" d="M51.0624 93.6688c-1.9594 1.0927-4.345 1.0922-6.3039-.0016L14.0128 76.6101l-.2496.2637 30.9953 17.3056c1.9589 1.0938 4.3445 1.0943 6.3039.0016l31.1741-17.3861-.0763-.4697-31.0978 17.3436Z"></path>
+  <defs>
+    <filter id="a" width="27.068" height="74.917" x="14.099" y="1.349" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"></feColorMatrix>
+      <feOffset></feOffset>
+      <feGaussianBlur stdDeviation="17.5"></feGaussianBlur>
+      <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic"></feComposite>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"></feColorMatrix>
+      <feBlend in2="shape" result="effect1_innerShadow_1011_13865"></feBlend>
+    </filter>
+    <filter id="b" width="18.083" height="33.402" x="41.309" y="7.539" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"></feColorMatrix>
+      <feOffset dx="1" dy="-9"></feOffset>
+      <feGaussianBlur stdDeviation="3.5"></feGaussianBlur>
+      <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic"></feComposite>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.09 0"></feColorMatrix>
+      <feBlend in2="shape" result="effect1_innerShadow_1011_13865"></feBlend>
+    </filter>
+  </defs>
+</svg>

@@ -44,18 +44,26 @@
     "highlight": " recent projects",
     "link_btn": "Check Live Site",
     "card1": {
+      "title": "Rollin",
+      "desc": "Rollin is an international casino fully managed by CMS. Games are integrated through API requests to business partners, and the project is built on modern and proven technologies. BettorFaster project."
+    },
+    "card2": {
+      "title": "Nemo Money",
+      "desc": "Nemo Money is a platform for creating landing pages using artificial intelligence. The project is implemented using best practices and popular technologies. BettorFaster project."
+    },
+    "card3": {
       "title": "BondarDesign",
       "desc": "BondarDesign is a portfolio website for a 3D visualizer and designer, built to showcase professional work and streamline communication with potential clients. Commercial project."
     },
-    "card2": {
+    "card4": {
       "title": "The Wild Oasis (Client Version)",
       "desc": "The Wild Oasis is the client-side version of a hotel management application. Users can register, search for available rooms, and make reservations for their preferred dates."
     },
-    "card3": {
+    "card5": {
       "title": "The Wild Oasis (Internal Management Version)",
       "desc": "The Wild Oasis is an internal hotel management application where users can register, view hotel statistics, add rooms, check room status, and switch themes."
     },
-    "card4": {
+    "card6": {
       "title": "Natours",
       "desc": "Natours is a stylish, responsive single-page website showcasing adventure tours. Users can explore various options for adventure vacations."
     }
