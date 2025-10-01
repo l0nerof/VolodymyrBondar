@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { ReactNode, useState } from "react";
+import { ReactNode, useState, useEffect } from "react";
 import ApproachIcon from "./ApproachIcon";
 
 function ApproachCard({
@@ -16,6 +16,15 @@ function ApproachCard({
   children?: ReactNode;
 }) {
   const [hovered, setHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+  }, [isMobile, hovered]);
 
   return (
     <div
@@ -41,13 +50,41 @@ function ApproachCard({
       </AnimatePresence>
 
       <div className="relative z-20">
-        <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full mx-auto flex items-center justify-center">
+        <div
+          className={`absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-center transition duration-200 w-full mx-auto flex items-center justify-center ${
+            hovered
+              ? isMobile
+                ? "opacity-0 -translate-y-4"
+                : "group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0"
+              : ""
+          }`}
+        >
           {icon}
         </div>
-        <h2 className="text-3xl text-center opacity-0 group-hover/canvas-card:opacity-100 relative z-10 mt-4 font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
+        <h2
+          className={`text-3xl text-center relative z-10 mt-4 font-bold transition duration-200 ${
+            hovered
+              ? isMobile
+                ? "opacity-100 text-white -translate-y-2"
+                : "group-hover/canvas-card:opacity-100 group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2"
+              : isMobile
+              ? "opacity-0"
+              : "opacity-0 group-hover/canvas-card:opacity-100 group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2"
+          }`}
+        >
           {title}
         </h2>
-        <p className="text-sm text-center opacity-0 group-hover/canvas-card:opacity-100 relative z-10 mt-4 group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
+        <p
+          className={`text-sm text-center relative z-10 mt-4 transition duration-200 ${
+            hovered
+              ? isMobile
+                ? "opacity-100 text-white -translate-y-2"
+                : "group-hover/canvas-card:opacity-100 group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2"
+              : isMobile
+              ? "opacity-0"
+              : "opacity-0 group-hover/canvas-card:opacity-100 group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2"
+          }`}
+        >
           {desc}
         </p>
       </div>

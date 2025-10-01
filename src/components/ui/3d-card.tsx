@@ -9,6 +9,23 @@ import React, {
   useEffect,
 } from "react";
 
+const useIsDesktop = () => {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkIsDesktop = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    checkIsDesktop();
+    window.addEventListener("resize", checkIsDesktop);
+
+    return () => window.removeEventListener("resize", checkIsDesktop);
+  }, []);
+
+  return isDesktop;
+};
+
 const MouseEnterContext = createContext<
   [boolean, React.Dispatch<React.SetStateAction<boolean>>] | undefined
 >(undefined);
@@ -24,9 +41,10 @@ export const CardContainer = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
+  const isDesktop = useIsDesktop();
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || !isDesktop) return;
     const { left, top, width, height } =
       containerRef.current.getBoundingClientRect();
     const x = (e.clientX - left - width / 2) / 25;
@@ -35,12 +53,13 @@ export const CardContainer = ({
   };
 
   const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDesktop) return;
     setIsMouseEntered(true);
     if (!containerRef.current) return;
   };
 
   const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || !isDesktop) return;
     setIsMouseEntered(false);
     containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
   };
@@ -52,7 +71,7 @@ export const CardContainer = ({
           containerClassName
         )}
         style={{
-          perspective: "1000px",
+          perspective: isDesktop ? "1000px" : "none",
         }}
       >
         <div
@@ -65,7 +84,7 @@ export const CardContainer = ({
             className
           )}
           style={{
-            transformStyle: "preserve-3d",
+            transformStyle: isDesktop ? "preserve-3d" : "flat",
           }}
         >
           {children}
@@ -82,8 +101,16 @@ export const CardBody = ({
   children: React.ReactNode;
   className?: string;
 }) => {
+  const isDesktop = useIsDesktop();
+
   return (
-    <div className={cn("h-96 w-96 transform-3d  *:transform-3d", className)}>
+    <div
+      className={cn(
+        "h-96 w-96",
+        isDesktop ? "transform-3d *:transform-3d" : "",
+        className
+      )}
+    >
       {children}
     </div>
   );
@@ -114,13 +141,14 @@ export const CardItem = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isMouseEntered] = useMouseEnter();
+  const isDesktop = useIsDesktop();
 
   useEffect(() => {
     handleAnimations();
   }, [isMouseEntered]);
 
   const handleAnimations = () => {
-    if (!ref.current) return;
+    if (!ref.current || !isDesktop) return;
     if (isMouseEntered) {
       ref.current.style.transform = `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)`;
     } else {
