@@ -9,7 +9,7 @@ function Socials() {
           href="https://www.instagram.com/l0nercs"
           rel="noopener noreferrer"
           target="_blank"
-          className="p-2 border dark:border-white/[0.2] border-black-100/[0.2] dark:hover:border-neutral-500 dark:[&>svg]:hover:fill-neutral-500 hover:border-neutral-500 [&>svg]:hover:fill-neutral-500 transition duration-300 rounded-lg flex items-center justify-center"
+          className="p-2 border dark:border-white/20 border-black-100/20 dark:hover:border-neutral-500 dark:hover:[&>svg]:fill-neutral-500 hover:border-neutral-500 hover:[&>svg]:fill-neutral-500 transition duration-300 rounded-lg flex items-center justify-center"
         >
           <FaInstagram className="size-6 dark:fill-white fill-black-100 transition duration-300" />
         </Link>
@@ -19,7 +19,7 @@ function Socials() {
           href="https://github.com/l0nerof"
           rel="noopener noreferrer"
           target="_blank"
-          className="p-2 border dark:border-white/[0.2] border-black-100/[0.2] dark:hover:border-neutral-500 dark:[&>svg]:hover:fill-neutral-500 hover:border-neutral-500 [&>svg]:hover:fill-neutral-500 transition duration-300 rounded-lg flex items-center justify-center"
+          className="p-2 border dark:border-white/20 border-black-100/20 dark:hover:border-neutral-500 dark:hover:[&>svg]:fill-neutral-500 hover:border-neutral-500 hover:[&>svg]:fill-neutral-500 transition duration-300 rounded-lg flex items-center justify-center"
         >
           <FaGithub className="size-6 dark:fill-white fill-black-100 transition duration-300" />
         </Link>
@@ -29,7 +29,7 @@ function Socials() {
           href="https://t.me/vovab_17"
           rel="noopener noreferrer"
           target="_blank"
-          className="p-2 border dark:border-white/[0.2] border-black-100/[0.2] dark:hover:border-neutral-500 dark:[&>svg]:hover:fill-neutral-500 hover:border-neutral-500 [&>svg]:hover:fill-neutral-500 transition duration-300 rounded-lg flex items-center justify-center"
+          className="p-2 border dark:border-white/20 border-black-100/20 dark:hover:border-neutral-500 dark:hover:[&>svg]:fill-neutral-500 hover:border-neutral-500 hover:[&>svg]:fill-neutral-500 transition duration-300 rounded-lg flex items-center justify-center"
         >
           <FaTelegram className="size-6 dark:fill-white fill-black-100 transition duration-300" />
         </Link>
@@ -39,7 +39,7 @@ function Socials() {
           href="https://www.linkedin.com/in/bondar-volodymyr/"
           rel="noopener noreferrer"
           target="_blank"
-          className="p-2 border dark:border-white/[0.2] border-black-100/[0.2] dark:hover:border-neutral-500 dark:[&>svg]:hover:fill-neutral-500 hover:border-neutral-500 [&>svg]:hover:fill-neutral-500 transition duration-300 rounded-lg flex items-center justify-center"
+          className="p-2 border dark:border-white/20 border-black-100/20 dark:hover:border-neutral-500 dark:hover:[&>svg]:fill-neutral-500 hover:border-neutral-500 hover:[&>svg]:fill-neutral-500 transition duration-300 rounded-lg flex items-center justify-center"
         >
           <FaLinkedin className="size-6 dark:fill-white fill-black-100 transition duration-300" />
         </Link>

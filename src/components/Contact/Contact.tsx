@@ -10,7 +10,7 @@ async function Contact() {
   return (
     <section
       id="contact"
-      className="sm:mb-32 h-[100vh] md:h-[600px] w-full bg-black-100 relative"
+      className="sm:mb-32 h-screen md:h-[600px] w-full bg-black-100 relative"
     >
       <div className="flex items-center overflow-hidden justify-center gap-3 flex-col absolute inset-0 w-full h-full dark:bg-black-100 bg-white z-20 [mask-image:radial-gradient(white, transparent)]">
         <Boxes />

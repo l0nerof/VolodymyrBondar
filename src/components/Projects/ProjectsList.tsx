@@ -13,7 +13,7 @@ async function ProjectsList() {
       {projects.map(({ id, iconLists, img, link, title, desc }) => (
         <li key={id}>
           <CardContainer>
-            <CardBody className="relative group/card dark:hover:shadow-2xl hover:shadow-2xl dark:hover:shadow-purple-100/[0.2] hover:shadow-purple-200/[0.2] dark:border-white/[0.2] border-black/[0.1] w-full sm:w-[30rem] h-full rounded-xl p-6 border flex flex-col gap-4 justify-between">
+            <CardBody className="relative group/card dark:hover:shadow-2xl hover:shadow-2xl dark:hover:shadow-purple-100/20 hover:shadow-purple-200/20 dark:border-white/20 border-black/10 w-full sm:w-120 h-full rounded-xl p-6 border flex flex-col gap-4 justify-between">
               <CardItem translateZ="100" className="w-full mt-4">
                 <Image
                   src={img}
@@ -46,7 +46,7 @@ async function ProjectsList() {
                   {iconLists.map((icon, index) => (
                     <div
                       key={index}
-                      className="border border-white/[.2] rounded-full dark:bg-purple-100/[0.2] bg-purple-200/[0.2] lg:w-10 lg:h-10 w-8 h-8"
+                      className="border border-white/20 rounded-full dark:bg-purple-100/20 bg-purple-200/20 lg:w-10 lg:h-10 w-8 h-8"
                     >
                       <Image
                         src={icon}
@@ -64,8 +64,8 @@ async function ProjectsList() {
                     translateZ={20}
                     as={Link}
                     href={link}
-                    target="__blank"
-                    className="flex items-center justify-center gap-2 w-full text-sm font-normal p-2 rounded-lg bg-purple-200/[0.2] dark:bg-purple-100/[0.2] dark:text-purple-100 text-purple-200 dark:hover:text-neutral-500 hover:text-neutral-500 hover:bg-purple-200/[0.4] dark:hover:bg-purple-100/[0.4]"
+                    target="_blank"
+                    className="cursor-pointer flex items-center justify-center gap-2 w-full text-sm font-normal p-2 rounded-lg bg-purple-200/20 dark:bg-purple-100/20 dark:text-purple-100 text-purple-200 dark:hover:text-neutral-500 hover:text-neutral-500 hover:bg-purple-200/40 dark:hover:bg-purple-100/40"
                   >
                     {t("link_btn")} <FaLocationArrow />
                   </CardItem>

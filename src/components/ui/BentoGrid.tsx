@@ -71,7 +71,7 @@ export const BentoGridItem = async ({
   return (
     <div
       className={cn(
-        "row-span-1 relative overflow-hidden rounded-3xl border dark:hover:shadow-purple-100/[0.2] hover:shadow-purple-200/[0.2] dark:border-white/[0.2] border-black/[0.1] group/bento dark:hover:shadow-2xl hover:shadow-2xl transition duration-200 justify-between flex flex-col space-y-4",
+        "row-span-1 relative overflow-hidden rounded-3xl border dark:hover:shadow-purple-100/20 hover:shadow-purple-200/20 dark:border-white/20 border-black/10 group/bento dark:hover:shadow-2xl hover:shadow-2xl transition duration-200 justify-between flex flex-col space-y-4",
         className
       )}
     >

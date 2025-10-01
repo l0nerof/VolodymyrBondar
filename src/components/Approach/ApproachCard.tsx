@@ -21,7 +21,7 @@ function ApproachCard({
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2] max-w-sm w-full mx-auto p-4 relative h-[35rem] rounded-3xl"
+      className="border border-black/20 group/canvas-card flex items-center justify-center dark:border-white/20 max-w-sm w-full mx-auto p-4 relative h-140 rounded-3xl"
     >
       <ApproachIcon className="absolute h-10 w-10 -top-3 -left-3 dark:text-white text-black-100 opacity-30" />
       <ApproachIcon className="absolute h-10 w-10 -bottom-3 -left-3 dark:text-white text-black-100 opacity-30" />

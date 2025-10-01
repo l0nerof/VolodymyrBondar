@@ -26,7 +26,7 @@ function LanguageToggle() {
       variant="outline"
       size="icon"
       onClick={handleToggle}
-      className="dark:border-white/[0.2] border-black-100/[0.2]"
+      className="dark:border-white/20 border-black-100/20 cursor-pointer"
     >
       {locale === "ua" ? (
         <Image src="/ukraine.png" alt="Ukraine" width={20} height={20} />
