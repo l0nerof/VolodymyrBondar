@@ -6,8 +6,11 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import Footer from "@/components/Footer/Footer";
 import NavBar from "@/components/ui/NavBar";
-import { useTranslations } from "next-intl";
-import { FaAddressCard, FaCode, FaHome, FaPhone } from "react-icons/fa";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { getMessages, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+
+import { routing } from "@/i18n/routing";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,57 +19,50 @@ export const metadata: Metadata = {
   description: "Volodymyr Bondar - Front-end Developer",
 };
 
-export default function RootLayout({
-  children,
-  params: { locale },
-}: Readonly<{
-  children: React.ReactNode;
-  params: { locale: string };
-}>) {
-  const t = useTranslations("Navigation");
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
-  const navItems = [
-    {
-      name: t("home"),
-      link: "#hero",
-      icon: <FaHome className="size-5" />,
-    },
-    {
-      name: t("about"),
-      link: "#about",
-      icon: <FaAddressCard className="size-5" />,
-    },
-    {
-      name: t("projects"),
-      link: "#projects",
-      icon: <FaCode className="size-5" />,
-    },
-    {
-      name: t("contact"),
-      link: "#contact",
-      icon: <FaPhone className="size-5" />,
-    },
-  ];
+type Props = {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+};
+
+export default async function RootLayout({ children, params }: Props) {
+  const { locale } = await params;
+
+  // Ensure that the incoming `locale` is valid
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  // Enable static rendering
+  setRequestLocale(locale);
+
+  // Get messages for the client provider
+  const messages = await getMessages();
 
   return (
     <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
       <body
         className={`${inter.className} dark:bg-black-100 dark:text-white text-black-100 bg-white`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="max-w-7xl mx-auto px-2">
-            <NavBar navItems={navItems} />
+        <NextIntlClientProvider messages={messages}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div className="max-w-7xl mx-auto px-2">
+              <NavBar />
 
-            <main>{children}</main>
+              <main>{children}</main>
 
-            <Footer />
-          </div>
-        </ThemeProvider>
+              <Footer />
+            </div>
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

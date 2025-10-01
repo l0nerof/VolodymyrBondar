@@ -11,20 +11,36 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import DarkModeToggle from "./DarkModeToogle";
 import LanguageToggle from "./LanguageToggle";
+import { useTranslations } from "next-intl";
+import { FaAddressCard, FaCode, FaHome, FaPhone } from "react-icons/fa";
 
-function NavBar({
-  navItems,
-  className,
-}: {
-  navItems: {
-    name: string;
-    link: string;
-    icon?: JSX.Element;
-  }[];
-  className?: string;
-}) {
+function NavBar({ className }: { className?: string }) {
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(true);
+  const t = useTranslations("Navigation");
+
+  const navItems = [
+    {
+      name: t("home"),
+      link: "#hero",
+      icon: <FaHome className="size-5" />,
+    },
+    {
+      name: t("about"),
+      link: "#about",
+      icon: <FaAddressCard className="size-5" />,
+    },
+    {
+      name: t("projects"),
+      link: "#projects",
+      icon: <FaCode className="size-5" />,
+    },
+    {
+      name: t("contact"),
+      link: "#contact",
+      icon: <FaPhone className="size-5" />,
+    },
+  ];
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     // Check if current is not undefined and is a number
