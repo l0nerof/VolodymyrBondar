@@ -77,7 +77,6 @@ export const projects = [
       "/icons/stack/fm.svg",
       "/icons/stack/vercel.svg",
     ],
-    // link: "https://l0nerof.github.io/Natours/",
   },
   {
     id: 2,
@@ -118,6 +117,20 @@ export const projects = [
     id: 4,
     title: "card4.title",
     desc: "card4.desc",
+    img: "/dot-sorter-game.jpg",
+    iconLists: [
+      "/icons/stack/vite.svg",
+      "/icons/stack/react.svg",
+      "/icons/stack/ts.svg",
+      "/icons/stack/tail.svg",
+      "/icons/stack/vercel.svg",
+    ],
+    link: "https://dot-sorter-game.vercel.app/",
+  },
+  {
+    id: 5,
+    title: "card5.title",
+    desc: "card5.desc",
     img: "/wild-oasis.jpg",
     iconLists: [
       "/icons/stack/next.svg",
@@ -129,9 +142,9 @@ export const projects = [
     link: "https://the-wild-oasis-website-nine.vercel.app/",
   },
   {
-    id: 5,
-    title: "card5.title",
-    desc: "card5.desc",
+    id: 6,
+    title: "card6.title",
+    desc: "card6.desc",
     img: "/wild-oasis-admin.jpg",
     iconLists: [
       "/icons/stack/react.svg",
@@ -142,9 +155,9 @@ export const projects = [
     link: "https://the-wild-oasis-henna-theta.vercel.app/",
   },
   {
-    id: 6,
-    title: "card6.title",
-    desc: "card6.desc",
+    id: 7,
+    title: "card7.title",
+    desc: "card7.desc",
     img: "/natours.jpg",
     iconLists: [
       "/icons/stack/html.svg",

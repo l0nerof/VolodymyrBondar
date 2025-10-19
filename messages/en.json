@@ -56,14 +56,18 @@
       "desc": "BondarDesign is a portfolio website for a 3D visualizer and designer, built to showcase professional work and streamline communication with potential clients. Commercial project."
     },
     "card4": {
+      "title": "Dot Sorter Game",
+      "desc": "Dot Sorter Game is a game where you need to collect dots into groups with the same colors. The game is built on modern technologies and has a clear interface."
+    },
+    "card5": {
       "title": "The Wild Oasis (Client Version)",
       "desc": "The Wild Oasis is the client-side version of a hotel management application. Users can register, search for available rooms, and make reservations for their preferred dates."
     },
-    "card5": {
+    "card6": {
       "title": "The Wild Oasis (Internal Management Version)",
       "desc": "The Wild Oasis is an internal hotel management application where users can register, view hotel statistics, add rooms, check room status, and switch themes."
     },
-    "card6": {
+    "card7": {
       "title": "Natours",
       "desc": "Natours is a stylish, responsive single-page website showcasing adventure tours. Users can explore various options for adventure vacations."
     }
