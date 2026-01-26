@@ -189,4 +189,11 @@ export const workExperience = [
     desc: "card3.desc",
     thumbnail: "/icons/exp3.svg",
   },
+
+  {
+    id: 4,
+    title: "card4.title",
+    desc: "card4.desc",
+    thumbnail: "/icons/exp4.svg",
+  },
 ];

@@ -54,7 +54,10 @@ export const BentoGridItem = async ({
     "SASS",
     "Supabase",
     "Zustand",
-    "React Testing Library",
+    "React Testing Library",  
+    "Framer",
+    "Gitlab",
+    "Husky"
   ];
   const bottomList = [
     "React Query",
@@ -66,6 +69,9 @@ export const BentoGridItem = async ({
     "Vite",
     "Parcel",
     "Jest",
+    "Cypress",
+    "Docker",
+    "Shadcn"
   ];
 
   return (
@@ -82,7 +88,14 @@ export const BentoGridItem = async ({
             alt={img}
             width={1000}
             height={1000}
-            className={cn(imgClassName, "object-cover object-center ")}
+            className={cn(
+              imgClassName,
+              "object-cover object-center",
+              id === 5 &&
+                "drop-shadow-[0_24px_60px_rgba(0,0,0,0.45)] " +
+                  "[-webkit-mask-image:linear-gradient(135deg,transparent_0%,black_18%,black_82%,transparent_100%)] " +
+                  "[mask-image:linear-gradient(135deg,transparent_0%,black_18%,black_82%,transparent_100%)]"
+            )}
           />
         )}
 

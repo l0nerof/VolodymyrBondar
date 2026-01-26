@@ -88,7 +88,12 @@
 
     "card3": {
       "title": "Junior Front-end Developer",
-      "desc": "Junior Front-end Developer at BettorFaster. Working on development and maintenance of web applications using modern technologies and frameworks."
+      "desc": "Worked as a junior developer at BettorFaster, improving interfaces, refining UX, and maintaining core product modules."
+    },
+    
+    "card4": {
+      "title": "Front-end Developer",
+      "desc": "Currently at DevelopsToday, building scalable web apps with a focus on performance, code quality, and reliable releases."
     }
   },
 
