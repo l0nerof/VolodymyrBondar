@@ -18,7 +18,7 @@ export const BentoGrid = ({
     <div
       className={cn(
         "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 max-w-7xl mx-auto ",
-        className
+        className,
       )}
     >
       {children}
@@ -54,10 +54,16 @@ export const BentoGridItem = async ({
     "SASS",
     "Supabase",
     "Zustand",
-    "React Testing Library",  
+    "React Testing Library",
     "Framer",
     "Gitlab",
-    "Husky"
+    "Husky",
+    "Tanstack Router",
+    "Node.js",
+    "Zod",
+    "Codex",
+    "Vitest",
+    "Monorepo",
   ];
   const bottomList = [
     "React Query",
@@ -71,14 +77,19 @@ export const BentoGridItem = async ({
     "Jest",
     "Cypress",
     "Docker",
-    "Shadcn"
+    "Shadcn",
+    "Prisma",
+    "Nest.js",
+    "Claude Code",
+    "Playwright",
+    "Turborepo",
   ];
 
   return (
     <div
       className={cn(
         "row-span-1 relative overflow-hidden rounded-3xl border dark:hover:shadow-purple-100/20 hover:shadow-purple-200/20 dark:border-white/20 border-black/10 group/bento dark:hover:shadow-2xl hover:shadow-2xl transition duration-200 justify-between flex flex-col space-y-4",
-        className
+        className,
       )}
     >
       <div className={`${id === 6 && "flex justify-center"} h-full`}>
@@ -94,7 +105,7 @@ export const BentoGridItem = async ({
               id === 5 &&
                 "drop-shadow-[0_24px_60px_rgba(0,0,0,0.45)] " +
                   "[-webkit-mask-image:linear-gradient(135deg,transparent_0%,black_18%,black_82%,transparent_100%)] " +
-                  "[mask-image:linear-gradient(135deg,transparent_0%,black_18%,black_82%,transparent_100%)]"
+                  "[mask-image:linear-gradient(135deg,transparent_0%,black_18%,black_82%,transparent_100%)]",
             )}
           />
         )}
@@ -102,7 +113,7 @@ export const BentoGridItem = async ({
         <div
           className={cn(
             titleClassName,
-            "group-hover/bento:translate-x-2 transition duration-200 md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10"
+            "group-hover/bento:translate-x-2 transition duration-200 md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10",
           )}
         >
           <p className="font-sans font-extralight md:text-xs lg:text-base text-sm dark:text-white text-black-100">

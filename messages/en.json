@@ -7,7 +7,7 @@
   },
 
   "Hero": {
-    "title": "Hello there! I`m Vova, Front-End Developer based in Ukraine.",
+    "title": "Hello there! I`m Vova, Software engineer based in Ukraine.",
     "btn": "See my projects"
   },
 
@@ -93,7 +93,12 @@
     
     "card4": {
       "title": "Front-end Developer",
-      "desc": "Currently at DevelopsToday, building scalable web apps with a focus on performance, code quality, and reliable releases."
+      "desc": "Worked at DevelopsToday on scalable web apps: owned the frontend architecture and was also involved in backend development."
+    },
+
+    "card5": {
+      "title": "Software engineer",
+      "desc": "Currently working at Panenco as a Software engineer, developing the product and working across the frontend and backend parts of the application."
     }
   },
 
