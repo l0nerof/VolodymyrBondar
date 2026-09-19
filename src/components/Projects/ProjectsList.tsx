@@ -1,7 +1,6 @@
 import { projects } from "@/data";
 import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 import Image from "next/image";
-import Link from "next/link";
 import { FaLocationArrow } from "react-icons/fa";
 import { getTranslations } from "next-intl/server";
 
@@ -62,7 +61,7 @@ async function ProjectsList() {
                 {link && (
                   <CardItem
                     translateZ={20}
-                    as={Link}
+                    as="a"
                     href={link}
                     target="_blank"
                     className="cursor-pointer flex items-center justify-center gap-2 w-full text-sm font-normal p-2 rounded-lg bg-purple-200/20 dark:bg-purple-100/20 dark:text-purple-100 text-purple-200 dark:hover:text-neutral-500 hover:text-neutral-500 hover:bg-purple-200/40 dark:hover:bg-purple-100/40"

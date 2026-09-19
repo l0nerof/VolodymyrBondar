@@ -21,6 +21,22 @@ Personal portfolio website showcasing my experience, work approach, and resume, 
 - **aceternity**: Enhances site functionality.
 - **marquee**: Creates a moving marquee effect for a stylish text flow.
 
+## Local development
+
+Use Node.js 24 and npm:
+
+```sh
+npm ci
+npm run dev
+```
+
+Before shipping, run `npm run lint`, `npm run typecheck`, and `npm run build`.
+Use `npm start` to check the production build locally. The site supports `/ua`
+(default) and `/en`. See [AGENTS.md](AGENTS.md) for project conventions and browser checks.
+
+Vercel uses Node.js `24.x` from `package.json`; the build logs print the actual runtime.
+Dependency/runtime updates and UI/UX changes should be shipped separately.
+
 ## Contact
 
 For any questions or collaboration inquiries, feel free to reach out via the contact links provided on the site.
