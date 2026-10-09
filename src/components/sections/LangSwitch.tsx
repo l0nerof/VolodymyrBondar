@@ -14,9 +14,9 @@ export function LangSwitch({ locale, label }: { locale: string; label: string })
   const pathname = usePathname();
 
   return (
-    <span role="group" aria-label={label} className="inline-flex items-center gap-1.5 text-[11px] tracking-[0.14em]">
+    <span role="group" aria-label={label} className="inline-flex items-center gap-1 text-[11px] tracking-[0.14em] sm:gap-1.5">
       {LANGUAGES.map((language, index) => (
-        <span key={language.locale} className="inline-flex items-center gap-1.5">
+        <span key={language.locale} className="inline-flex items-center gap-1 sm:gap-1.5">
           {index > 0 && (
             <span aria-hidden className="opacity-40">
               /

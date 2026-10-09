@@ -106,7 +106,9 @@ export async function Contact() {
         </div>
 
         <div className="relative self-start">
-          <Sfx tone="yellow" className="absolute -top-10 -left-6 z-10 -rotate-12">
+          {/* Hangs off the bubble's corner, but stays on screen: one column
+              puts the bubble 16px (24px from sm) from the edge. */}
+          <Sfx tone="yellow" className="absolute -top-10 -left-1 z-10 -rotate-12 sm:-left-4 lg:-left-6">
             {t("sfx")}
           </Sfx>
           <Bubble tail="right" className="p-7 sm:p-9">

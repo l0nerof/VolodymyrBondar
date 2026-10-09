@@ -6,7 +6,7 @@ import { useTheme } from "next-themes";
 const noop = () => () => {};
 
 const ITEM =
-  "cursor-pointer px-2 py-1 font-display text-[11px] font-black uppercase italic transition-colors duration-150 aria-pressed:bg-accent aria-pressed:text-on-accent sm:px-2.5";
+  "cursor-pointer px-1.5 py-1 font-display text-[11px] font-black uppercase italic transition-colors duration-150 aria-pressed:bg-accent aria-pressed:text-on-accent sm:px-2.5";
 
 /** The light/dark switch, worded as the comic's night and day issues. The
  * swarm recolours as a wave from the click. */

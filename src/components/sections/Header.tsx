@@ -26,9 +26,10 @@ export async function Header() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b-[3px] border-line-strong bg-paper">
-      {/* Tighter gaps below `sm`: with the Contents button the row has to fit
-          a 320px phone. */}
-      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-4 sm:gap-6 sm:px-6">
+      {/* Tighter gaps and padding below `sm`: with the Contents button the
+          row has to fit a 320px phone in English too, whose labels are wider
+          (NIGHT / DAY / CONTENTS). */}
+      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-2 px-4 sm:gap-6 sm:px-6">
         <a
           href={`${home}#hero`}
           aria-label={`V.B. · ${t("home")}`}
@@ -36,7 +37,7 @@ export async function Header() {
         >
           V.B.
         </a>
-        <div className="flex items-center gap-3 sm:gap-6">
+        <div className="flex items-center gap-2 sm:gap-6">
           <nav aria-label={t("main")} className="hidden lg:block">
             <ul className="flex items-center gap-6 text-[13px] font-bold tracking-[0.04em] uppercase">
               {links.map((link) => (

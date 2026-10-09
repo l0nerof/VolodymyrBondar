@@ -91,23 +91,27 @@ test("below 1024px the sections are in the Contents panel", async ({ page }) => 
 
 test("the header fits a 320px phone", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 640 });
-  await page.goto("/ua");
 
-  // The header is fixed, so an overflow there never shows as page scroll.
-  const row = await page.evaluate(() => {
-    const items = Array.from(document.querySelectorAll("header > div > a, header > div > div > *"))
-      .filter((el) => getComputedStyle(el).display !== "none")
-      .map((el) => el.getBoundingClientRect());
-    return { left: items[0].left, right: Math.max(...items.map((box) => box.right)), overlaps: items.some((box, i) => i > 0 && box.left < items[i - 1].right) };
-  });
+  // English labels are the wider ones (NIGHT / DAY / CONTENTS).
+  for (const path of ["/ua", "/en"]) {
+    await page.goto(path);
 
-  expect(row.left).toBeGreaterThanOrEqual(16);
-  expect(row.right).toBeLessThanOrEqual(320 - 16);
-  expect(row.overlaps).toBe(false);
+    // The header is fixed, so an overflow there never shows as page scroll.
+    const row = await page.evaluate(() => {
+      const items = Array.from(document.querySelectorAll("header > div > a, header > div > div > *"))
+        .filter((el) => getComputedStyle(el).display !== "none")
+        .map((el) => el.getBoundingClientRect());
+      return { left: items[0].left, right: Math.max(...items.map((box) => box.right)), overlaps: items.some((box, i) => i > 0 && box.left < items[i - 1].right) };
+    });
+
+    expect(row.left, path).toBeGreaterThanOrEqual(16);
+    expect(row.right, path).toBeLessThanOrEqual(320 - 16);
+    expect(row.overlaps, path).toBe(false);
+  }
 });
 
 for (const width of [320, 390, 768, 1024, 1280, 1366, 1440]) {
-  test(`nothing is wider than a ${width}px screen`, async ({ page }) => {
+  test(`nothing spills off a ${width}px screen`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
 
     // Both languages: their long words differ ("ПОГОВОРИМО?", "EXPERIENCE").
@@ -115,6 +119,20 @@ for (const width of [320, 390, 768, 1024, 1280, 1366, 1440]) {
       await page.goto(path);
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
       expect(overflow, path).toBe(0);
+
+      // Anything past the left edge, or past either edge in the fixed header,
+      // never shows as page scroll: it is simply cut off.
+      const cut = await page.evaluate(() =>
+        Array.from(document.querySelectorAll("header *, main *, footer *"))
+          .filter((el) => {
+            const box = el.getBoundingClientRect();
+            const style = getComputedStyle(el);
+            const outside = box.left < -0.5 || box.right > document.documentElement.clientWidth + 0.5;
+            return box.width >= 2 && box.height >= 2 && outside && style.visibility !== "hidden" && style.opacity !== "0";
+          })
+          .map((el) => el.textContent?.trim().slice(0, 30))
+      );
+      expect(cut, path).toEqual([]);
     }
   });
 }
