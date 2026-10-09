@@ -50,7 +50,9 @@ role, the comic lettering, and the night (default) and day editions.
   the default. Preserve `/ua` unless a URL migration is requested. The proxy skips
   `opengraph-image`, whose URL Next builds from the internal locale.
 - `src/data`: portfolio content (projects, experience, stack, contact, socials, the site
-  URL) and the globe data; `public`: project screenshots and icons.
+  URL), the globe's GeoJSON and the land mask drawn from it (`land-mask.json`; run
+  `node scripts/land-mask.mjs` after changing `globe.json`); `public`: project
+  screenshots and icons.
 - `src/lib`: Kyiv time-zone helpers, the reduced-motion hook and `cn`.
 - Use strict TypeScript, the `@/` import alias, double quotes and semicolons, matching
   surrounding code. Keep Server Components by default and client boundaries narrow.

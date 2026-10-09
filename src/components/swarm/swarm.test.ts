@@ -1,9 +1,12 @@
 import { describe, expect, it, vi } from "vitest";
 
+import landMask from "@/data/land-mask.json";
+
 import { fieldVelocity, fieldsAt, type Field, type Region } from "./dust";
 import type { SwarmEngine } from "./engine";
 import { hilbert, shuffle } from "./pairing";
 import { particleCount } from "./quality";
+import { kindAt, loadLandMask } from "./shapes";
 
 /** Just enough of an engine for the dust maths: one particle at (x, y). */
 function oneParticle(x: number, y: number, depth = 0.3, seed = 0.5) {
@@ -35,6 +38,21 @@ describe("pairing", () => {
   it("shuffles into a permutation", () => {
     const list = Array.from({ length: 50 }, (_, i) => i);
     expect([...shuffle([...list])].sort((a, b) => a - b)).toEqual(list);
+  });
+});
+
+describe("land mask", () => {
+  it("has runs that cover the map exactly", () => {
+    const cells = landMask.runs.filter((_, i) => i % 2 === 1).reduce((sum, count) => sum + count, 0);
+    expect(cells).toBe(landMask.width * landMask.height);
+  });
+
+  it("knows the sea, the land and Ukraine", async () => {
+    const mask = await loadLandMask();
+    expect(kindAt(mask, 50.45, 30.52)).toBe(2); // Kyiv
+    expect(kindAt(mask, 48.85, 2.35)).toBe(1); // Paris
+    expect(kindAt(mask, 30, -40)).toBe(0); // the Atlantic
+    expect(mask.ukraine[0].length).toBeGreaterThan(50);
   });
 });
 

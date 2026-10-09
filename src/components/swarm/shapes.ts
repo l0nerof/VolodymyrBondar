@@ -49,59 +49,21 @@ export type LandMask = {
   ukraine: number[][][];
 };
 
-type Geometry =
-  | { type: "Polygon"; coordinates: number[][][] }
-  | { type: "MultiPolygon"; coordinates: number[][][][] };
-type GeoJson = { features: { properties: { name: string }; geometry: Geometry }[] };
-
-/** Rasterises the existing globe GeoJSON once: 0 sea, 1 land, 2 Ukraine. */
+/** The globe's land, 0 sea, 1 land, 2 Ukraine, as scripts/land-mask.mjs
+ * drew it from the globe GeoJSON: 20 KB of run lengths instead of 566 KB of
+ * coastlines to download and draw in every visitor's browser. */
 export async function loadLandMask(): Promise<LandMask> {
-  const geo = (await import("@/data/globe.json")).default as unknown as GeoJson;
-  const width = 720;
-  const height = 360;
-  const canvas = document.createElement("canvas");
-  canvas.width = width;
-  canvas.height = height;
-  const ctx = canvas.getContext("2d", { willReadFrequently: true });
-  if (!ctx) throw new Error("swarm: no 2D context for the land mask");
-
-  const draw = (geometry: Geometry, fill: string) => {
-    const polygons = geometry.type === "Polygon" ? [geometry.coordinates] : geometry.coordinates;
-    ctx.fillStyle = fill;
-    for (const polygon of polygons) {
-      ctx.beginPath();
-      for (const ring of polygon) {
-        ring.forEach(([lon, lat], k) => {
-          const x = ((lon + 180) / 360) * width;
-          const y = ((90 - lat) / 180) * height;
-          if (k) ctx.lineTo(x, y);
-          else ctx.moveTo(x, y);
-        });
-        ctx.closePath();
-      }
-      ctx.fill("evenodd");
-    }
-  };
-
-  const ukraine = geo.features.find((f) => f.properties.name === "Ukraine");
-  for (const feature of geo.features) if (feature !== ukraine) draw(feature.geometry, "#0000ff");
-  if (ukraine) draw(ukraine.geometry, "#ff00ff");
-
-  const { data } = ctx.getImageData(0, 0, width, height);
+  const { width, height, runs, ukraine } = (await import("@/data/land-mask.json")).default;
   const kind = new Uint8Array(width * height);
-  for (let i = 0; i < kind.length; i++) {
-    if (data[i * 4] > 127) kind[i] = 2;
-    else if (data[i * 4 + 2] > 127) kind[i] = 1;
+  let at = 0;
+  for (let i = 0; i < runs.length; i += 2) {
+    kind.fill(runs[i], at, at + runs[i + 1]);
+    at += runs[i + 1];
   }
-  const ukraineRings = !ukraine
-    ? []
-    : ukraine.geometry.type === "Polygon"
-      ? ukraine.geometry.coordinates
-      : ukraine.geometry.coordinates.flat();
-  return { width, height, kind, ukraine: ukraineRings };
+  return { width, height, kind, ukraine };
 }
 
-function kindAt(mask: LandMask, lat: number, lon: number) {
+export function kindAt(mask: LandMask, lat: number, lon: number) {
   const x = Math.min(mask.width - 1, Math.max(0, Math.floor(((lon + 180) / 360) * mask.width)));
   const y = Math.min(mask.height - 1, Math.max(0, Math.floor(((90 - lat) / 180) * mask.height)));
   return mask.kind[y * mask.width + x];
