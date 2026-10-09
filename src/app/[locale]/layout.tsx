@@ -30,9 +30,8 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[lo
   const t = await getTranslations("Navigation");
 
   return (
-    // The URL says "ua", the language is Ukrainian: "uk".
     <html
-      lang={locale === "ua" ? "uk" : locale}
+      lang={locale}
       className={`${fontVariables} scroll-smooth`}
       data-scroll-behavior="smooth"
       suppressHydrationWarning

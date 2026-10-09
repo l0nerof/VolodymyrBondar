@@ -3,9 +3,10 @@
 import { Link, usePathname } from "@/navigation";
 import { cn } from "@/lib/utils";
 
+/** Ukrainian is "uk" for the code and "UA" on the switch (and in the URL). */
 const LANGUAGES = [
-  { locale: "ua", lang: "uk" },
-  { locale: "en", lang: "en" },
+  { locale: "uk", label: "UA" },
+  { locale: "en", label: "EN" },
 ] as const;
 
 /** UA / EN: the same page in the other language. */
@@ -24,15 +25,15 @@ export function LangSwitch({ locale, label }: { locale: string; label: string })
           <Link
             href={pathname}
             locale={language.locale}
-            lang={language.lang}
-            hrefLang={language.lang}
+            lang={language.locale}
+            hrefLang={language.locale}
             aria-current={locale === language.locale ? "true" : undefined}
             className={cn(
               "py-2 transition-colors duration-150",
               locale === language.locale ? "text-ink" : "text-muted hover:text-ink"
             )}
           >
-            {language.locale.toUpperCase()}
+            {language.label}
           </Link>
         </span>
       ))}

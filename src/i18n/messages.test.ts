@@ -3,11 +3,11 @@ import { createTranslator } from "next-intl";
 import { describe, expect, it } from "vitest";
 
 import en from "../../messages/en.json";
-import ua from "../../messages/ua.json";
+import uk from "../../messages/uk.json";
 
 type Tree = { [key: string]: string | Tree };
 
-const LOCALES = { ua: ua as Tree, en: en as Tree };
+const LOCALES = { uk: uk as Tree, en: en as Tree };
 
 /** Every message key as a dotted path, sorted. */
 function keysOf(tree: Tree, prefix = ""): string[] {
@@ -46,7 +46,7 @@ function valuesFor(message: string) {
 }
 
 describe("messages", () => {
-  const keys = keysOf(LOCALES.ua);
+  const keys = keysOf(LOCALES.uk);
 
   it("has the same keys in every locale", () => {
     expect(keysOf(LOCALES.en)).toEqual(keys);
@@ -54,10 +54,10 @@ describe("messages", () => {
 
   it("uses the same arguments and tags in every locale", () => {
     for (const key of keys) {
-      const [uk, english] = [parse(messageAt(LOCALES.ua, key)), parse(messageAt(LOCALES.en, key))];
+      const [ukrainian, english] = [parse(messageAt(LOCALES.uk, key)), parse(messageAt(LOCALES.en, key))];
       // The check is one-way (every argument of the first is in the second),
       // so run it both ways. Plural branches may differ: Ukrainian has "few".
-      for (const [a, b] of [[uk, english], [english, uk]]) {
+      for (const [a, b] of [[ukrainian, english], [english, ukrainian]]) {
         const same = isStructurallySame(a, b);
         expect(same.success, `${key}: ${same.error?.message}`).toBe(true);
       }
@@ -68,7 +68,7 @@ describe("messages", () => {
     for (const [locale, tree] of Object.entries(LOCALES)) {
       const errors: string[] = [];
       const t = createTranslator({
-        locale: locale === "ua" ? "uk" : locale,
+        locale,
         messages: tree,
         onError: (error) => errors.push(error.message),
       });

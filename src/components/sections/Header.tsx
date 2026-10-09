@@ -1,6 +1,7 @@
 import { getLocale, getTranslations } from "next-intl/server";
 
 import { EditionToggle } from "@/components/comic/EditionToggle";
+import { getPathname } from "@/navigation";
 
 import { Contents } from "./Contents";
 import { LangSwitch } from "./LangSwitch";
@@ -18,9 +19,10 @@ export async function Header() {
   const locale = await getLocale();
   const t = await getTranslations("Navigation");
   const edition = await getTranslations("Edition");
-  // With the locale in the path, the links work from any page: on the home
-  // page they scroll, from the 404 page they lead home.
-  const links = SECTIONS.map(({ id, key }) => ({ href: `/${locale}#${id}`, label: t(key) }));
+  // The home page's address ("/ua" or "/en") in front of each anchor: on the
+  // home page the links scroll, from the 404 page they lead home.
+  const home = getPathname({ locale, href: "/" });
+  const links = SECTIONS.map(({ id, key }) => ({ href: `${home}#${id}`, label: t(key) }));
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b-[3px] border-line-strong bg-paper">
@@ -28,7 +30,7 @@ export async function Header() {
           a 320px phone. */}
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-4 sm:gap-6 sm:px-6">
         <a
-          href={`/${locale}#hero`}
+          href={`${home}#hero`}
           aria-label={`V.B. · ${t("home")}`}
           className="font-sfx text-2xl text-accent [paint-order:stroke_fill] [-webkit-text-stroke:5px_var(--on-accent)]"
         >
