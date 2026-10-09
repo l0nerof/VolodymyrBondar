@@ -1,4 +1,9 @@
 {
+  "Metadata": {
+    "name": "Volodymyr Bondar",
+    "title": "Volodymyr Bondar · Software engineer",
+    "description": "Software engineer at Panenco: interfaces in React and TypeScript, APIs and Node.js backends, monorepos and team tooling. Projects, experience and contacts."
+  },
   "Navigation": {
     "about": "About",
     "projects": "Work",

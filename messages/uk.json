@@ -1,4 +1,9 @@
 {
+  "Metadata": {
+    "name": "Володимир Бондар",
+    "title": "Володимир Бондар · Software engineer",
+    "description": "Software engineer у Panenco: інтерфейси на React і TypeScript, API та бекенд на Node.js, монорепо й тулінг команди. Проєкти, досвід і контакти."
+  },
   "Navigation": {
     "about": "Про мене",
     "projects": "Проєкти",

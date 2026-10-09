@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { type Locale, NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
@@ -7,14 +7,40 @@ import { fontVariables } from "@/components/comic/fonts";
 import { Footer } from "@/components/sections/Footer";
 import { Header } from "@/components/sections/Header";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
+import { SITE_URL } from "@/data/site";
 import { routing } from "@/i18n/routing";
+import { getPathname } from "@/navigation";
 
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Volodymyr Bondar - Front-end Developer",
-};
+/** The page in each language points at the other, so search engines show
+ * the right one; link previews get the cover (opengraph-image.tsx). */
+export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Promise<Metadata> {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) return {};
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const home = (other: Locale) => getPathname({ locale: other, href: "/" });
+
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: t("title"),
+    description: t("description"),
+    alternates: {
+      canonical: home(locale),
+      languages: { uk: home("uk"), en: home("en"), "x-default": home(routing.defaultLocale) },
+    },
+    openGraph: {
+      type: "website",
+      siteName: t("name"),
+      title: t("title"),
+      description: t("description"),
+      url: home(locale),
+      locale: locale === "uk" ? "uk_UA" : "en_US",
+      alternateLocale: locale === "uk" ? "en_US" : "uk_UA",
+    },
+    twitter: { card: "summary_large_image" },
+  };
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
