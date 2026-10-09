@@ -1,3 +1,15 @@
+export type StackGroupKey = "languages" | "data" | "styling" | "testing" | "tooling";
+
+/** The stack by category, in the order the tabs show it. The category names
+ * are in messages (About.stackGroups); the technologies are proper names. */
+export const STACK_GROUPS: { key: StackGroupKey; items: string[] }[] = [
+  { key: "languages", items: ["TypeScript", "React", "Next.js", "Node.js", "Nest.js"] },
+  { key: "data", items: ["React Query", "Zustand", "Redux", "Zod", "Prisma", "Supabase"] },
+  { key: "styling", items: ["Tailwind", "SCSS", "BEM", "shadcn", "Framer Motion"] },
+  { key: "testing", items: ["Vitest", "Jest", "React Testing Library", "Playwright", "Cypress"] },
+  { key: "tooling", items: ["Turborepo", "Monorepo", "Docker", "Vite", "Git", "Claude Code"] },
+];
+
 /** Logos the swarm can draw: on the Stack stage, and typed in the hero.
  * Monorepo and Playwright have no icon and are drawn as their name in dots.
  * The icons added for the swarm were rendered from react-icons' Simple Icons

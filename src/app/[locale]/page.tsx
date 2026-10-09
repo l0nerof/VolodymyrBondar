@@ -1,5 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 
+import { About } from "@/components/sections/About";
 import { Hero } from "@/components/sections/Hero";
 import { Swarm } from "@/components/swarm/Swarm";
 
@@ -15,6 +16,9 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
       <Swarm />
       <div data-swarm-field="stars">
         <Hero />
+      </div>
+      <div data-swarm-field="orbit">
+        <About />
       </div>
     </>
   );

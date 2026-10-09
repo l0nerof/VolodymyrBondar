@@ -17,7 +17,7 @@ for (const { path, lang, work } of LOCALES) {
     await expect(page.getByRole("heading", { level: 1, name: "Volodymyr Bondar" })).toBeVisible();
     await expect(page.getByRole("link", { name: work })).toBeVisible();
     // Ukraine's offset is worked out for today, not written down.
-    await expect(page.getByText(/UTC\+[23]/)).toBeVisible();
+    await expect(page.locator("#hero").getByText(/UTC\+[23]$/)).toBeVisible();
     expect(problems).toEqual([]);
   });
 }

@@ -46,31 +46,52 @@
   },
 
   "About": {
-    "btn": "Contact me",
-    "card1": {
-      "title": "I prioritize client collaboration, fostering open communication",
-      "desc": ""
+    "chapter": "About",
+    "title": "What I bring to a team",
+    "nowLabel": "Currently",
+    "now": "Software engineer at Panenco. I run product work start to finish: I design the data schema, write the Node.js API, and build the interface in React and Next.js.",
+    "stats": {
+      "years": "{count, plural, one {year} other {years}} in web",
+      "projects": "{count, plural, one {project} other {projects}} in this portfolio",
+      "roles": "{count, plural, one {team and role} other {teams and roles}}"
     },
-    "card2": {
-      "title": "I'm very flexible with time zone communications",
-      "desc": ""
+    "stack": "Stack",
+    "stackGroups": {
+      "languages": "Language and frameworks",
+      "data": "State and data",
+      "styling": "Styling",
+      "testing": "Testing",
+      "tooling": "Tooling"
     },
-    "card3": {
-      "title": "My tech stack",
-      "desc": "I constantly try to improve"
-    },
-    "card4": {
-      "title": "Driven by curiosity and innovation",
-      "desc": ""
-    },
-    "card5": {
-      "title": "Tech enthusiast with a passion for development",
-      "desc": ""
-    },
-    "card6": {
-      "title": "Seeking to add value to your team",
-      "desc": ""
+    "whereLabel": "Where I am",
+    "where": "Ukraine, <offset></offset>. My day fully overlaps with the rest of Europe, and with the US until their early afternoon.",
+    "capabilities": {
+      "frontend": {
+        "title": "Frontend from scratch",
+        "body": "Next.js or Vite, typing, state, routing, a design system — through to working production."
+      },
+      "apis": {
+        "title": "APIs and integrations",
+        "body": "Node.js and Nest.js, the database schema, third-party services and payment providers."
+      },
+      "legacy": {
+        "title": "Untangling legacy",
+        "body": "Walk into someone else's codebase, understand it, and rewrite it in pieces without stopping releases."
+      },
+      "tooling": {
+        "title": "Team tooling",
+        "body": "Monorepos, Turborepo, CI, Vitest and Playwright tests — so releasing stops being an event."
+      }
     }
+  },
+
+  "Visitor": {
+    "home": "You are in Ukraine too",
+    "place": "Your time zone: {place} · {km, number} km · {offset}",
+    "unknown": "Your time: {offset}",
+    "same": "same time as me",
+    "ahead": "{hours, plural, one {# hour} other {# hours}} ahead of me",
+    "behind": "{hours, plural, one {# hour} other {# hours}} behind me"
   },
 
   "Projects": {

@@ -37,9 +37,10 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[lo
       suppressHydrationWarning
     >
       <body>
-        {/* Client components get their words from the server as props; only
-            the error page, a client component of Next's, reads messages. */}
-        <NextIntlClientProvider messages={{ Error: messages.Error }}>
+        {/* Client components get their words from the server as props. Only
+            two read messages: the error page (Next renders it) and the
+            visitor line, whose numbers only exist in the browser. */}
+        <NextIntlClientProvider messages={{ Error: messages.Error, Visitor: messages.Visitor }}>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
             <a
               href="#main"
