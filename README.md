@@ -1,25 +1,24 @@
-# Volodymyr Bondar Portfolio
+# Volodymyr Bondar · Portfolio
 
-Personal portfolio website showcasing my experience, work approach, and resume, with options to connect via social media. The site offers a stylish and functional experience, presenting both light and dark themes and supporting internationalization in multiple languages.
+My portfolio, drawn as issue #1 of a comic: the name lettered by a swarm of particles,
+chapters for my work, experience and approach, and a last page to get in touch. It
+comes in a night edition (the default) and a day edition, in Ukrainian (`/ua`) and
+English (`/en`).
 
-## Features
+Live: https://volodymyrbondar.vercel.app
 
-- **Internationalization**: The website is available in multiple languages, enhancing accessibility for a diverse audience.
-- **Theming**: Users can switch between light and dark themes for an optimal viewing experience.
-- **Dynamic Animations**: Framer Motion enhances user interaction with smooth and engaging animations.
-- **Contact Options**: Visitors can access my resume or connect via social media links for easy communication.
+## Inside
 
-## Technology Stack
-
-- **TypeScript**: Ensures strong typing for maintainable and reliable code.
-- **React** & **Next.js**: Powers the website’s dynamic user interface and enables server-side rendering and static site generation.
-- **Tailwind CSS**: Provides a responsive and modern design, allowing rapid UI development.
-- **Framer Motion**: Used for advanced animations and transitions to create an engaging experience.
-- **next-intl**: Manages multilingual content seamlessly.
-- **next-themes**: Implements theme switching between light and dark modes.
-- **three.js**: Adds 3D elements for a unique visual effect.
-- **aceternity**: Enhances site functionality.
-- **marquee**: Creates a moving marquee effect for a stylish text flow.
+- **Next.js App Router** with Server Components; the interactive parts are small client
+  islands.
+- **A WebGL particle swarm**, written from scratch: a few thousand particles in one draw
+  call letter the name, the clock and the stack, draw the globe and flock between
+  sections. They answer the cursor, clicks and typing, hold still for reduced motion,
+  and give way to plain text without WebGL.
+- **Tailwind CSS 4** with the comic's design tokens for both editions.
+- **next-intl** with ICU plurals for Ukrainian and English, plus metadata, a link-preview
+  cover and a sitemap for both languages.
+- **Vitest** for the logic and **Playwright** for the pages, at desktop and phone sizes.
 
 ## Local development
 
@@ -30,17 +29,14 @@ npm ci
 npm run dev
 ```
 
-Before shipping, run `npm run lint`, `npm run typecheck`, and `npm run build`.
-Use `npm start` to check the production build locally. The site supports `/ua`
-(default) and `/en`. See [AGENTS.md](AGENTS.md) for project conventions and browser checks.
+Checks: `npm run lint`, `npm run typecheck` and `npm test`, then `npm run build` and
+`npm run test:e2e` (Playwright starts the production server itself). `scripts/qa` holds
+browser checks for the swarm; see its README. [AGENTS.md](AGENTS.md) has the project
+conventions.
 
-Vercel uses Node.js `24.x` from `package.json`; the build logs print the actual runtime.
-Dependency/runtime updates and UI/UX changes should be shipped separately.
+Vercel builds with Node.js `24.x` from `package.json`; the build logs print the actual
+runtime.
 
 ## Contact
 
-For any questions or collaboration inquiries, feel free to reach out via the contact links provided on the site.
-
----
-
-This README provides an overview of the **VolodymyrBondar** portfolio project, detailing its features and technology stack.
+The last page of the site has my email, resume and channels.
