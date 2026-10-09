@@ -1,24 +1,18 @@
-import Link from "next/link";
-import { useTranslations, useLocale } from "next-intl";
-import { FaLocationArrow } from "react-icons/fa";
-import MagicButton from "@/components/ui/MagicButton";
+import { useTranslations } from "next-intl";
 
-function NotFound() {
-  const locale = useLocale();
+import { SectionHead } from "@/components/comic/SectionHead";
+import { popButton } from "@/components/comic/buttons";
+import { Link } from "@/navigation";
+
+export default function NotFound() {
   const t = useTranslations("NotFound");
 
   return (
-    <main className="h-[89vh] flex-col flex justify-center items-center gap-5">
-      <h1 className="text-3xl font-bold dark:text-white text-black-100">
-        {t("title")}
-      </h1>
-      <Link href={`/${locale}`}>
-        <MagicButton icon={<FaLocationArrow />} position="right">
-          {t("btn")}
-        </MagicButton>
+    <section className="flex min-h-[70svh] flex-col justify-center pt-29 pb-20">
+      <SectionHead as="h1" chapter={t("caption")} title={t("title")} />
+      <Link href="/" className={`${popButton.accent} self-start`}>
+        {t("home")} <span aria-hidden>→</span>
       </Link>
-    </main>
+    </section>
   );
 }
-
-export default NotFound;

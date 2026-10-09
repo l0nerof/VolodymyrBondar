@@ -1,18 +1,15 @@
-import { Inter } from "next/font/google";
 import type { Metadata } from "next";
-
-import "./globals.css";
-
-import { ThemeProvider } from "@/components/ui/ThemeProvider";
-import Footer from "@/components/Footer/Footer";
-import NavBar from "@/components/ui/NavBar";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import { fontVariables } from "@/components/comic/fonts";
+import { Footer } from "@/components/sections/Footer";
+import { Header } from "@/components/sections/Header";
+import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import { routing } from "@/i18n/routing";
 
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -23,44 +20,39 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-type Props = {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-};
-
-export default async function RootLayout({ children, params }: Props) {
+export default async function RootLayout({ children, params }: LayoutProps<"/[locale]">) {
   const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) notFound();
 
-  // Ensure that the incoming `locale` is valid
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
-
-  // Enable static rendering
+  // Static rendering for both locales.
   setRequestLocale(locale);
-
-  // Get messages for the client provider
   const messages = await getMessages();
+  const t = await getTranslations("Navigation");
 
   return (
-    <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
-      <body
-        className={`${inter.className} dark:bg-black-100 dark:text-white text-black-100 bg-white`}
-      >
-        <NextIntlClientProvider messages={messages}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <div className="max-w-7xl mx-auto px-2">
-              <NavBar />
-
-              <main>{children}</main>
-
-              <Footer />
-            </div>
+    // The URL says "ua", the language is Ukrainian: "uk".
+    <html
+      lang={locale === "ua" ? "uk" : locale}
+      className={`${fontVariables} scroll-smooth`}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
+      <body>
+        {/* Client components get their words from the server as props; only
+            the error page, a client component of Next's, reads messages. */}
+        <NextIntlClientProvider messages={{ Error: messages.Error }}>
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+            <a
+              href="#main"
+              className="sr-only border-2 border-on-accent bg-accent px-3 py-2 text-sm font-bold text-on-accent focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60]"
+            >
+              {t("skip")}
+            </a>
+            <Header />
+            <main id="main" className="mx-auto max-w-7xl px-4 sm:px-6">
+              {children}
+            </main>
+            <Footer />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
