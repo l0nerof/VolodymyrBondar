@@ -1,3 +1,4 @@
+import { isStructurallySame, parse } from "@formatjs/icu-messageformat-parser";
 import { createTranslator } from "next-intl";
 import { describe, expect, it } from "vitest";
 
@@ -23,10 +24,25 @@ function messageAt(tree: Tree, path: string): string {
   return value;
 }
 
-/** ICU argument names: `{name}`, `{count, plural, …}`. A `#` inside a plural
- * branch is not an argument. */
-function argumentsOf(message: string): string[] {
-  return [...new Set(Array.from(message.matchAll(/\{\s*(\w+)\s*[,}]/g), (match) => match[1]))].sort();
+/** Placeholder values for a message: 2 for every argument, and for rich text
+ * tags (<tag></tag>) a function, as t.rich needs. */
+function valuesFor(message: string) {
+  const values: Record<string, unknown> = {};
+  const visit = (elements: ReturnType<typeof parse>) => {
+    for (const element of elements) {
+      if ("children" in element) {
+        values[element.value] = () => element.value;
+        visit(element.children);
+      } else if ("options" in element) {
+        values[element.value] = 2;
+        Object.values(element.options).forEach((option) => visit(option.value));
+      } else if (element.type !== 0 && element.type !== 7) {
+        values[element.value] = 2;
+      }
+    }
+  };
+  visit(parse(message));
+  return values;
 }
 
 describe("messages", () => {
@@ -36,9 +52,15 @@ describe("messages", () => {
     expect(keysOf(LOCALES.en)).toEqual(keys);
   });
 
-  it("uses the same arguments in every locale", () => {
+  it("uses the same arguments and tags in every locale", () => {
     for (const key of keys) {
-      expect(argumentsOf(messageAt(LOCALES.en, key)), key).toEqual(argumentsOf(messageAt(LOCALES.ua, key)));
+      const [uk, english] = [parse(messageAt(LOCALES.ua, key)), parse(messageAt(LOCALES.en, key))];
+      // The check is one-way (every argument of the first is in the second),
+      // so run it both ways. Plural branches may differ: Ukrainian has "few".
+      for (const [a, b] of [[uk, english], [english, uk]]) {
+        const same = isStructurallySame(a, b);
+        expect(same.success, `${key}: ${same.error?.message}`).toBe(true);
+      }
     }
   });
 
@@ -51,8 +73,10 @@ describe("messages", () => {
         onError: (error) => errors.push(error.message),
       });
       for (const key of keysOf(tree)) {
-        const values = Object.fromEntries(argumentsOf(messageAt(tree, key)).map((name) => [name, 2]));
-        t(key as never, values as never);
+        const message = messageAt(tree, key);
+        // Rich text goes through t.rich, as in the components.
+        if (/<\w+>/.test(message)) t.rich(key as never, valuesFor(message) as never);
+        else t(key as never, valuesFor(message) as never);
       }
       expect(errors, locale).toEqual([]);
     }
