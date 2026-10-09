@@ -41,7 +41,7 @@ test("the language switch shows the same page in English", async ({ page }) => {
   const problems = watchConsole(page);
   await page.goto("/ua");
 
-  await page.getByRole("link", { name: "EN" }).click();
+  await page.getByRole("link", { name: "EN", exact: true }).click();
 
   await expect(page).toHaveURL(/\/en$/);
   await expect(page.locator("html")).toHaveAttribute("lang", "en");

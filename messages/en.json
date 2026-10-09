@@ -10,18 +10,15 @@
     "language": "Language",
     "skip": "Skip to content"
   },
-
   "Edition": {
     "label": "Edition",
     "night": "Night",
     "day": "Day"
   },
-
   "Comic": {
     "chapter": "Chapter {number} · {title}",
     "theEnd": "End of issue #1"
   },
-
   "Hero": {
     "issue": "Issue #1 · Ukraine",
     "status": "Open to new projects",
@@ -36,15 +33,26 @@
     "work": "See my work",
     "contact": "Get in touch",
     "hints": {
-      "cursor": { "key": "Cursor", "does": "scatters" },
-      "click": { "key": "Click", "does": "sends a wave" },
-      "type": { "key": "Type", "does": "writes your own" },
-      "tap": { "key": "Tap", "does": "sends a wave" },
+      "cursor": {
+        "key": "Cursor",
+        "does": "scatters"
+      },
+      "click": {
+        "key": "Click",
+        "does": "sends a wave"
+      },
+      "type": {
+        "key": "Type",
+        "does": "writes your own"
+      },
+      "tap": {
+        "key": "Tap",
+        "does": "sends a wave"
+      },
       "typing": "Esc brings the name back · try “react”, “ukraine” or “coffee”"
     },
     "sfx": "BAM!"
   },
-
   "About": {
     "chapter": "About",
     "title": "What I bring to a team",
@@ -84,7 +92,6 @@
       }
     }
   },
-
   "Visitor": {
     "home": "You are in Ukraine too",
     "place": "Your time zone: {place} · {km, number} km · {offset}",
@@ -93,41 +100,67 @@
     "ahead": "{hours, plural, one {# hour} other {# hours}} ahead of me",
     "behind": "{hours, plural, one {# hour} other {# hours}} behind me"
   },
-
   "Projects": {
+    "chapter": "Work",
     "title": "A small selection of",
     "highlight": " recent projects",
-    "link_btn": "Check Live Site",
-    "card1": {
-      "title": "Rollin",
-      "desc": "Rollin is an international casino fully managed by CMS. Games are integrated through API requests to business partners, and the project is built on modern and proven technologies. BettorFaster project."
+    "filters": {
+      "label": "Show",
+      "all": "All",
+      "commercial": "Commercial",
+      "personal": "Personal"
     },
-    "card2": {
-      "title": "Nemo Money",
-      "desc": "Nemo Money is a platform for creating landing pages using artificial intelligence. The project is implemented using best practices and popular technologies. BettorFaster project."
-    },
-    "card3": {
-      "title": "BondarDesign",
-      "desc": "BondarDesign is a portfolio website for a 3D visualizer and designer, built to showcase professional work and streamline communication with potential clients. Commercial project."
-    },
-    "card4": {
-      "title": "Dot Sorter Game",
-      "desc": "Dot Sorter Game is a game where you need to collect dots into groups with the same colors. The game is built on modern technologies and has a clear interface."
-    },
-    "card5": {
-      "title": "The Wild Oasis (Client Version)",
-      "desc": "The Wild Oasis is the client-side version of a hotel management application. Users can register, search for available rooms, and make reservations for their preferred dates."
-    },
-    "card6": {
-      "title": "The Wild Oasis (Internal Management Version)",
-      "desc": "The Wild Oasis is an internal hotel management application where users can register, view hotel statistics, add rooms, check room status, and switch themes."
-    },
-    "card7": {
-      "title": "Natours",
-      "desc": "Natours is a stylish, responsive single-page website showcasing adventure tours. Users can explore various options for adventure vacations."
+    "figure": "Fig.",
+    "role": "Role",
+    "result": "Result",
+    "live": "Open live site",
+    "private": "Private",
+    "sfx": "WHOOSH!",
+    "items": {
+      "rollin": {
+        "title": "Rollin",
+        "desc": "Rollin is an international casino fully managed by CMS. Games are integrated through API requests to business partners, and the project is built on modern and proven technologies. BettorFaster project.",
+        "role": "Frontend, product modules",
+        "result": "CMS-driven game catalogue with partner integrations"
+      },
+      "nemoMoney": {
+        "title": "Nemo Money",
+        "desc": "Nemo Money is a platform for creating landing pages using artificial intelligence. The project is implemented using best practices and popular technologies. BettorFaster project.",
+        "role": "Frontend",
+        "result": "AI-assisted landing page generation"
+      },
+      "bondarDesign": {
+        "title": "BondarDesign",
+        "desc": "BondarDesign is a portfolio website for a 3D visualizer and designer, built to showcase professional work and streamline communication with potential clients. Commercial project.",
+        "role": "Everything — design through deploy",
+        "result": "3D visualiser portfolio with a client enquiry flow"
+      },
+      "dotSorter": {
+        "title": "Dot Sorter Game",
+        "desc": "Dot Sorter Game is a game where you need to collect dots into groups with the same colors. The game is built on modern technologies and has a clear interface.",
+        "role": "Everything",
+        "result": "A colour-sorting puzzle game"
+      },
+      "wildOasis": {
+        "title": "The Wild Oasis (Client Version)",
+        "desc": "The Wild Oasis is the client-side version of a hotel management application. Users can register, search for available rooms, and make reservations for their preferred dates.",
+        "role": "Everything",
+        "result": "Guest-facing hotel room booking"
+      },
+      "wildOasisAdmin": {
+        "title": "The Wild Oasis (Internal Management Version)",
+        "desc": "The Wild Oasis is an internal hotel management application where users can register, view hotel statistics, add rooms, check room status, and switch themes.",
+        "role": "Everything",
+        "result": "Admin panel with stats and room status"
+      },
+      "natours": {
+        "title": "Natours",
+        "desc": "Natours is a stylish, responsive single-page website showcasing adventure tours. Users can explore various options for adventure vacations.",
+        "role": "Everything",
+        "result": "Single-page adventure tours site"
+      }
     }
   },
-
   "WorkExperience": {
     "title": "My",
     "highlight": " work experience",
@@ -135,28 +168,23 @@
       "title": "Freelance",
       "desc": "Worked on several commercial projects, delivering custom web solutions for clients and enhancing their digital presence."
     },
-
     "card2": {
       "title": "Front-end Developer Assistant",
       "desc": "Collaborated with a developer, assisting in various tasks including building features and debugging applications."
     },
-
     "card3": {
       "title": "Junior Front-end Developer",
       "desc": "Worked as a junior developer at BettorFaster, improving interfaces, refining UX, and maintaining core product modules."
     },
-    
     "card4": {
       "title": "Front-end Developer",
       "desc": "Worked at DevelopsToday on scalable web apps: owned the frontend architecture and was also involved in backend development."
     },
-
     "card5": {
       "title": "Software engineer",
       "desc": "Currently working at Panenco as a Software engineer, developing the product and working across the frontend and backend parts of the application."
     }
   },
-
   "Approach": {
     "title": "My",
     "highlight": " approach",
@@ -165,37 +193,31 @@
       "desc": "I carefully analyze the needs of each project, considering both business goals and user experience. Together, we'll define clear objectives and a roadmap to ensure a well-structured, user-friendly project.",
       "btn": "Phase 1"
     },
-
     "card2": {
       "title": "Efficient Development & Transparent Communication",
       "desc": "Throughout the development process, I prioritize clean, scalable code while keeping you informed with regular progress updates, ensuring transparency and collaboration every step of the way.",
       "btn": "Phase 2"
     },
-
     "card3": {
       "title": "Final Testing & Seamless Launch",
       "desc": "Before launching, I rigorously test the website for performance, responsiveness, and compatibility across all devices. I ensure a smooth, hassle-free launch, leaving you with a fully functional and professional project.",
       "btn": "Phase 3"
     }
   },
-
   "Contact": {
     "title": "Interested in collaborating to bring your vision to life?",
     "highlight": " Let's make it happen!",
     "reach-out": "Explore my resume to learn more about my skills and experience, and reach out to discuss how I can help you achieve your creative goals.",
     "btn": "View my resume"
   },
-
   "Footer": {
     "copyright": "© {year} Volodymyr Bondar"
   },
-
   "NotFound": {
     "caption": "Error 404",
     "title": "This page is not in the issue",
     "home": "Back to the front page"
   },
-
   "Error": {
     "caption": "Error",
     "title": "Something went wrong",

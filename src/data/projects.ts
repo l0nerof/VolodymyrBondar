@@ -18,8 +18,8 @@ export type Project = {
   stack: string[];
 };
 
-// PLACEHOLDER years (from the prototype): confirm them before this reaches
-// main. Titles, descriptions, roles and results are in messages (Projects).
+/** In the gallery's order. Titles, descriptions, roles and results are in
+ * messages (Projects.items). */
 export const PROJECTS: Project[] = [
   {
     key: "rollin",
