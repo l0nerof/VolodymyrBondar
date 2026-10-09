@@ -1,6 +1,6 @@
-// Draws every particle in one gl.POINTS call. Canvas 2D needed a
-// fillStyle string per particle to animate colour, which cost more than the
-// physics; here the whole swarm is one buffer upload per frame.
+// Draws every particle in one gl.POINTS call. Canvas 2D needed a fillStyle
+// string per particle to animate colour, which cost more than the physics;
+// here the whole swarm is one buffer upload per frame.
 
 export const FLOATS_PER_POINT = 7; // x, y, r, g, b, a, size
 
@@ -46,22 +46,11 @@ function compile(gl: WebGLRenderingContext, type: number, source: string) {
   return shader;
 }
 
-export type Renderer = {
-  resize: (width: number, height: number, dpr: number) => void;
-  draw: (data: Float32Array, count: number, additive: boolean) => void;
-  destroy: () => void;
-};
-
-export function createRenderer(canvas: HTMLCanvasElement): Renderer | null {
-  const gl = canvas.getContext("webgl", {
-    alpha: true,
-    antialias: false,
-    premultipliedAlpha: true,
-  });
-  if (!gl) return null;
-
+/** Everything that lives on the GPU. A lost context takes all of it, so it
+ * is built again from scratch when the context comes back. */
+function setup(gl: WebGLRenderingContext) {
   const program = gl.createProgram();
-  if (!program) return null;
+  if (!program) throw new Error("swarm: could not create a program");
   gl.attachShader(program, compile(gl, gl.VERTEX_SHADER, VERTEX));
   gl.attachShader(program, compile(gl, gl.FRAGMENT_SHADER, FRAGMENT));
   gl.linkProgram(program);
@@ -85,35 +74,88 @@ export function createRenderer(canvas: HTMLCanvasElement): Renderer | null {
     gl.vertexAttribPointer(location, size, gl.FLOAT, false, stride, offset * 4);
   }
 
-  const uRes = gl.getUniformLocation(program, "u_res");
-  const uDpr = gl.getUniformLocation(program, "u_dpr");
   gl.enable(gl.BLEND);
   gl.clearColor(0, 0, 0, 0);
+  return {
+    program,
+    buffer,
+    uRes: gl.getUniformLocation(program, "u_res"),
+    uDpr: gl.getUniformLocation(program, "u_dpr"),
+  };
+}
+
+export type Renderer = {
+  resize: (width: number, height: number, dpr: number) => void;
+  draw: (data: Float32Array, count: number, additive: boolean) => void;
+  destroy: () => void;
+};
+
+/** `onLost` / `onRestored` hear about the GPU taking the context away (a
+ * driver reset, too many WebGL pages open) and giving it back. */
+export function createRenderer(
+  canvas: HTMLCanvasElement,
+  { onLost, onRestored }: { onLost: () => void; onRestored: () => void }
+): Renderer | null {
+  const gl = canvas.getContext("webgl", {
+    alpha: true,
+    antialias: false,
+    premultipliedAlpha: true,
+  });
+  if (!gl) return null;
+
+  let gpu: ReturnType<typeof setup> | null = setup(gl);
+  let size = { width: 1, height: 1, dpr: 1 };
+
+  const applySize = () => {
+    if (!gpu) return;
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    gl.uniform2f(gpu.uRes, size.width, size.height);
+    gl.uniform1f(gpu.uDpr, size.dpr);
+  };
+
+  const lost = (event: Event) => {
+    // Without preventDefault the browser never gives the context back.
+    event.preventDefault();
+    gpu = null;
+    onLost();
+  };
+  const restored = () => {
+    try {
+      gpu = setup(gl);
+    } catch (error) {
+      console.error("swarm: could not rebuild after the WebGL context came back", error);
+      return;
+    }
+    applySize();
+    onRestored();
+  };
+  canvas.addEventListener("webglcontextlost", lost);
+  canvas.addEventListener("webglcontextrestored", restored);
 
   return {
     resize(width, height, dpr) {
+      size = { width, height, dpr };
       canvas.width = Math.round(width * dpr);
       canvas.height = Math.round(height * dpr);
-      gl.viewport(0, 0, canvas.width, canvas.height);
-      gl.uniform2f(uRes, width, height);
-      gl.uniform1f(uDpr, dpr);
+      applySize();
     },
     draw(data, count, additive) {
+      if (!gpu) return;
       // Additive glow reads as light on the dark theme; on white it washes the
       // dots out, so the light theme gets ordinary "over" blending.
       if (additive) gl.blendFunc(gl.ONE, gl.ONE);
       else gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
       gl.clear(gl.COLOR_BUFFER_BIT);
-      gl.bufferData(
-        gl.ARRAY_BUFFER,
-        data.subarray(0, count * FLOATS_PER_POINT),
-        gl.DYNAMIC_DRAW
-      );
+      gl.bufferData(gl.ARRAY_BUFFER, data.subarray(0, count * FLOATS_PER_POINT), gl.DYNAMIC_DRAW);
       gl.drawArrays(gl.POINTS, 0, count);
     },
     destroy() {
-      gl.deleteBuffer(buffer);
-      gl.deleteProgram(program);
+      canvas.removeEventListener("webglcontextlost", lost);
+      canvas.removeEventListener("webglcontextrestored", restored);
+      if (gpu) {
+        gl.deleteBuffer(gpu.buffer);
+        gl.deleteProgram(gpu.program);
+      }
     },
   };
 }

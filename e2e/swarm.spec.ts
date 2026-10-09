@@ -51,3 +51,25 @@ test("with reduced motion the swarm hints are gone", async ({ page }) => {
 
   await expect(page.locator("[data-swarm-hint]")).toBeHidden();
 });
+
+test("a lost WebGL context hands the name back as text; the swarm resumes", async ({ page }) => {
+  const problems = watchConsole(page);
+  await page.goto("/ua");
+  const name = page.getByRole("heading", { level: 1, name: "Volodymyr Bondar" });
+  await expect(name).toHaveAttribute("data-swarm-ready", "true");
+
+  // What a GPU reset does, on demand: the context goes, then comes back.
+  await page.evaluate(() => {
+    const gl = document.querySelector("canvas")!.getContext("webgl")!;
+    const lose = gl.getExtension("WEBGL_lose_context")!;
+    (window as unknown as { lose: WEBGL_lose_context }).lose = lose;
+    lose.loseContext();
+  });
+  await expect(name).not.toHaveAttribute("data-swarm-ready", "true");
+  await expect(name).not.toHaveCSS("color", "rgba(0, 0, 0, 0)");
+
+  await page.evaluate(() => (window as unknown as { lose: WEBGL_lose_context }).lose.restoreContext());
+  await expect(name).toHaveAttribute("data-swarm-ready", "true");
+  // Chrome itself reports the forced loss; anything else is ours.
+  expect(problems.filter((line) => !line.includes("CONTEXT_LOST_WEBGL"))).toEqual([]);
+});

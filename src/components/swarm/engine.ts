@@ -95,6 +95,8 @@ export class SwarmEngine {
   frameId = 0;
   resizeTimer = 0;
   readonly cleanups: (() => void)[] = [];
+  /** Text the swarm drew, shown as text while the WebGL context is lost. */
+  private handedBack: HTMLElement[] = [];
 
   constructor(
     readonly renderer: Renderer,
@@ -168,6 +170,23 @@ export class SwarmEngine {
     document.querySelectorAll("[data-swarm-ready]").forEach((el) => el.removeAttribute("data-swarm-ready"));
     this.renderer.destroy();
     if (process.env.NODE_ENV === "development" && debugHandle().__swarm === this) delete debugHandle().__swarm;
+  }
+
+  /** The GPU took the WebGL context away (a driver reset, too many WebGL
+   * pages open): stop drawing, and let the page show the name and the clock
+   * as text until it is back. */
+  pause() {
+    cancelAnimationFrame(this.frameId);
+    this.handedBack = Array.from(document.querySelectorAll<HTMLElement>("[data-swarm-ready]"));
+    this.handedBack.forEach((el) => el.removeAttribute("data-swarm-ready"));
+  }
+
+  /** The context is back: the particles carry on from where they were. */
+  resume() {
+    this.handedBack.forEach((el) => (el.dataset.swarmReady = "true"));
+    this.handedBack = [];
+    this.last = performance.now();
+    this.frameId = requestAnimationFrame(this.frame);
   }
 
   /** A technology's logo, once it has loaded (it starts loading on first ask). */
@@ -356,12 +375,24 @@ export class SwarmEngine {
   }
 }
 
-/** Starts the swarm on `canvas`; returns the cleanup. Without WebGL the page
- * simply keeps its plain text heading. */
+/** Starts the swarm on `canvas`; returns the cleanup. Without WebGL, or if
+ * its shaders fail, the page simply keeps its text: the swarm is decoration
+ * and must never take the page down with it. */
 export function startSwarm(canvas: HTMLCanvasElement): () => void {
-  const renderer = createRenderer(canvas);
+  let engine: SwarmEngine | null = null;
+  let renderer: Renderer | null;
+  try {
+    renderer = createRenderer(canvas, {
+      onLost: () => engine?.pause(),
+      onRestored: () => engine?.resume(),
+    });
+  } catch (error) {
+    console.error("swarm: could not start WebGL", error);
+    return () => {};
+  }
   if (!renderer) return () => {};
-  const engine = new SwarmEngine(renderer, canvas);
-  engine.start();
-  return () => engine.stop();
+  const started = new SwarmEngine(renderer, canvas);
+  engine = started;
+  started.start();
+  return () => started.stop();
 }
