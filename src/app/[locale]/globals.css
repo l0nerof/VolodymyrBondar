@@ -64,6 +64,18 @@
     }
   }
 
+  /* The current role's glint goes once round the panel in 14 s. */
+  --animate-border-run: border-run 14s linear infinite;
+
+  @keyframes border-run {
+    from {
+      offset-distance: 0%;
+    }
+    to {
+      offset-distance: 100%;
+    }
+  }
+
   /* A stack category's technologies rise in one after another. */
   --animate-stack-item: stack-item 220ms cubic-bezier(0.23, 1, 0.32, 1) both;
 

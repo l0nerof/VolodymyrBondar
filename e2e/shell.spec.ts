@@ -106,7 +106,7 @@ test("the header fits a 320px phone", async ({ page }) => {
   expect(row.overlaps).toBe(false);
 });
 
-for (const width of [320, 390, 768, 1024, 1440]) {
+for (const width of [320, 390, 768, 1024, 1280, 1366, 1440]) {
   test(`nothing is wider than a ${width}px screen`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/ua");

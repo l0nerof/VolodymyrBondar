@@ -161,28 +161,33 @@
       }
     }
   },
-  "WorkExperience": {
+  "Experience": {
+    "chapter": "Experience",
     "title": "My",
     "highlight": " work experience",
-    "card1": {
-      "title": "Freelance",
-      "desc": "Worked on several commercial projects, delivering custom web solutions for clients and enhancing their digital presence."
-    },
-    "card2": {
-      "title": "Front-end Developer Assistant",
-      "desc": "Collaborated with a developer, assisting in various tasks including building features and debugging applications."
-    },
-    "card3": {
-      "title": "Junior Front-end Developer",
-      "desc": "Worked as a junior developer at BettorFaster, improving interfaces, refining UX, and maintaining core product modules."
-    },
-    "card4": {
-      "title": "Front-end Developer",
-      "desc": "Worked at DevelopsToday on scalable web apps: owned the frontend architecture and was also involved in backend development."
-    },
-    "card5": {
-      "title": "Software engineer",
-      "desc": "Currently working at Panenco as a Software engineer, developing the product and working across the frontend and backend parts of the application."
+    "present": "present",
+    "now": "Now!",
+    "roles": {
+      "panenco": {
+        "title": "Software engineer",
+        "desc": "Currently working at Panenco as a Software engineer, developing the product and working across the frontend and backend parts of the application."
+      },
+      "developsToday": {
+        "title": "Front-end Developer",
+        "desc": "Worked at DevelopsToday on scalable web apps: owned the frontend architecture and was also involved in backend development."
+      },
+      "bettorFaster": {
+        "title": "Junior Front-end Developer",
+        "desc": "Worked as a junior developer at BettorFaster, improving interfaces, refining UX, and maintaining core product modules."
+      },
+      "assistant": {
+        "title": "Front-end Developer Assistant",
+        "desc": "Collaborated with a developer, assisting in various tasks including building features and debugging applications."
+      },
+      "freelance": {
+        "title": "Freelance",
+        "desc": "Worked on several commercial projects, delivering custom web solutions for clients and enhancing their digital presence."
+      }
     }
   },
   "Approach": {
