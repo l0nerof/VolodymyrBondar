@@ -192,8 +192,9 @@
   body {
     background: var(--paper);
     color: var(--ink);
-    /* A letterer's hand, a little informal; no bounce, so lines stay level. */
-    font-variation-settings: "INFM" 55, "BNCE" 0;
+    /* A letterer's hand, a little informal. No bounce: fonts.ts does not
+       load that axis, so lines stay level. */
+    font-variation-settings: "INFM" 55;
   }
 
   ::selection {
