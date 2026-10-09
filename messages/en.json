@@ -210,10 +210,25 @@
     }
   },
   "Contact": {
-    "title": "Interested in collaborating to bring your vision to life?",
-    "highlight": " Let's make it happen!",
-    "reach-out": "Explore my resume to learn more about my skills and experience, and reach out to discuss how I can help you achieve your creative goals.",
-    "btn": "View my resume"
+    "chapter": "Contact",
+    "title": "Let's talk?",
+    "body": "If you have work that needs someone equally comfortable in React and in the API layer, get in touch. Tell me what you are building and where it currently hurts.",
+    "openTo": "Open to",
+    "openToItems": {
+      "fullTime": "Full-time",
+      "partTime": "Part-time",
+      "freelance": "Freelance"
+    },
+    "respond": "I usually reply within a day.",
+    "time": "Time in Ukraine now",
+    "fastest": "Fastest",
+    "or": "Or",
+    "copy": "Copy email",
+    "copied": "Copied",
+    "resume": "Resume (PDF)",
+    "sfx": "DING!",
+    "toBeContinued": "To be continued…",
+    "reachOut": "Explore my resume to learn more about my skills and experience, and reach out to discuss how I can help you achieve your creative goals."
   },
   "Footer": {
     "copyright": "© {year} Volodymyr Bondar"

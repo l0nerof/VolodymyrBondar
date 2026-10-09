@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { HOME, distanceKm, hoursFromHome, isHome, visitorPlace } from "./visitor";
+import { HOME, distanceKm, homeTime, hoursFromHome, isHome, visitorPlace } from "./visitor";
 
 afterEach(() => {
   vi.unstubAllEnvs();
@@ -19,6 +19,12 @@ describe("visitor", () => {
     expect(isHome("Europe/Kiev")).toBe(true);
     expect(isHome("Europe/Warsaw")).toBe(false);
     expect(visitorPlace("Antarctica/Troll")).toBeNull();
+  });
+
+  it("tells Ukraine's time on a 24-hour clock, whatever the visitor's zone", () => {
+    vi.stubEnv("TZ", "America/New_York");
+    expect(homeTime(new Date("2026-01-15T12:05:00Z"))).toBe("14:05");
+    expect(homeTime(new Date("2026-07-15T21:30:00Z"))).toBe("00:30");
   });
 
   it("counts the hours between the visitor's clock and Ukraine's", () => {

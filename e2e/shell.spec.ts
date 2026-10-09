@@ -109,11 +109,13 @@ test("the header fits a 320px phone", async ({ page }) => {
 for (const width of [320, 390, 768, 1024, 1280, 1366, 1440]) {
   test(`nothing is wider than a ${width}px screen`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
-    await page.goto("/ua");
 
-    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
-
-    expect(overflow).toBe(0);
+    // Both languages: their long words differ ("ПОГОВОРИМО?", "EXPERIENCE").
+    for (const path of ["/ua", "/en"]) {
+      await page.goto(path);
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+      expect(overflow, path).toBe(0);
+    }
   });
 }
 
