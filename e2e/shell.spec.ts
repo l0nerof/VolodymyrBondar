@@ -89,6 +89,32 @@ test("below 1024px the sections are in the Contents panel", async ({ page }) => 
   await expect(panel).toBeHidden();
 });
 
+test("each section link lands its section just below the header", async ({ page, isMobile }) => {
+  await page.goto("/ua");
+  const headerHeight = await page.locator("header").evaluate((el) => el.getBoundingClientRect().height);
+  // Where anchors stop (globals.css); it has to clear the fixed header.
+  const stop = await page.evaluate(() => parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop));
+  expect(stop).toBeGreaterThanOrEqual(headerHeight);
+
+  for (const [name, id] of [
+    ["Про мене", "about"],
+    ["Проєкти", "projects"],
+    ["Досвід", "work-experience"],
+    ["Контакти", "contact"],
+  ]) {
+    // Phones reach the sections through the Contents panel.
+    if (isMobile) await page.getByRole("button", { name: "Зміст" }).click();
+    const nav = page.getByRole("navigation", { name: isMobile ? "Зміст" : "Розділи" });
+    await nav.getByRole("link", { name, exact: true }).click();
+    await expect(page).toHaveURL(new RegExp(`#${id}$`));
+
+    // The scroll is smooth and, with software WebGL, its frames can be slow:
+    // poll for the end position rather than guessing when it has stopped.
+    const top = () => page.locator(`#${id}`).evaluate((el) => Math.round(el.getBoundingClientRect().top));
+    await expect.poll(top, { message: id, timeout: 10_000 }).toBe(stop);
+  }
+});
+
 test("the header fits a 320px phone", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 640 });
 
