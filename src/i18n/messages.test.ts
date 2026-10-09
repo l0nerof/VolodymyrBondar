@@ -52,6 +52,12 @@ describe("messages", () => {
     expect(keysOf(LOCALES.en)).toEqual(keys);
   });
 
+  it("has no empty messages", () => {
+    for (const [locale, tree] of Object.entries(LOCALES)) {
+      expect(keysOf(tree).filter((key) => !messageAt(tree, key).trim()), locale).toEqual([]);
+    }
+  });
+
   it("uses the same arguments and tags in every locale", () => {
     for (const key of keys) {
       const [ukrainian, english] = [parse(messageAt(LOCALES.uk, key)), parse(messageAt(LOCALES.en, key))];
