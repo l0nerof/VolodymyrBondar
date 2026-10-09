@@ -34,7 +34,15 @@
     },
     "pitch": "{years, plural, one {# year} other {# years}} in web. Most drawn to work measured by outcome rather than screen count, and to teams where an engineer gets asked \"why\", not just \"when will it be done\".",
     "work": "See my work",
-    "contact": "Get in touch"
+    "contact": "Get in touch",
+    "hints": {
+      "cursor": { "key": "Cursor", "does": "scatters" },
+      "click": { "key": "Click", "does": "sends a wave" },
+      "type": { "key": "Type", "does": "writes your own" },
+      "tap": { "key": "Tap", "does": "sends a wave" },
+      "typing": "Esc brings the name back · try “react”, “ukraine” or “coffee”"
+    },
+    "sfx": "BAM!"
   },
 
   "About": {
