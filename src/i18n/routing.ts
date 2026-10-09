@@ -8,4 +8,8 @@ export const routing = defineRouting({
   defaultLocale: "uk",
   // The Ukrainian pages keep their /ua addresses.
   localePrefix: { mode: "always", prefixes: { uk: "/ua" } },
+  // The page's metadata lists the languages (layout.tsx), with production
+  // addresses. The proxy's own Link header disagreed on x-default ("/") and
+  // named whatever host served the request, preview deployments included.
+  alternateLinks: false,
 });

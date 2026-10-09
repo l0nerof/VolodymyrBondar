@@ -10,8 +10,10 @@ const PAGES = [
 for (const { path, title, ogLocale } of PAGES) {
   test(`${path} introduces itself to search engines and link previews`, async ({ page, request, isMobile }) => {
     test.skip(isMobile, "The head is the same on every device.");
-    await page.goto(path);
+    const response = await page.goto(path);
     await expect(page).toHaveTitle(title);
+    // One list of languages, in the head: no second one in a Link header.
+    expect(response?.headers()["link"] ?? "").not.toContain('rel="alternate"');
 
     const head = page.locator("head");
     await expect(head.locator('meta[name="description"]')).toHaveAttribute("content", /Panenco/);
@@ -29,9 +31,9 @@ for (const { path, title, ogLocale } of PAGES) {
     // The cover is served as it is linked: no detour through the locale proxy.
     const image = await head.locator('meta[property="og:image"]').getAttribute("content");
     expect(image).toMatch(new RegExp(`^${SITE}/`));
-    const response = await request.get(image!.slice(SITE.length), { maxRedirects: 0 });
-    expect(response.status()).toBe(200);
-    expect(response.headers()["content-type"]).toBe("image/png");
+    const cover = await request.get(image!.slice(SITE.length), { maxRedirects: 0 });
+    expect(cover.status()).toBe(200);
+    expect(cover.headers()["content-type"]).toBe("image/png");
     await expect(head.locator('meta[property="og:image:width"]')).toHaveAttribute("content", "1200");
   });
 }
