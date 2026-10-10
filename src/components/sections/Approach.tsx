@@ -11,7 +11,7 @@ const PHASES = [
   { key: "launch", band: "bg-tone-3", number: "text-tone-3", dots: "[--dot:var(--tone-3)]" },
 ] as const;
 
-/** Chapter 5: how he works, in three numbered phases. */
+/** Chapter 5: the way of working, in three numbered phases. */
 export async function Approach() {
   const t = await getTranslations("Approach");
   const comic = await getTranslations("Comic");

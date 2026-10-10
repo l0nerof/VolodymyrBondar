@@ -6,7 +6,7 @@ import { useReducedMotion } from "@/lib/use-reduced-motion";
 
 const EVERY_MS = 2800;
 
-/** A line that cycles through what he builds: the current phrase slides out
+/** A line that cycles through what the owner builds: the current phrase slides out
  * upwards, then the next one rises in.
  *
  * Every phrase also sits invisibly in the same grid cell, so the box keeps

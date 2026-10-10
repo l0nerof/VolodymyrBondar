@@ -15,7 +15,7 @@ const OPEN_TO = ["fullTime", "partTime", "freelance"] as const;
 
 const CHANNEL_ICONS = { Telegram: FaTelegram, LinkedIn: FaLinkedin, GitHub: FaGithub } as const;
 
-/** The ways to reach him, said in a speech bubble: the address (a click
+/** The ways to get in touch, said in a speech bubble: the address (a click
  * copies it), the channels and the resume. */
 async function Reach() {
   const t = await getTranslations("Contact");
@@ -66,8 +66,9 @@ async function Reach() {
   );
 }
 
-/** Chapter 6, the last page: what he is open to, the status, the clock the
- * swarm draws (behind the see-through panel), and how to reach him. */
+/** Chapter 6, the last page: the kinds of work on offer, the status, the
+ * clock the swarm draws (behind the see-through panel), and how to get in
+ * touch. */
 export async function Contact() {
   const t = await getTranslations("Contact");
   const hero = await getTranslations("Hero");

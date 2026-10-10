@@ -16,9 +16,9 @@ import { VisitorLine } from "./VisitorLine";
 
 const CAPABILITIES = ["frontend", "apis", "legacy", "tooling"] as const;
 
-/** A comic page of panels: what he does now (in his own words), the numbers,
- * the stack the swarm draws, where he is (the swarm's globe) and what he can
- * take on. The globe and the stack stage stay see-through for the swarm. */
+/** A comic page of panels: today's work in the owner's own words, the numbers,
+ * the stack the swarm draws, where the owner is (the swarm's globe) and the
+ * work on offer. The globe and the stack stage stay see-through for the swarm. */
 export async function About() {
   const locale = await getLocale();
   const t = await getTranslations("About");
