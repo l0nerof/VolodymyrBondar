@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
  * top, next to the rail's dot. */
 function RoleBody({ role, period, title, desc }: { role: Role; period: string; title: string; desc: string }) {
   return (
-    <div className={cn("grid gap-x-10 p-6 sm:p-8 md:grid-cols-[1fr_1.25fr]", role.end === null && "md:pr-28")}>
+    <div className="grid gap-x-10 p-6 sm:p-8 md:grid-cols-[1fr_1.25fr]">
       <div>
         <p className="inline-block bg-accent px-2 py-0.5 text-[12px] font-bold text-on-accent tabular-nums uppercase">
           {period}
@@ -19,7 +19,11 @@ function RoleBody({ role, period, title, desc }: { role: Role; period: string; t
         <h3 className="mt-3 font-display text-2xl leading-tight font-black uppercase italic sm:text-[1.8rem]">{title}</h3>
         <p className="mt-1 font-semibold text-muted">{role.company}</p>
       </div>
-      <p className="mt-3 leading-relaxed text-muted md:mt-0 md:self-center">{desc}</p>
+      {/* The room for the current role's "Now!" sticker comes off its text,
+          not off the whole panel, so the columns line up with the others'. */}
+      <p className={cn("mt-3 leading-relaxed text-muted md:mt-0 md:self-center", role.end === null && "md:pr-20")}>
+        {desc}
+      </p>
     </div>
   );
 }

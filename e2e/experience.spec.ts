@@ -27,6 +27,13 @@ test("every role panel lines up with the others, the current one too", async ({ 
     })
   );
   for (const edge of edges) expect(edge).toEqual(edges[1]);
+
+  // So do the descriptions: the room for the "Now!" sticker used to come off
+  // the whole panel and moved the current role's text 35px left.
+  const columns = await roles(page).evaluateAll((items) =>
+    items.map((li) => li.querySelector("h3")!.parentElement!.nextElementSibling!.getBoundingClientRect().left)
+  );
+  for (const column of columns) expect(column).toBe(columns[1]);
 });
 
 test("the current role's glint travels round its border", async ({ page }) => {
