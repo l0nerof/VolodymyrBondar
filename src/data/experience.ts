@@ -22,14 +22,19 @@ function parse(value: string) {
   return { year, month: month || null };
 }
 
-/** Whole years since `start`; a start without a month counts from January. */
+/** Years since `start`, rounded down to the half year as a resume counts
+ * them (2.5 from March 2024 to September 2026); a start without a month
+ * counts from January. */
 export function yearsSince(start: string, now = new Date()): number {
   const { year, month } = parse(start);
   const months = (now.getFullYear() - year) * 12 + (now.getMonth() + 1 - (month ?? 1));
-  return Math.max(0, Math.floor(months / 12));
+  return Math.max(0, Math.floor(months / 6) / 2);
 }
 
-/** Years in web development, counted from the first role. */
+/** Years in web development, counted from the first role. The page is
+ * static, so it shows the number as of the last deploy: the number only
+ * grows, so a stale one undersells and never overstates, which the owner
+ * preferred to regenerating the page every day. */
 export function yearsInWeb(now = new Date()): number {
   const first = ROLES.reduce((earliest, role) => (role.start < earliest ? role.start : earliest), ROLES[0].start);
   return yearsSince(first, now);

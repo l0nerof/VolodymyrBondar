@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import { Bubble } from "@/components/comic/Bubble";
 import { Caption } from "@/components/comic/Caption";
@@ -20,6 +20,7 @@ const CAPABILITIES = ["frontend", "apis", "legacy", "tooling"] as const;
  * the stack the swarm draws, where he is (the swarm's globe) and what he can
  * take on. The globe and the stack stage stay see-through for the swarm. */
 export async function About() {
+  const locale = await getLocale();
   const t = await getTranslations("About");
   const comic = await getTranslations("Comic");
   const stats = [
@@ -52,8 +53,9 @@ export async function About() {
                 <dt className="order-last text-sm leading-tight font-bold uppercase">
                   {t(`stats.${stat.label}`, { count: stat.value })}
                 </dt>
-                <dd className="min-w-24 font-display text-[3.6rem] leading-[0.85] font-black tabular-nums italic [text-shadow:3px_3px_0_var(--accent-2)]">
-                  <CountUp value={stat.value} suffix={stat.suffix} />
+                {/* Wide enough for "2,5+", so the labels line up in a column. */}
+                <dd className="min-w-36 font-display text-[3.6rem] leading-[0.85] font-black tabular-nums italic [text-shadow:3px_3px_0_var(--accent-2)]">
+                  <CountUp value={stat.value} suffix={stat.suffix} locale={locale} />
                 </dd>
               </div>
             ))}

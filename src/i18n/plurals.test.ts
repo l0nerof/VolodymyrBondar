@@ -28,7 +28,16 @@ describe("plurals", () => {
     expect(t("years", { count: 1 })).toBe("рік у вебі");
     expect(t("years", { count: 4 })).toBe("роки у вебі");
     expect(t("years", { count: 6 })).toBe("років у вебі");
+    // Half years take the genitive: "2,5 року".
+    expect(t("years", { count: 2.5 })).toBe("року у вебі");
     expect(t("projects", { count: 7 })).toBe("проєктів у портфоліо");
     expect(t("roles", { count: 5 })).toBe("команд і ролей");
+  });
+
+  it("writes half years in the cover's pitch the way each language does", () => {
+    const ukrainian = createTranslator({ locale: "uk", messages: uk, namespace: "Hero" });
+    const english = createTranslator({ locale: "en", messages: en, namespace: "Hero" });
+    expect(ukrainian("pitch", { years: 2.5 })).toMatch(/^2,5 року у вебі\./);
+    expect(english("pitch", { years: 2.5 })).toMatch(/^2\.5 years in web\./);
   });
 });

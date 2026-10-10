@@ -3,7 +3,8 @@ import { expect, test } from "@playwright/test";
 import { ROLES, yearsInWeb } from "../src/data/experience";
 import { PROJECTS } from "../src/data/projects";
 
-const NUMBERS = [`${yearsInWeb()}+`, String(PROJECTS.length), String(ROLES.length)];
+// As the Ukrainian page writes them: half years with a comma (2,5+).
+const NUMBERS = [`${new Intl.NumberFormat("uk").format(yearsInWeb())}+`, String(PROJECTS.length), String(ROLES.length)];
 
 test.describe("the stack", () => {
   test("arrow keys move between categories, as ARIA tabs do", async ({ page, isMobile }) => {
