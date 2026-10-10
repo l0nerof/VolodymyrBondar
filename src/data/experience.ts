@@ -1,24 +1,20 @@
-export type RoleKey = "panenco" | "developsToday" | "bettorFaster" | "assistant" | "freelance";
+export type RoleKey = "panenco" | "developsToday" | "bettorFaster";
 
 export type Role = {
   key: RoleKey;
-  company: string | null;
+  company: string;
   /** "YYYY-MM", or "YYYY" when the month is not given. */
   start: string;
   /** Same format; null for the current role. */
   end: string | null;
 };
 
-// PLACEHOLDER periods from the prototype (years only, the assistant's company
-// unknown). The owner gives the real ones before this reaches main.
 /** Newest first, the order a reader wants. Titles and descriptions are in
  * messages (Experience.roles). */
 export const ROLES: Role[] = [
-  { key: "panenco", company: "Panenco", start: "2025", end: null },
-  { key: "developsToday", company: "DevelopsToday", start: "2024", end: "2025" },
-  { key: "bettorFaster", company: "BettorFaster", start: "2023", end: "2024" },
-  { key: "assistant", company: null, start: "2022", end: "2023" },
-  { key: "freelance", company: null, start: "2020", end: "2022" },
+  { key: "panenco", company: "Panenco", start: "2026-03", end: null },
+  { key: "developsToday", company: "DevelopsToday", start: "2025-11", end: "2026-03" },
+  { key: "bettorFaster", company: "BettorFaster", start: "2024-03", end: "2025-11" },
 ];
 
 function parse(value: string) {

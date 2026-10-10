@@ -179,19 +179,11 @@
       },
       "developsToday": {
         "title": "Front-end Developer",
-        "desc": "Worked at DevelopsToday on scalable web apps: owned the frontend architecture and was also involved in backend development."
+        "desc": "Owned the product's frontend: project structure, UI architecture and key technical decisions. Next.js, React Query and Zustand, shadcn/ui, Supabase and search on Typesense."
       },
       "bettorFaster": {
         "title": "Junior Front-end Developer",
-        "desc": "Worked as a junior developer at BettorFaster, improving interfaces, refining UX, and maintaining core product modules."
-      },
-      "assistant": {
-        "title": "Front-end Developer Assistant",
-        "desc": "Collaborated with a developer, assisting in various tasks including building features and debugging applications."
-      },
-      "freelance": {
-        "title": "Freelance",
-        "desc": "Worked on several commercial projects, delivering custom web solutions for clients and enhancing their digital presence."
+        "desc": "Built and maintained 30+ reusable React components, cutting code duplication by 15%. Sped up loading, set up state with Zustand and React Query, and brought test coverage to 90%+."
       }
     }
   },

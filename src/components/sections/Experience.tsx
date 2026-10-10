@@ -17,7 +17,7 @@ function RoleBody({ role, period, title, desc }: { role: Role; period: string; t
           {period}
         </p>
         <h3 className="mt-3 font-display text-2xl leading-tight font-black uppercase italic sm:text-[1.8rem]">{title}</h3>
-        {role.company && <p className="mt-1 font-semibold text-muted">{role.company}</p>}
+        <p className="mt-1 font-semibold text-muted">{role.company}</p>
       </div>
       <p className="mt-3 leading-relaxed text-muted md:mt-0 md:self-center">{desc}</p>
     </div>
