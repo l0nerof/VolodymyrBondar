@@ -70,11 +70,13 @@
     },
     "stack": "Stack",
     "stackGroups": {
-      "languages": "Language and frameworks",
+      "frontend": "Frontend",
       "data": "State and data",
-      "styling": "Styling",
+      "styling": "Styling and UI",
+      "backend": "Backend",
       "testing": "Testing",
-      "tooling": "Tooling"
+      "tooling": "Tooling",
+      "ai": "AI"
     },
     "whereLabel": "Where I am",
     "where": "Ukraine, <offset></offset>. My day fully overlaps with the rest of Europe, and with the US until their early afternoon.",
