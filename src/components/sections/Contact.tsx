@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { FaGithub, FaLinkedin, FaTelegram } from "react-icons/fa";
 
@@ -46,12 +47,11 @@ async function Reach() {
                 <Icon aria-hidden className="size-4 shrink-0 fill-current opacity-70" />
                 <span className="font-medium">{name}</span>
                 <span className="truncate text-xs opacity-70">{handle}</span>
-                <span
+                <ArrowUpRight
                   aria-hidden
-                  className="ml-auto transition-transform duration-150 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                >
-                  ↗
-                </span>
+                  strokeWidth={2.5}
+                  className="ml-auto size-4 shrink-0 transition-transform duration-150 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
               </a>
             </li>
           );
@@ -59,7 +59,8 @@ async function Reach() {
       </ul>
 
       <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" className={`mt-8 self-start ${popButton.accent}`}>
-        {t("resume")} <span aria-hidden>↗</span>
+        {t("resume")}
+        <ArrowUpRight aria-hidden className="size-4 shrink-0" strokeWidth={3} />
       </a>
       <p className="mt-4 max-w-md text-xs leading-relaxed text-muted">{t("reachOut")}</p>
     </div>

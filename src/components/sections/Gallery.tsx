@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
+import { ArrowUpRight, Lock } from "lucide-react";
 
 import { Sfx } from "@/components/comic/Sfx";
 import type { Project } from "@/data/projects";
@@ -100,11 +101,11 @@ function Card({ item, index, labels }: { item: GalleryItem; index: number; label
               className={LIVE}
             >
               {labels.live}
-              <span aria-hidden>↗</span>
+              <ArrowUpRight aria-hidden className="size-3.5 shrink-0" strokeWidth={3} />
             </TiltLayer>
           ) : (
             <TiltLayer depth={20} className="inline-flex items-center gap-2 text-[11px] tracking-[0.14em] text-muted uppercase">
-              <span aria-hidden>⊘</span>
+              <Lock aria-hidden className="size-3.5 shrink-0" strokeWidth={2.5} />
               {labels.private}
             </TiltLayer>
           )}

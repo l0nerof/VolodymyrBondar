@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import { Bubble } from "@/components/comic/Bubble";
@@ -76,7 +77,8 @@ export async function Hero() {
           </p>
           <div className="mt-9 flex flex-wrap gap-4">
             <a href="#projects" className={popButton.accent}>
-              {t("work")} <span aria-hidden>→</span>
+              {t("work")}
+              <ArrowRight aria-hidden className="size-4 shrink-0" strokeWidth={3} />
             </a>
             <a href="#contact" className={popButton.bubble}>
               {t("contact")}

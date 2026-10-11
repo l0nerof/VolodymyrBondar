@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { SectionHead } from "@/components/comic/SectionHead";
@@ -11,7 +12,8 @@ export default function NotFound() {
     <section className="flex min-h-[70svh] flex-col justify-center pt-29 pb-20">
       <SectionHead as="h1" chapter={t("caption")} title={t("title")} />
       <Link href="/" className={`${popButton.accent} self-start`}>
-        {t("home")} <span aria-hidden>→</span>
+        {t("home")}
+        <ArrowRight aria-hidden className="size-4 shrink-0" strokeWidth={3} />
       </Link>
     </section>
   );

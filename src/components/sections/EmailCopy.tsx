@@ -1,7 +1,7 @@
 "use client";
 
+import { Check, Copy } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { FaCheck, FaRegCopy } from "react-icons/fa";
 
 import { cn } from "@/lib/utils";
 
@@ -57,11 +57,12 @@ export function EmailCopy({
         className={cn("group/copy inline-flex cursor-pointer items-center gap-2", buttonClassName)}
       >
         {copied ? (
-          <FaCheck aria-hidden className="size-3.5 shrink-0" />
+          <Check aria-hidden strokeWidth={3} className="size-4 shrink-0" />
         ) : (
-          <FaRegCopy
+          <Copy
             aria-hidden
-            className="size-3.5 shrink-0 transition-[translate] duration-200 ease-out group-hover/copy:-translate-y-0.5"
+            strokeWidth={2.5}
+            className="size-4 shrink-0 transition-[translate] duration-200 ease-out group-hover/copy:-translate-y-0.5"
           />
         )}
         <span aria-live="polite">{copied ? labels.copied : labels.copy}</span>
