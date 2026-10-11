@@ -49,7 +49,9 @@ export async function About() {
           <dl className="grid h-full content-center gap-6">
             {stats.map((stat) => (
               // The term comes first for screen readers; the number shows first.
-              <div key={stat.label} className="flex items-baseline gap-4">
+              // Centred, not on the baseline: a label of two or three lines
+              // hung below the number.
+              <div key={stat.label} className="flex items-center gap-4">
                 <dt className="order-last text-sm leading-tight font-bold uppercase">
                   {t(`stats.${stat.label}`, { count: stat.value })}
                 </dt>

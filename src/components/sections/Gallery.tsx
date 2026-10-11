@@ -60,16 +60,17 @@ function Card({ item, index, labels }: { item: GalleryItem; index: number; label
   return (
     <TiltCard>
       <div className="group/card relative flex h-full flex-col gap-4 border-[3px] border-line-strong p-4 transition-shadow duration-200 ease-out transform-3d *:transform-3d hover:shadow-[8px_8px_0_var(--pop)]">
-        <TiltLayer depth={70}>
-          <Shot src={item.img} />
-        </TiltLayer>
-
-        <p className="-mt-1 flex justify-between text-[10px] tracking-[0.16em] text-muted uppercase">
-          <span>
-            {labels.figure} {String(index + 1).padStart(2, "0")}
-          </span>
-          <span className="tabular-nums">{item.year}</span>
-        </p>
+        <div className="flex flex-col gap-3">
+          <TiltLayer depth={70}>
+            <Shot src={item.img} />
+          </TiltLayer>
+          <p className="flex justify-between text-[10px] tracking-[0.16em] text-muted uppercase">
+            <span>
+              {labels.figure} {String(index + 1).padStart(2, "0")}
+            </span>
+            <span className="tabular-nums">{item.year}</span>
+          </p>
+        </div>
 
         <TiltLayer as="h3" depth={45} className="font-display text-2xl leading-[0.95] font-black uppercase italic">
           {item.title}
@@ -78,10 +79,12 @@ function Card({ item, index, labels }: { item: GalleryItem; index: number; label
           {item.desc}
         </TiltLayer>
         <TiltLayer depth={25}>
-          <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5 border-t border-line pt-3 text-sm">
-            <dt className="pt-0.5 text-[10px] tracking-[0.14em] text-muted uppercase">{labels.role}</dt>
+          {/* On the baseline, the small capitals fill the value's lowercase
+              height, so each label sits centred on the first line beside it. */}
+          <dl className="grid grid-cols-[auto_1fr] items-baseline gap-x-3 gap-y-1.5 border-t border-line pt-3 text-sm">
+            <dt className="text-[10px] tracking-[0.14em] text-muted uppercase">{labels.role}</dt>
             <dd>{item.role}</dd>
-            <dt className="pt-0.5 text-[10px] tracking-[0.14em] text-muted uppercase">{labels.result}</dt>
+            <dt className="text-[10px] tracking-[0.14em] text-muted uppercase">{labels.result}</dt>
             <dd>{item.result}</dd>
           </dl>
         </TiltLayer>

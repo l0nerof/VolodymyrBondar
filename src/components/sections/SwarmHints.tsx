@@ -6,7 +6,9 @@ function Row({ hints, className }: { hints: Hint[]; className: string }) {
   return (
     <span className={`flex-wrap justify-center gap-x-5 gap-y-2 ${className}`}>
       {hints.map((hint) => (
-        <span key={hint.key} className="inline-flex items-center gap-2">
+        // On the baseline: centring the key's box put its letters 1.3px
+        // below the words beside it.
+        <span key={hint.key} className="inline-flex items-baseline gap-2">
           <kbd className={KEY}>{hint.key}</kbd>
           {hint.does}
         </span>
