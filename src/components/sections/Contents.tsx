@@ -40,7 +40,7 @@ export function Contents({ label, links, className }: { label: string; links: Na
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((value) => !value)}
-        className="cursor-pointer border-2 border-line-strong px-1.5 py-1 font-display text-[11px] font-black uppercase italic transition-colors duration-150 aria-expanded:bg-accent aria-expanded:text-on-accent sm:px-2.5"
+        className="cursor-pointer border-2 border-line-strong px-1.5 py-1 font-display text-[11px] font-black uppercase italic transition-colors duration-150 not-aria-expanded:hover:bg-accent/30 aria-expanded:bg-accent aria-expanded:text-on-accent sm:px-2.5"
       >
         {label}
       </button>

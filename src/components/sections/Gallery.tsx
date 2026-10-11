@@ -32,7 +32,11 @@ type Filter = "all" | Project["kind"];
 const EASE = [0.23, 1, 0.32, 1] as const;
 
 const CHIP =
-  "cursor-pointer rounded-md border-2 px-4 py-2 font-display text-sm font-black uppercase italic transition-[background-color,color,border-color,box-shadow] duration-200 ease-out";
+  "cursor-pointer rounded-md border-2 px-4 py-2 font-display text-sm font-black uppercase italic transition-[background-color,color,border-color,box-shadow,translate] duration-200 ease-out";
+
+/** A chip that is not selected lifts on a shadow, as the comic buttons do. */
+const CHIP_IDLE =
+  "border-line-strong hover:-translate-y-0.5 hover:shadow-[3px_3px_0_var(--pop)] active:translate-y-0 active:shadow-none";
 
 /** The card's full width, so the link is easy to hit. */
 const LIVE =
@@ -153,9 +157,7 @@ export function Gallery({ items, labels }: { items: GalleryItem[]; labels: Galle
               onClick={() => setFilter(chip.key)}
               className={cn(
                 CHIP,
-                filter === chip.key
-                  ? "border-on-accent bg-accent text-on-accent shadow-[3px_3px_0_var(--pop)]"
-                  : "border-line-strong hover:bg-raise"
+                filter === chip.key ? "border-on-accent bg-accent text-on-accent shadow-[3px_3px_0_var(--pop)]" : CHIP_IDLE
               )}
             >
               {chip.label}

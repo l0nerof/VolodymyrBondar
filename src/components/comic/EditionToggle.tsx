@@ -5,8 +5,9 @@ import { useTheme } from "next-themes";
 
 const noop = () => () => {};
 
+// The edition that is not on lights up a little under the pointer.
 const ITEM =
-  "cursor-pointer px-1.5 py-1 font-display text-[11px] font-black uppercase italic transition-colors duration-150 aria-pressed:bg-accent aria-pressed:text-on-accent sm:px-2.5";
+  "cursor-pointer px-1.5 py-1 font-display text-[11px] font-black uppercase italic transition-colors duration-150 not-aria-pressed:hover:bg-accent/30 aria-pressed:bg-accent aria-pressed:text-on-accent sm:px-2.5";
 
 /** The light/dark switch, worded as the comic's night and day issues. The
  * swarm recolours as a wave from the click. */
