@@ -130,28 +130,37 @@ export function Gallery({ items, labels }: { items: GalleryItem[]; labels: Galle
   ];
 
   return (
-    <>
-      <div data-swarm-filters role="group" aria-label={labels.filters} className="mb-12 flex flex-wrap items-center gap-3">
-        {chips.map((chip) => (
-          <button
-            key={chip.key}
-            type="button"
-            data-swarm-filter={chip.key}
-            aria-pressed={filter === chip.key}
-            onClick={() => setFilter(chip.key)}
-            className={cn(
-              CHIP,
-              filter === chip.key
-                ? "border-on-accent bg-accent text-on-accent shadow-[3px_3px_0_var(--pop)]"
-                : "border-line-strong hover:bg-raise"
-            )}
-          >
-            {chip.label}
-            <span className="ml-2 tabular-nums opacity-60">{chip.count}</span>
-          </button>
-        ))}
+    // On a phone the sound effect gets a line of its own under the chips, so
+    // the cards follow closer there.
+    <div className="flex flex-col gap-8 sm:gap-12">
+      <div
+        data-swarm-filters
+        role="group"
+        aria-label={labels.filters}
+        className="flex flex-wrap items-center gap-x-7 gap-y-3"
+      >
+        <div className="flex flex-wrap gap-3">
+          {chips.map((chip) => (
+            <button
+              key={chip.key}
+              type="button"
+              data-swarm-filter={chip.key}
+              aria-pressed={filter === chip.key}
+              onClick={() => setFilter(chip.key)}
+              className={cn(
+                CHIP,
+                filter === chip.key
+                  ? "border-on-accent bg-accent text-on-accent shadow-[3px_3px_0_var(--pop)]"
+                  : "border-line-strong hover:bg-raise"
+              )}
+            >
+              {chip.label}
+              <span className="ml-2 tabular-nums opacity-60">{chip.count}</span>
+            </button>
+          ))}
+        </div>
         {/* What a filter click sounds like. */}
-        <Sfx className="ml-4 rotate-6">{labels.sfx}</Sfx>
+        <Sfx className="rotate-6">{labels.sfx}</Sfx>
       </div>
 
       <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -173,6 +182,6 @@ export function Gallery({ items, labels }: { items: GalleryItem[]; labels: Galle
           ))}
         </AnimatePresence>
       </ul>
-    </>
+    </div>
   );
 }

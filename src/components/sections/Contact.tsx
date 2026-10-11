@@ -79,7 +79,9 @@ export async function Contact() {
     <section id="contact" className="mb-24">
       <SectionHead chapter={comic("chapter", { number: 6, title: t("chapter") })} title={t("title")} />
 
-      <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
+      {/* In one column the DING! hangs in the gap above the bubble: the gap
+          is wide enough that it clears the panel above. */}
+      <div className="grid gap-16 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
         <div className="border-[3px] border-line-strong p-7 sm:p-10">
           <p className="max-w-lg leading-relaxed text-muted">{t("body")}</p>
 

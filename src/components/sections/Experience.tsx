@@ -78,17 +78,21 @@ export async function Experience() {
 
               <div className={cn("relative", !isLast && "pb-10")}>
                 {current && (
-                  // White on red at 19px+ bold only needs 3:1, as large text.
-                  // Turned 12°, the sticker's box grows ~11px on each side; at
-                  // -right-4 it ran 10px past a phone's edge and the page
-                  // scrolled sideways. It hangs that far out only where the
-                  // centred layout leaves a margin for it (1320px and up,
+                  // White on red is 4.4:1 by day and 3.6:1 at night: enough for
+                  // the 21px bold lettering as large text. On a phone the card
+                  // is narrow, so the sticker shrinks to 15px lettering and sits
+                  // half above the card, clear of the period badge; there it is
+                  // decoration only, repeating the badge's "present", and screen
+                  // readers skip it. Turned 12°, the sticker's box grows ~10px
+                  // on each side; at -right-4 it ran past a phone's edge and the
+                  // page scrolled sideways, so it hangs that far out only where
+                  // the centred layout leaves a margin for it (1320px and up,
                   // counting a 15px scrollbar).
                   <Burst
                     tone="red"
                     floating
-                    className="-top-10 -right-1 z-10 size-28 rotate-12 sm:size-32 min-[1320px]:-right-4"
-                    textClassName="font-display text-[19px] font-black uppercase italic sm:text-[21px]"
+                    className="-top-12 -right-1 z-10 size-24 rotate-12 sm:-top-10 sm:size-32 min-[1320px]:-right-4"
+                    textClassName="font-display text-[15px] font-black uppercase italic sm:text-[21px]"
                   >
                     <span aria-hidden>{t("now")}</span>
                   </Burst>
