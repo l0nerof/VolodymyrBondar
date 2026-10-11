@@ -62,7 +62,9 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[lo
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
-      <body>
+      {/* A column the height of the screen: on a short page (the 404) the
+          footer sits at the bottom instead of right under the content. */}
+      <body className="flex min-h-svh flex-col">
         {/* Client components get their words from the server as props. Only
             two read messages: the error page (Next renders it) and the
             visitor line, whose numbers only exist in the browser. */}
@@ -75,7 +77,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[lo
               {t("skip")}
             </a>
             <Header />
-            <main id="main" className="mx-auto max-w-7xl px-4 sm:px-6">
+            <main id="main" className="mx-auto flex w-full max-w-7xl flex-1 flex-col px-4 sm:px-6">
               {children}
             </main>
             <Footer />

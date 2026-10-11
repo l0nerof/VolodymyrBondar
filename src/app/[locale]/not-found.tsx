@@ -9,7 +9,8 @@ export default function NotFound() {
   const t = useTranslations("NotFound");
 
   return (
-    <section className="flex min-h-[70svh] flex-col justify-center pt-29 pb-20">
+    // Fills the page between the header and the footer, content centred.
+    <section className="flex flex-1 flex-col justify-center pt-29 pb-20">
       <SectionHead as="h1" chapter={t("caption")} title={t("title")} />
       <Link href="/" className={`${popButton.accent} self-start`}>
         {t("home")}

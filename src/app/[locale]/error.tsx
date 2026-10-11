@@ -15,7 +15,7 @@ export default function ErrorPage({ error, retry }: { error: Error & { digest?: 
   }, [error]);
 
   return (
-    <section className="flex min-h-[70svh] flex-col justify-center pt-29 pb-20">
+    <section className="flex flex-1 flex-col justify-center pt-29 pb-20">
       <SectionHead as="h1" chapter={t("caption")} title={t("title")} />
       <div className="flex flex-wrap gap-4">
         <button type="button" onClick={() => retry()} className={`${popButton.accent} cursor-pointer`}>

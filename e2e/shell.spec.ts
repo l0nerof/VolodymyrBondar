@@ -54,6 +54,9 @@ test("an unknown address is a comic 404 that leads home", async ({ page }) => {
 
   expect(response?.status()).toBe(404);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(/Такої сторінки немає/);
+  // A short page still ends with the footer at the bottom of the screen.
+  const footerGap = await page.locator("footer").evaluate((el) => innerHeight - el.getBoundingClientRect().bottom);
+  expect(Math.round(footerGap)).toBe(0);
   await page.getByRole("link", { name: /На головну/ }).click();
   await expect(page).toHaveURL(/\/ua$/);
 });
