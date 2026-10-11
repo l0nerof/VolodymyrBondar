@@ -124,6 +124,12 @@
     "private": "Private",
     "sfx": "WHOOSH!",
     "items": {
+      "arcaBureau": {
+        "title": "Arca Bureau",
+        "desc": "Arca Bureau is a portfolio website for an interior design studio: projects, services, the work process and an enquiry form. Commercial project.",
+        "role": "Everything",
+        "result": "Bilingual studio portfolio with Telegram enquiries"
+      },
       "rollin": {
         "title": "Rollin",
         "desc": "Rollin is an international casino fully managed by CMS. Games are integrated through API requests to business partners, and the project is built on modern and proven technologies. BettorFaster project.",

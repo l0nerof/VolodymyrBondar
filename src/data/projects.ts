@@ -1,4 +1,5 @@
 export type ProjectKey =
+  | "arcaBureau"
   | "rollin"
   | "nemoMoney"
   | "bondarDesign"
@@ -21,6 +22,14 @@ export type Project = {
 /** In the gallery's order. Titles, descriptions, roles and results are in
  * messages (Projects.items). */
 export const PROJECTS: Project[] = [
+  {
+    key: "arcaBureau",
+    img: "/arca-bureau.webp",
+    link: "https://arca-bureau.vercel.app/",
+    kind: "commercial",
+    year: 2026,
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "next-intl", "Zod"],
+  },
   {
     key: "rollin",
     img: "/rollin.jpg",
