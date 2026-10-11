@@ -6,7 +6,7 @@ import { TECH_ICONS } from "@/data/stack";
 import { one } from "./dom";
 import { EMOJI_WORDS, TECH_WORDS, UKRAINE_WORDS } from "./eggs";
 import type { SwarmEngine } from "./engine";
-import { GlyphShape, paintLabel, paintLogo, paintName, paintText, paintUkraine } from "./glyphs";
+import { GlyphShape, labelLayers, logoLayers, paintName, paintText, paintUkraine } from "./glyphs";
 import { CapsuleShape, GlobeShape, RailShape, SecondsShape, TARGET_STRIDE, type Shape } from "./shapes";
 import { isHome, visitorPlace } from "./visitor";
 
@@ -122,7 +122,7 @@ export function addStackStage(swarm: SwarmEngine, stack: HTMLElement, b: number)
       () => {
         const { label, img } = current();
         if (!label || !swarm.fontsReady) return null;
-        const paint = img ? paintLogo(img, label, swarm.family) : paintLabel(label, swarm.family);
+        const paint = img ? logoLayers(img, label, swarm.family) : labelLayers(label, swarm.family);
         return new GlyphShape(stack, b, `stack:${label}`, paint);
       },
       () => {
@@ -199,7 +199,7 @@ export function addHeroStage(swarm: SwarmEngine, name: HTMLElement, b: number) {
         if (found === "emoji")
           return new GlyphShape(name, typedBudget, `egg:${word}`, paintText(name, EMOJI_WORDS[word]), false, true);
         const img = found ? swarm.icon(TECH_ICONS[found]) : null;
-        if (found && img) return new GlyphShape(name, typedBudget, `egg:${found}`, paintLogo(img, found, swarm.family));
+        if (found && img) return new GlyphShape(name, typedBudget, `egg:${found}`, logoLayers(img, found, swarm.family));
         return new GlyphShape(name, typedBudget, `typed:${swarm.typed}`, paintText(name, swarm.typed));
       },
       () => `${swarm.typed}|${egg() ?? ""}|${swarm.fontsReady}|${swarm.layoutVersion}`
