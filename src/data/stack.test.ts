@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 
 import { TECH_WORDS } from "@/components/swarm/eggs";
 
+import { PROJECTS } from "./projects";
 import { STACK_GROUPS, TECH_ICONS } from "./stack";
 
 const items = STACK_GROUPS.flatMap((group) => group.items);
@@ -27,5 +28,13 @@ describe("stack", () => {
 
   it("lists each technology once", () => {
     expect(new Set(items).size).toBe(items.length);
+  });
+
+  it("spells the project cards' stack as the stack section does", () => {
+    // A card saying "Tailwind" next to the section's "Tailwind CSS" reads as
+    // two different things. The typed words know every spelling.
+    for (const project of PROJECTS) {
+      for (const tech of project.stack) expect(TECH_WORDS[tech.toLowerCase()] ?? tech, project.key).toBe(tech);
+    }
   });
 });

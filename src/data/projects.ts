@@ -1,4 +1,5 @@
 export type ProjectKey =
+  | "arcaBureau"
   | "rollin"
   | "nemoMoney"
   | "bondarDesign"
@@ -22,6 +23,14 @@ export type Project = {
  * messages (Projects.items). */
 export const PROJECTS: Project[] = [
   {
+    key: "arcaBureau",
+    img: "/arca-bureau.webp",
+    link: "https://arca-bureau.vercel.app/",
+    kind: "commercial",
+    year: 2026,
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "next-intl", "Zod"],
+  },
+  {
     key: "rollin",
     img: "/rollin.jpg",
     kind: "commercial",
@@ -34,7 +43,7 @@ export const PROJECTS: Project[] = [
     link: "https://explore.nemo.money/",
     kind: "commercial",
     year: 2024,
-    stack: ["Next.js", "TypeScript", "shadcn", "React Query"],
+    stack: ["Next.js", "TypeScript", "shadcn/ui", "React Query"],
   },
   {
     key: "bondarDesign",
@@ -42,7 +51,7 @@ export const PROJECTS: Project[] = [
     link: "https://www.bondardesign.com/",
     kind: "commercial",
     year: 2023,
-    stack: ["Next.js", "TypeScript", "SCSS", "Framer Motion"],
+    stack: ["Next.js", "TypeScript", "Sass", "Framer Motion"],
   },
   {
     key: "dotSorter",
@@ -50,7 +59,7 @@ export const PROJECTS: Project[] = [
     link: "https://dot-sorter-game.vercel.app/",
     kind: "personal",
     year: 2024,
-    stack: ["Vite", "React", "TypeScript", "Tailwind"],
+    stack: ["Vite", "React", "TypeScript", "Tailwind CSS"],
   },
   {
     key: "wildOasis",
@@ -74,6 +83,6 @@ export const PROJECTS: Project[] = [
     link: "https://l0nerof.github.io/Natours/",
     kind: "personal",
     year: 2022,
-    stack: ["HTML", "SCSS", "BEM"],
+    stack: ["HTML", "Sass", "BEM"],
   },
 ];
