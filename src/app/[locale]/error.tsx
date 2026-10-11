@@ -1,26 +1,30 @@
 "use client";
 
-import Link from "next/link";
-import { useTranslations, useLocale } from "next-intl";
-import { FaLocationArrow } from "react-icons/fa";
-import MagicButton from "@/components/ui/MagicButton";
+import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 
-function Error() {
-  const locale = useLocale();
-  const t = useTranslations("NotFound");
+import { SectionHead } from "@/components/comic/SectionHead";
+import { popButton } from "@/components/comic/buttons";
+import { Link } from "@/navigation";
+
+export default function ErrorPage({ error, retry }: { error: Error & { digest?: string }; retry: () => void }) {
+  const t = useTranslations("Error");
+
+  useEffect(() => {
+    console.error("The page failed to render", error);
+  }, [error]);
 
   return (
-    <main className="h-[89vh] flex-col flex justify-center items-center gap-5">
-      <h1 className="text-3xl font-bold dark:text-white text-black-100">
-        {t("title")}
-      </h1>
-      <Link href={`/${locale}`}>
-        <MagicButton icon={<FaLocationArrow />} position="right">
-          {t("btn")}
-        </MagicButton>
-      </Link>
-    </main>
+    <section className="flex flex-1 flex-col justify-center pt-29 pb-20">
+      <SectionHead as="h1" chapter={t("caption")} title={t("title")} />
+      <div className="flex flex-wrap gap-4">
+        <button type="button" onClick={() => retry()} className={`${popButton.accent} cursor-pointer`}>
+          {t("retry")}
+        </button>
+        <Link href="/" className={popButton.bubble}>
+          {t("home")}
+        </Link>
+      </div>
+    </section>
   );
 }
-
-export default Error;

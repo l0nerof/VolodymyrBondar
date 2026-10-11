@@ -1,44 +1,214 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
-@utility container {
-  margin-inline: auto;
-  padding-inline: 2rem;
-  @media (width >= --theme(--breakpoint-sm)) {
-    max-width: none;
-  }
-  @media (width >= 1400px) {
-    max-width: 1400px;
-  }
+/* Comic: a comic book in a night issue (.dark on <html>, the default) and a
+   day issue. Components use these tokens as Tailwind colours (bg-paper,
+   text-ink, border-line-strong…). A light box on a dark page (a speech
+   bubble, a yellow panel) re-points --ink and its friends for whatever sits
+   inside it; see components/comic/ink.ts.
+
+   --swarm-* are the swarm's colours. It reads them from :root and again
+   whenever the theme changes. At night the dots glow (additive blending); by
+   day they are printed ink, with bigger dots so they stay as visible. */
+
+@theme inline {
+  --font-sans: var(--nf-shantell), system-ui, sans-serif;
+  --font-display: var(--nf-rubik), sans-serif;
+  --font-sfx: var(--nf-kablammo), var(--nf-rubik), sans-serif;
+
+  --color-paper: var(--paper);
+  --color-raise: var(--raise);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-on-accent: var(--on-accent);
+  --color-accent-2: var(--accent-2);
+  --color-tone-1: var(--tone-1);
+  --color-tone-2: var(--tone-2);
+  --color-tone-3: var(--tone-3);
+  --color-bubble: var(--bubble);
+  --color-bubble-ink: var(--bubble-ink);
+  --color-bubble-line: var(--bubble-line);
 }
 
 @theme {
-  --color-black-100: #000319;
-  --color-black-200: #10132e;
-  --color-black: #000;
+  /* The hero's rotating line: the old phrase leaves upwards, then the new
+     one rises in (it waits for the first to finish). */
+  --animate-line-out: line-out 380ms ease-out both;
+  --animate-line-in: line-in 380ms ease-out 380ms both;
 
-  --color-white-100: #bec1dd;
-  --color-white: #fff;
+  @keyframes line-out {
+    from {
+      translate: 0 0;
+      opacity: 1;
+    }
+    to {
+      translate: 0 -110%;
+      opacity: 0;
+    }
+  }
 
-  --color-purple-100: #cbacf9;
-  --color-purple-200: #8136f0;
+  @keyframes line-in {
+    from {
+      translate: 0 110%;
+      opacity: 0;
+    }
+    to {
+      translate: 0 0;
+      opacity: 1;
+    }
+  }
+
+  /* The current role's glint goes once round the panel in 14 s. */
+  --animate-border-run: border-run 14s linear infinite;
+
+  @keyframes border-run {
+    from {
+      offset-distance: 0%;
+    }
+    to {
+      offset-distance: 100%;
+    }
+  }
+
+  /* A stack category's technologies rise in one after another. */
+  --animate-stack-item: stack-item 220ms cubic-bezier(0.23, 1, 0.32, 1) both;
+
+  @keyframes stack-item {
+    from {
+      translate: 0 6px;
+      opacity: 0;
+    }
+    to {
+      translate: 0 0;
+      opacity: 1;
+    }
+  }
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
+/* Day issue: newsprint cream, black ink, cyan Ben-Day dust.
+   accent-ink, bubble-accent, faint and tone-1 were tuned for WCAG AA in both
+   issues; re-run scripts/qa/contrast.mjs before changing them. */
+:root {
+  color-scheme: light;
 
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
+  --paper: #fbf3df;
+  --raise: #f1e5c6;
+  --ink: #141414;
+  --muted: #4d483e;
+  --faint: #6a6357;
+  --line: rgb(20 20 20 / 0.18);
+  --line-strong: #141414;
+  --accent: #ffd400;
+  /* Yellow cannot be text on cream; small accent text is the red ink. */
+  --accent-ink: #c4231d;
+  --on-accent: #141414;
+  --accent-2: #e8282b;
+  --tone-1: #e0a000;
+  --tone-2: #e8282b;
+  --tone-3: #0f8fd0;
+  /* The hard offset shadow under buttons and panels. */
+  --pop: #141414;
+  --title-shadow: #e8282b;
+  /* Yellow on cream needs its outline to be read. */
+  --title-stroke: 0.06em #141414;
+  --bubble: #ffffff;
+  --bubble-ink: #141414;
+  --bubble-line: #141414;
+  /* Accent text inside a bubble: the red ink, dark enough for 4.5:1. */
+  --bubble-accent: #c4231d;
+  /* A yellow ring disappears on cream; by day the focus ring is ink. */
+  --focus: #141414;
+
+  --swarm-additive: 0;
+  --swarm-ink: #141414;
+  --swarm-accent: #e8282b;
+  --swarm-deep: #0f8fd0;
+  /* Cyan Ben-Day dots, the colour comics are shaded with. */
+  --swarm-dust: #0f8fd0;
+  --swarm-dust-alpha: 0.36;
+  --swarm-dot-scale: 1.35;
+  --swarm-tone-1: #e0a000;
+  --swarm-tone-2: #e8282b;
+  --swarm-tone-3: #0f8fd0;
+  --swarm-flag-blue: #2a5bd7;
+  --swarm-flag-yellow: #e8b100;
+}
+
+/* Night issue: white panel borders on black; the swarm glows. */
+.dark {
+  color-scheme: dark;
+
+  --paper: #0f0f12;
+  --raise: #1a1a1f;
+  --ink: #f7f1e3;
+  --muted: #bdb5a4;
+  --faint: #8f887b;
+  --line: rgb(247 241 227 / 0.2);
+  --line-strong: #f7f1e3;
+  --accent: #ffd60a;
+  --accent-ink: #ffd60a;
+  --on-accent: #0f0f12;
+  --accent-2: #ff3b30;
+  --tone-1: #ffd60a;
+  --tone-2: #ff3b30;
+  --tone-3: #2ec4ff;
+  --pop: #ff3b30;
+  --title-shadow: #ff3b30;
+  /* No outline at night: on black it was invisible and left a gap between
+     the letter and its shadow, so the shadow looked detached. */
+  --title-stroke: 0 transparent;
+  --bubble: #f7f1e3;
+  --bubble-ink: #0f0f12;
+  --bubble-line: #0f0f12;
+  --bubble-accent: #c4231d;
+  --focus: #ffd60a;
+
+  --swarm-additive: 1;
+  --swarm-ink: #fffaf0;
+  --swarm-accent: #ffd60a;
+  --swarm-deep: #ff3b30;
+  --swarm-dust: #f6e8c4;
+  --swarm-dust-alpha: 0.32;
+  --swarm-dot-scale: 1.15;
+  --swarm-tone-1: #ffd60a;
+  --swarm-tone-2: #ff3b30;
+  --swarm-tone-3: #2ec4ff;
+  --swarm-flag-blue: #4b8dff;
+  --swarm-flag-yellow: #ffd60a;
+}
+
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
+  html {
+    /* Anchors and focused elements stop below the fixed header. */
+    scroll-padding-top: 5.25rem;
   }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    /* A letterer's hand, a little informal. No bounce: fonts.ts does not
+       load that axis, so lines stay level. */
+    font-variation-settings: "INFM" 55;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--accent) 34%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+}
+
+/* Ben-Day dots, the comic printer's halftone: tints a box in --dot. */
+@utility dots {
+  background-image: radial-gradient(circle, var(--dot, currentColor) 0 30%, transparent 34%);
+  background-size: 8px 8px;
 }

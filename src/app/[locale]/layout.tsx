@@ -1,66 +1,86 @@
-import { Inter } from "next/font/google";
 import type { Metadata } from "next";
+import { type Locale, NextIntlClientProvider, hasLocale } from "next-intl";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+
+import { fontVariables } from "@/components/comic/fonts";
+import { Footer } from "@/components/sections/Footer";
+import { Header } from "@/components/sections/Header";
+import { ThemeProvider } from "@/components/ui/ThemeProvider";
+import { SITE_URL } from "@/data/site";
+import { routing } from "@/i18n/routing";
+import { getPathname } from "@/navigation";
 
 import "./globals.css";
 
-import { ThemeProvider } from "@/components/ui/ThemeProvider";
-import Footer from "@/components/Footer/Footer";
-import NavBar from "@/components/ui/NavBar";
-import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
-import { notFound } from "next/navigation";
+/** The page in each language points at the other, so search engines show
+ * the right one; link previews get the cover (opengraph-image.tsx). */
+export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Promise<Metadata> {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) return {};
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const home = (other: Locale) => getPathname({ locale: other, href: "/" });
 
-import { routing } from "@/i18n/routing";
-
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Volodymyr Bondar - Front-end Developer",
-};
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: t("title"),
+    description: t("description"),
+    alternates: {
+      canonical: home(locale),
+      languages: { uk: home("uk"), en: home("en"), "x-default": home(routing.defaultLocale) },
+    },
+    openGraph: {
+      type: "website",
+      siteName: t("name"),
+      title: t("title"),
+      description: t("description"),
+      url: home(locale),
+      locale: locale === "uk" ? "uk_UA" : "en_US",
+      alternateLocale: locale === "uk" ? "en_US" : "uk_UA",
+    },
+    twitter: { card: "summary_large_image" },
+  };
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-type Props = {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-};
-
-export default async function RootLayout({ children, params }: Props) {
+export default async function RootLayout({ children, params }: LayoutProps<"/[locale]">) {
   const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) notFound();
 
-  // Ensure that the incoming `locale` is valid
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
-
-  // Enable static rendering
+  // Static rendering for both locales.
   setRequestLocale(locale);
-
-  // Get messages for the client provider
   const messages = await getMessages();
+  const t = await getTranslations("Navigation");
 
   return (
-    <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
-      <body
-        className={`${inter.className} dark:bg-black-100 dark:text-white text-black-100 bg-white`}
-      >
-        <NextIntlClientProvider messages={messages}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <div className="max-w-7xl mx-auto px-2">
-              <NavBar />
-
-              <main>{children}</main>
-
-              <Footer />
-            </div>
+    <html
+      lang={locale}
+      className={`${fontVariables} scroll-smooth`}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
+      {/* A column the height of the screen: on a short page (the 404) the
+          footer sits at the bottom instead of right under the content. */}
+      <body className="flex min-h-svh flex-col">
+        {/* Client components get their words from the server as props. Only
+            two read messages: the error page (Next renders it) and the
+            visitor line, whose numbers only exist in the browser. */}
+        <NextIntlClientProvider messages={{ Error: messages.Error, Visitor: messages.Visitor }}>
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+            <a
+              href="#main"
+              className="sr-only border-2 border-on-accent bg-accent px-3 py-2 text-sm font-bold text-on-accent focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60]"
+            >
+              {t("skip")}
+            </a>
+            <Header />
+            <main id="main" className="mx-auto flex w-full max-w-7xl flex-1 flex-col px-4 sm:px-6">
+              {children}
+            </main>
+            <Footer />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

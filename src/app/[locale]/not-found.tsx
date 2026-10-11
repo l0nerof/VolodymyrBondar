@@ -1,24 +1,21 @@
-import Link from "next/link";
-import { useTranslations, useLocale } from "next-intl";
-import { FaLocationArrow } from "react-icons/fa";
-import MagicButton from "@/components/ui/MagicButton";
+import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-function NotFound() {
-  const locale = useLocale();
+import { SectionHead } from "@/components/comic/SectionHead";
+import { popButton } from "@/components/comic/buttons";
+import { Link } from "@/navigation";
+
+export default function NotFound() {
   const t = useTranslations("NotFound");
 
   return (
-    <main className="h-[89vh] flex-col flex justify-center items-center gap-5">
-      <h1 className="text-3xl font-bold dark:text-white text-black-100">
-        {t("title")}
-      </h1>
-      <Link href={`/${locale}`}>
-        <MagicButton icon={<FaLocationArrow />} position="right">
-          {t("btn")}
-        </MagicButton>
+    // Fills the page between the header and the footer, content centred.
+    <section className="flex flex-1 flex-col justify-center pt-29 pb-20">
+      <SectionHead as="h1" chapter={t("caption")} title={t("title")} />
+      <Link href="/" className={`${popButton.accent} self-start`}>
+        {t("home")}
+        <ArrowRight aria-hidden className="size-4 shrink-0" strokeWidth={3} />
       </Link>
-    </main>
+    </section>
   );
 }
-
-export default NotFound;
