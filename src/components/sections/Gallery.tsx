@@ -34,8 +34,9 @@ const EASE = [0.23, 1, 0.32, 1] as const;
 const CHIP =
   "cursor-pointer rounded-md border-2 px-4 py-2 font-display text-sm font-black uppercase italic transition-[background-color,color,border-color,box-shadow] duration-200 ease-out";
 
+/** The card's full width, so the link is easy to hit. */
 const LIVE =
-  "inline-flex items-center gap-2 border-[3px] border-on-accent bg-accent px-4 py-2 font-display text-xs font-black text-on-accent uppercase italic shadow-[4px_4px_0_var(--pop)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_var(--pop)] active:translate-x-[3px] active:translate-y-[3px] active:shadow-[1px_1px_0_var(--pop)]";
+  "flex w-full items-center justify-center gap-2 border-[3px] border-on-accent bg-accent px-4 py-2 font-display text-xs font-black text-on-accent uppercase italic shadow-[4px_4px_0_var(--pop)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_var(--pop)] active:translate-x-[3px] active:translate-y-[3px] active:shadow-[1px_1px_0_var(--pop)]";
 
 /** A screenshot printed in Ben-Day dots until you point at the card. */
 function Shot({ src }: { src: string }) {
@@ -107,7 +108,7 @@ function Card({ item, index, labels }: { item: GalleryItem; index: number; label
               <ArrowUpRight aria-hidden className="size-3.5 shrink-0" strokeWidth={3} />
             </TiltLayer>
           ) : (
-            <TiltLayer depth={20} className="inline-flex items-center gap-2 text-[11px] tracking-[0.14em] text-muted uppercase">
+            <TiltLayer depth={20} className="flex items-center justify-center gap-2 text-[11px] tracking-[0.14em] text-muted uppercase">
               <Lock aria-hidden className="size-3.5 shrink-0" strokeWidth={2.5} />
               {labels.private}
             </TiltLayer>
