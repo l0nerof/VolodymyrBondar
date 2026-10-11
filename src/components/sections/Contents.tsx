@@ -44,11 +44,16 @@ export function Contents({ label, links, className }: { label: string; links: Na
       >
         {label}
       </button>
+      {/* Unfolds from the button's corner. Closed, it is invisible rather
+          than hidden, so it can fade out too; invisible still takes it out of
+          the tab order and away from screen readers. */}
       <nav
         id={panelId}
         aria-label={label}
-        hidden={!open}
-        className="absolute top-full right-0 mt-4 w-56 border-[3px] border-line-strong bg-paper shadow-[6px_6px_0_var(--pop)]"
+        className={cn(
+          "absolute top-full right-0 mt-4 w-56 origin-top-right border-[3px] border-line-strong bg-paper shadow-[6px_6px_0_var(--pop)] transition-[opacity,scale,translate,visibility] duration-200 ease-out motion-reduce:transition-none",
+          open ? "visible scale-100 opacity-100" : "invisible -translate-y-1 scale-95 opacity-0"
+        )}
       >
         <ul>
           {links.map((link) => (
