@@ -34,7 +34,7 @@
       "tooling": "I set up monorepos and team tooling",
       "architecture": "I design product architecture"
     },
-    "pitch": "{years, plural, one {# year} other {# years}} in web. Most drawn to work measured by outcome rather than screen count, and to teams where an engineer gets asked \"why\", not just \"when will it be done\".",
+    "pitch": "{years, plural, one {# year} other {# years}} in web. I build interfaces that are fast and easy to maintain: tested, strictly typed and clearly structured.",
     "work": "See my work",
     "contact": "Get in touch",
     "hints": {
