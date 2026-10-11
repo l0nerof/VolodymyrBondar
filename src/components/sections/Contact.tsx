@@ -80,8 +80,10 @@ export async function Contact() {
       <SectionHead chapter={comic("chapter", { number: 6, title: t("chapter") })} title={t("title")} />
 
       {/* In one column the DING! hangs in the gap above the bubble: the gap
-          is wide enough that it clears the panel above. */}
-      <div className="grid gap-16 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
+          is wide enough that it clears the panel above. The column is
+          minmax(0, 1fr): an implicit auto column grew to the widest channel
+          row and pushed the page 4px past a 320px screen. */}
+      <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
         <div className="border-[3px] border-line-strong p-7 sm:p-10">
           <p className="max-w-lg leading-relaxed text-muted">{t("body")}</p>
 
